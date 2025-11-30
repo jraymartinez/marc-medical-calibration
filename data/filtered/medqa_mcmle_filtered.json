@@ -1,0 +1,1948 @@
+{
+  "metadata": {
+    "source": "MedQA-MCMLE",
+    "filter_version": "1.1",
+    "icd10_range": "J00-J99",
+    "total_original": 34251,
+    "filtered_count": 63,
+    "filter_date": "2025-11-30T02:05:48.609414",
+    "paper": "Paper 1 - Hierarchical Verification Framework"
+  },
+  "filtered_questions": [
+    {
+      "question": "2．慢性阻塞性肺疾病（COPD）急性加重期、Ⅱ型呼吸衰竭、肺性脑病、昏迷患者最常采用的氧疗措施是（　　）。",
+      "options": {
+        "A": "高浓度吸氧",
+        "B": "低浓度吸氧",
+        "C": "无创正压通气",
+        "D": "机械通气",
+        "E": "高压氧舱"
+      },
+      "answer": "机械通气",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "诊断慢性阻塞性肺疾病（COPD）的必要条件是（　　）。",
+      "options": {
+        "A": "胸部X线片示肺纹理增粗紊乱",
+        "B": "肺功能检查示阻塞性通气功能障碍",
+        "C": "高分辨率CT示肺气肿改变",
+        "D": "长期大量吸烟史",
+        "E": "慢性咳嗽、咳痰病史"
+      },
+      "answer": "肺功能检查示阻塞性通气功能障碍",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "评估呼吸气流是否受限最常用的指标是（　　）。",
+      "options": {
+        "A": "残气量/肺总量（RV/TLC）",
+        "B": "FEV1％预计值",
+        "C": "峰流速（PEF）",
+        "D": "FEV1/FVC",
+        "E": "用力肺活量（FVC）"
+      },
+      "answer": "FEV1/FVC",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．Ⅰ型呼吸衰竭最常见的病因是（　　）。",
+      "options": {
+        "A": "严重肺结核",
+        "B": "特发性肺间质纤维化",
+        "C": "COPD",
+        "D": "ARDS",
+        "E": "肺脓肿"
+      },
+      "answer": "ARDS",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards",
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards",
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "下列疾病所致的肺动脉高压中最主要由低氧血症所致的是（　　）。",
+      "options": {
+        "A": "肺血栓栓塞",
+        "B": "结缔组织病",
+        "C": "COPD",
+        "D": "特发性肺动脉高压",
+        "E": "心源性肺水肿"
+      },
+      "answer": "COPD",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，38岁。因车祸致骨盆、股骨骨折急诊手术。术后1天逐渐出现憋气，烦躁不安，经皮血氧饱和度（SpO2）监测示：由98％逐渐下降至87％，经面罩给氧（5L/min）后SpO2增加至89％，但症状缓解不明显。查体：T 37.2℃，P 103次/分，R 32次/分，BP 90／60mmHg，意识清楚，口唇发绀，双肺呼吸音对称，双肺闻及少许湿啰音。该患者最可能的诊断是（　　）。",
+      "options": {
+        "A": "气胸",
+        "B": "肺血栓栓塞",
+        "C": "腹腔内出血",
+        "D": "急性左心衰竭",
+        "E": "急性呼吸窘迫综合征"
+      },
+      "answer": "肺血栓栓塞",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，65岁。发热，咳嗽4天，查体：T 39℃，口唇发绀，双下肺可闻及湿啰音，既往体健，否认肺部疾病病史，SpO2 85%，肺部X线片示双下肺感染，可作为经验性抗感染治疗首选的药物是（　　）。",
+      "options": {
+        "A": "三代头孢菌素",
+        "B": "碳青霉类",
+        "C": "大环内酯类",
+        "D": "β-内酰胺类/β-内酰胺酶制剂＋喹诺酮类",
+        "E": "氯喹诺酮类＋氨基糖苷类"
+      },
+      "answer": "β-内酰胺类/β-内酰胺酶制剂＋喹诺酮类",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，57岁。反复咳嗽、咳痰10余年，加重伴喘憋3余年。吸烟10年，20支/日。查体：桶状胸，双肺呼吸音低，叩诊过清音，未闻及干湿啰音。动脉血气分析：pH 7.39，PaO2 65mmHg，PaCO2 43mmHg，肺功能检查：FEV1占预计值52%，FEV1/FVC 51%，造成该患者通气功能障碍的主要病理生理机制是（　　）。",
+      "options": {
+        "A": "肺内功能性分流减少",
+        "B": "肺弥散面积增大",
+        "C": "肺脏非弹性阻力减少",
+        "D": "肺脏无效腔减少",
+        "E": "弥散功能障碍"
+      },
+      "answer": "弥散功能障碍",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "2．特发性肺纤维化的典型肺容量和通气功能的特征性变化是（　　）。",
+      "options": {
+        "A": "FEV1/FVC减低",
+        "B": "TLC减低",
+        "C": "RV/TLC升高",
+        "D": "FEV1占预计值百分比减低",
+        "E": "FVC用力肺活量降低"
+      },
+      "answer": "TLC减低",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男性，44岁，有咳嗽，咳痰史5年，伴喘息，入院前3天因受寒咳嗽，喘加重，咳黄痰入院，入院时查体，桶状胸，叩诊过清音，肺肝界右锁中线第七肋间，双肺干、湿啰音及散在哮鸣音，肺功能：FEV1/FVC为56%，MVV60%，VC降低，RV/TLC为43%。住院第2天，下床时用力过度出现胸痛，呼吸困难，查体：右胸叩诊鼓音，呼吸音消失，发绀。3．该患者可能发生了什么并发症？（　　）",
+      "options": {
+        "A": "急性心肌梗死",
+        "B": "自发性气胸",
+        "C": "急性肺栓塞",
+        "D": "干性胸膜炎",
+        "E": "肺不张"
+      },
+      "answer": "自发性气胸",
+      "meta_info": "第二部分　模拟试题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "烧伤最常见的死亡原因是（　　）。",
+      "options": {
+        "A": "休克",
+        "B": "ARDS",
+        "C": "肾功能衰竭",
+        "D": "感染",
+        "E": "心功能衰竭"
+      },
+      "answer": "感染",
+      "meta_info": "第八部分　其他疾病",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，男，76岁。因“COPD、慢性肺源性心脏病”住院治疗。查体：颈静脉怒张，双肺散在干湿性啰音，双下肢水肿。鼻导管吸氧2L/min，血气分析示：pH 7.23，PaCO2 76mmHg，PaO2 56mmHg。血生化示：K＋ 5.9mmol/L，Na＋ 138mmol/L，Cl- 98mmol/L。该患者应首选的治疗药物是（　　）。",
+      "options": {
+        "A": "氢氯噻嗪",
+        "B": "螺内酯",
+        "C": "氨苯蝶啶",
+        "D": "5%碳酸氢钠",
+        "E": "呋塞米"
+      },
+      "answer": "呋塞米",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，70岁。反复咳嗽、咳痰25年，心悸、气促、下肢间歇水肿3年，病情加重伴畏寒发热1周入院。体检：体温38℃，呼吸急促，口唇发绀，双肺叩诊过清音，中下肺闻及湿啰音，心率110次/分，心律齐，无杂音，双下肢重度水肿。5．假设病情仍继续恶化，出现昏睡或昏迷，血气分析示：PaO2 6.7kPa（50mmHg），PaCO2 10.7kPa（50mmHg），此时首先考虑的并发症为（　　）。",
+      "options": {
+        "A": "感染中毒性脑病",
+        "B": "肺性脑病",
+        "C": "ARDS",
+        "D": "脑出血",
+        "E": "心力衰竭"
+      },
+      "answer": "肺性脑病",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．慢性阻塞性肺疾病（COPD）的氧疗最常用的是（　　）。",
+      "options": {
+        "A": "有创机械通气",
+        "B": "无创机械通气",
+        "C": "间断高浓度吸氧",
+        "D": "持续高频呼吸机通气",
+        "E": "持续低流量吸氧"
+      },
+      "answer": "持续低流量吸氧",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，74岁。反复咳嗽、咳痰40年，再发加重伴气短2天。查体：口唇发绀，桶状胸，双肺叩诊呈过清音，左上肺呼吸音消失，双下肺散在干湿啰音，心率124次/分，心律不齐。目前除COPD急性加重外，最可能存在的诊断是（　　）。",
+      "options": {
+        "A": "肺血栓栓塞",
+        "B": "ARDS",
+        "C": "左心衰竭",
+        "D": "阻塞性肺不张",
+        "E": "自发性气胸"
+      },
+      "answer": "自发性气胸",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，60岁。咳嗽、咳痰伴喘息20余年，加重1周，2天来发热、咳嗽、意识不清，血WBC 12.8×109／L，N 0.82，SpO2 85％（吸氧）。1．该患者意识障碍最可能的原因是（　　）。",
+      "options": {
+        "A": "脑血管病",
+        "B": "低血糖",
+        "C": "低钠血症",
+        "D": "肺性脑病",
+        "E": "感染中毒性脑病"
+      },
+      "answer": "肺性脑病",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "烧伤最常见的死亡原因是（　　）。",
+      "options": {
+        "A": "休克",
+        "B": "ARDS",
+        "C": "感染",
+        "D": "肾功能衰竭",
+        "E": "心功能衰竭"
+      },
+      "answer": "感染",
+      "meta_info": "第八部分　其他疾病",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "艾滋病的英文缩写是（　　）。",
+      "options": {
+        "A": "HIV",
+        "B": "AIDS",
+        "C": "ARDS",
+        "D": "HBV",
+        "E": "HAV"
+      },
+      "answer": "AIDS",
+      "meta_info": "第七部分　传染病、性传播疾病",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "手术后猝死最常见的病因是（　　）。",
+      "options": {
+        "A": "气胸",
+        "B": "ARDS",
+        "C": "急性左心衰",
+        "D": "肺栓塞",
+        "E": "重症肺炎"
+      },
+      "answer": "肺栓塞",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，78岁，反复咳嗽、咳痰50年，心悸、气促10年，再发10天。吸烟40年，30支/日。查体：T 36.0℃，P 120次/分，R 32次/分，BP 135/80mmHg，SpO2 87%。桶状胸，肋间隙增宽，两侧呼吸运动对称，触觉语颤减低，胸部叩诊呈过清音，双肺呼吸音减弱，双肺可闻及细湿啰音和少量哮鸣音。动脉血气分析示pH 7.398，PaO2 50.4mmHg，PaCO2 56.8mmHg，肺功能检查：FEV1占预计值27%，FEVl/FVC 34%，该患者不宜吸入高浓度氧的原因是高浓度氧可解除（　　）。",
+      "options": {
+        "A": "外周化学感受器对低氧存在的适应现象",
+        "B": "低氧对呼吸中枢的直接兴奋作用",
+        "C": "中枢化学感受器对低氧存在的适应现象",
+        "D": "低氧对外周化学感受器的兴奋作用",
+        "E": "低氧对中枢化学感受器的兴奋作用"
+      },
+      "answer": "低氧对外周化学感受器的兴奋作用",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2",
+          "fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2",
+            "fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，35岁。因误服有机磷农药半小时，意识障碍逐渐加重入院。经洗胃、导泻，应用阿托品、碘解磷定、对症支持等治疗后意识恢复，症状好转。3天后患者突然出现视物模糊、面瘫、呼吸困难，并再次出现意识障碍，大小便失禁。查体：T 36.7℃，P 65次/分，R 15次/分，BP 135／75mmHg，肌力3级。SpO2 93％。目前出现的情况最可能的原因是（　　）。",
+      "options": {
+        "A": "急性脑卒中",
+        "B": "有机磷中毒加重",
+        "C": "急性有机磷中毒迟发型脑病",
+        "D": "中间型综合征",
+        "E": "急性有机磷中毒迟发型多发性神经病变"
+      },
+      "answer": "中间型综合征",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，28岁。右下肢骨折术后1天，气短伴咯血2小时。最可能的诊断是（　　）。",
+      "options": {
+        "A": "肺部感染",
+        "B": "ARDS",
+        "C": "气胸",
+        "D": "胸膜炎",
+        "E": "肺血栓栓塞症"
+      },
+      "answer": "肺血栓栓塞症",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "烧伤最常见的死亡原因是（　　）。",
+      "options": {
+        "A": "休克",
+        "B": "ARDS",
+        "C": "肾功能衰竭",
+        "D": "感染",
+        "E": "心功能衰竭"
+      },
+      "answer": "感染",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，60岁。反复咳嗽、咳痰25年，心悸、气促、下肢间歇水肿3年，病情加重伴畏寒发热1周入院。体检：T 38℃，呼吸急促，口唇发绀，双肺叩诊过清音，中下肺闻及湿啰音，心率110次/分，心律齐，无杂音，双下肢重度水肿。1．该病例最适当的诊断应为（　　）。",
+      "options": {
+        "A": "慢性支气管炎",
+        "B": "慢性阻塞性肺疾病",
+        "C": "COPD＋肺心病",
+        "D": "支气管哮喘＋肺气肿",
+        "E": "慢支＋肺气肿＋冠心病"
+      },
+      "answer": "COPD＋肺心病",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．评价慢性阻塞性肺疾病最敏感的肺功能检查指标是（　　）。",
+      "options": {
+        "A": "FEV1/FVC",
+        "B": "FEV1%预计值",
+        "C": "VR/TLC",
+        "D": "TLC",
+        "E": "PEF"
+      },
+      "answer": "FEV1/FVC",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "A",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．慢性阻塞性肺疾病（COPD）稳定期、Ⅰ型呼吸衰竭患者最常采用的氧疗措施是（　　）。",
+      "options": {
+        "A": "高浓度吸氧",
+        "B": "低浓度吸氧",
+        "C": "无创正压通气",
+        "D": "机械通气",
+        "E": "高压氧舱"
+      },
+      "answer": "低浓度吸氧",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男性，44岁，有咳嗽，咳痰史5年，伴喘息，入院前3天因受寒咳嗽，喘加重，咳黄痰入院，入院时查体，桶状胸，叩诊过清音，肺肝界右锁中线第七肋间，双肺干、湿啰音及散在哮鸣音，肺功能：FEV1/FVC为56%，MVV60%，VC降低，RV/TLC为43%。住院第2天，下床时用力过度出现胸痛，呼吸困难，查体：右胸叩诊鼓音，呼吸音消失，发绀。2．此患者诊断阻塞性肺气肿最重要的指标是（　　）。",
+      "options": {
+        "A": "FEV1/FVC%↓",
+        "B": "MVV↓",
+        "C": "RV↑",
+        "D": "RV/TLC>40%",
+        "E": "VC↓"
+      },
+      "answer": "FEV1/FVC%↓",
+      "meta_info": "第二部分　模拟试题",
+      "answer_idx": "A",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，65岁。反复咳嗽、咳痰、喘息30年，加重5天。查体：桶状胸，双肺满布哮鸣音，血气分析PaO2 56mmHg，PaCO2 55mmHg。此时该患者呼吸功能检查结果最可能的是（　　）。",
+      "options": {
+        "A": "VC正常、FEV1%正常、RV/TLC＜40%",
+        "B": "VC降低、FEV1%正常、RV/TLC＜40%",
+        "C": "VC降低、FEV1%增加、RV/TLC＞40%",
+        "D": "VC正常、FEV1%降低、RV/TLC＜40%",
+        "E": "VC降低、FEV1%降低、RV/TLC＞40%"
+      },
+      "answer": "VC降低、FEV1%降低、RV/TLC＞40%",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "成人呼吸窘迫综合征（ARDS）的最重要的诊断依据是（　　）。",
+      "options": {
+        "A": "呼吸频率增加，每分钟大于28次",
+        "B": "肺泡气-动脉血氧分压差降低",
+        "C": "氧合指数（PaO2/FiO2）＜300",
+        "D": "肺内分流量减少",
+        "E": "血气分析显示为低氧伴轻度二氧化碳潴留"
+      },
+      "answer": "氧合指数（PaO2/FiO2）＜300",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "对鉴别急性呼吸窘迫综合征（ARDS）与心源性肺水肿最有价值的检查是（　　）。",
+      "options": {
+        "A": "肺功能",
+        "B": "超声心电图",
+        "C": "动脉血气分析",
+        "D": "胸部X线片",
+        "E": "Swan-Ganz导管"
+      },
+      "answer": "Swan-Ganz导管",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，66岁，反复咳嗽、咳痰12年，呼吸困难进行性加重半年，查体：桶状胸，双肺呼吸音减弱。胸部X线片示双肺野透亮度增高，膈肌低平。该患者肺功能检查项目中数值最可能增加的是（　　）。",
+      "options": {
+        "A": "VC",
+        "B": "FEV",
+        "C": "FVC",
+        "D": "FEV1/FVC",
+        "E": "FRC"
+      },
+      "answer": "FRC",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，男，52岁。慢性咳嗽、咳痰5年余，冬季好发，仍能坚持上班。近因胃溃疡大出血急诊手术治疗。手术后第1天出现呼吸困难进行性加重，伴发热。有冠心病史，平素无症状。动脉血气分析（呼吸空气）：pH 7.48，PaCO2 4.0kPa（30mmHg），PaO2 6.7kPa（50mmHg），Qs/Qt 32%。胸片两肺血管纹理增粗，普遍模糊。1．该病例最可能的诊断是（　　）。",
+      "options": {
+        "A": "慢性呼吸衰竭失代偿",
+        "B": "急性呼吸窘迫综合征（ARDS）",
+        "C": "肺部感染",
+        "D": "肺不张",
+        "E": "急性左心衰竭"
+      },
+      "answer": "急性呼吸窘迫综合征（ARDS）",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，25岁。早晨被发现意识不清仰面倒在床上，床旁有呕吐物。房间内用煤炉取暖。急送医院。查体：T 36.5℃，P 65次/分，R 25次/分，BP 95／65mmHg，昏迷状态，呼吸困难，面色潮红，口唇呈轻度发绀，双瞳孔等圆等大，两肺可闻及湿啰音，以右侧为著。SpO2 85％。目前应立即采取的处理措施是（　　）。",
+      "options": {
+        "A": "无创通气",
+        "B": "吸氧、应用糖皮质激素",
+        "C": "立即高压氧舱治疗",
+        "D": "高浓度吸氧、强心利尿",
+        "E": "气管插管、清理气道、机械通气"
+      },
+      "answer": "立即高压氧舱治疗",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "慢性阻塞性肺疾病（COPD）的主要特征是（　　）。",
+      "options": {
+        "A": "大气道阻塞",
+        "B": "小气道阻塞",
+        "C": "双肺哮鸣音",
+        "D": "桶状胸",
+        "E": "胸片示肺野透亮度增加"
+      },
+      "answer": "小气道阻塞",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "慢性阻塞性肺疾病患者根据下列哪项可以判断是重度（Ⅲ级）？（　　）",
+      "options": {
+        "A": "FEV1＜60%预计值",
+        "B": "80%＞FEV1＞60%预计值",
+        "C": "80%＞FEVL＞50%预计值",
+        "D": "50%＞FEV1＞30%预计值",
+        "E": "FEV1＜30%预计值"
+      },
+      "answer": "50%＞FEV1＞30%预计值",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，62岁。反复咳嗽、喘息15年。1个月前搬入新居后再发加重。口服“茶碱类”药物有所缓解。查体：双肺呼吸音低，呼气相延长。胸部X线片未见明显异常，肺功能检查示FEV1/FVC 56％，舒张试验示FEV1改善率12％。该患者应首选考虑的诊断是（　　）。",
+      "options": {
+        "A": "慢性阻塞性肺疾病",
+        "B": "支气管哮喘",
+        "C": "慢性充血性心力衰竭",
+        "D": "过敏性肺炎",
+        "E": "嗜酸细胞性支气管炎"
+      },
+      "answer": "支气管哮喘",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，60岁。反复咳嗽、咳痰25年，心悸、气促、下肢间歇水肿3年，病情加重伴畏寒发热1周入院。体检：T 38℃，呼吸急促，口唇发绀，双肺叩诊过清音，中下肺闻及湿啰音，心率110次/分，心律齐，无杂音，双下肢重度水肿。5．假设病情仍继续恶化，出现昏睡或昏迷，血气分析示：PaO2 6.7kPa（50mmHg），PaCO2 10.7kPa（80mmHg），此时首先考虑的合并症为（　　）。",
+      "options": {
+        "A": "感染中毒性脑病",
+        "B": "肺性脑病",
+        "C": "ARDS",
+        "D": "脑出血",
+        "E": "脑栓塞"
+      },
+      "answer": "肺性脑病",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，77岁，为慢性阻塞性肺疾病（COPD）肺气肿型患者。近年来轻微活动即感气急，咳嗽轻，咳痰少。血气分析：PaO2 9.3kPa（70mmHg），PaCO2 4.8kPa（36mmHg）。1．该患者病情发展已出现（　　）。",
+      "options": {
+        "A": "Ⅰ型呼吸衰竭",
+        "B": "Ⅱ型呼吸衰竭",
+        "C": "低氧血症",
+        "D": "高碳酸血症",
+        "E": "正常"
+      },
+      "answer": "低氧血症",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男性，66岁。进行性呼吸困难伴干咳1年，无吸烟史。查体：双下肺可闻及爆裂音。可见杵状指。胸部CT提示：双下肺蜂窝状改变。最可能的肺功能指标改变是（　　）。",
+      "options": {
+        "A": "FEV1/FVC减低",
+        "B": "TLC减低",
+        "C": "RV增高",
+        "D": "DLco增高",
+        "E": "TLC升高"
+      },
+      "answer": "TLC减低",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，70岁。反复咳嗽、咳痰25年，心悸、气促、下肢间歇水肿3年，病情加重伴畏寒发热1周入院。体检：体温38℃，呼吸急促，口唇发绀，双肺叩诊过清音，中下肺闻及湿啰音，心率110次/分，心律齐，无杂音，双下肢重度水肿。1．该病例最适当的诊断应为（　　）。",
+      "options": {
+        "A": "肺癌",
+        "B": "慢性阻塞性肺疾病",
+        "C": "COPD＋肺心病",
+        "D": "支气管哮喘",
+        "E": "慢性支气管炎＋肺气肿＋冠心病"
+      },
+      "answer": "COPD＋肺心病",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "艾滋病的英文缩写是（　　）。",
+      "options": {
+        "A": "HIV",
+        "B": "AIDS",
+        "C": "ARDS",
+        "D": "HBV",
+        "E": "HAV"
+      },
+      "answer": "AIDS",
+      "meta_info": "第七部分　传染病、性传播疾病",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，男，45岁。吸烟20年，有喘息、咳嗽症状，普通胸片未发现明显异常，支气管舒张试验阳性。最可能的诊断是（　　）。",
+      "options": {
+        "A": "心源性哮喘",
+        "B": "支气管哮喘",
+        "C": "嗜酸细胞性肺炎",
+        "D": "COPD",
+        "E": "肺源性心脏病"
+      },
+      "answer": "支气管哮喘",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，62岁。间断咳嗽，咳少量白黏痰10年。查体：双肺呼吸音粗，未闻及干湿性啰音。血常规正常。胸部X线片示肺纹理增粗紊乱，肺功能示FEV1占预计值83%，FEV1/FVC＝67%（舒张后）。该患者最可能的诊断是（　　）。",
+      "options": {
+        "A": "支气管哮喘",
+        "B": "特发性肺纤维化",
+        "C": "支气管肺结核",
+        "D": "慢性阻塞性肺疾病",
+        "E": "支气管扩张"
+      },
+      "answer": "慢性阻塞性肺疾病",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，男，28岁.左胸外伤1小时，胸痛.呼吸困难。BP 120/80mmHg，心率100次/min，局部约6cm×6cm的区域反常呼吸运动。2．治疗过程中，患者出现呼吸困难，查体：PaO2 40mmHg。吸氧后氧分压无明显上升，最可能的诊断是（　　）。",
+      "options": {
+        "A": "肠腔积液",
+        "B": "ARDS",
+        "C": "肺部感染",
+        "D": "气胸",
+        "E": "急性心衰"
+      },
+      "answer": "ARDS",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "女，54岁。重症肺炎患者，入院后次日病情加重，突发持续性呼吸急促，发绀，伴烦躁，呼吸频率40次/分，心率118次/分，律齐，两肺可闻及湿啰音。血气分析：pH 7.34，PaO2 50mmHg，PaCO2 30mmHg。胸片示两中下肺纹理增多模糊，斑片状阴影，心胸比例正常。1．最可能的诊断是（　　）。",
+      "options": {
+        "A": "肺梗死",
+        "B": "急性左心衰竭",
+        "C": "自发性气胸",
+        "D": "肺癌",
+        "E": "成人呼吸窘迫综合征（ARDS）"
+      },
+      "answer": "成人呼吸窘迫综合征（ARDS）",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "2．评价慢性阻塞性肺疾病严重程度的肺功能检查指标是（　　）。",
+      "options": {
+        "A": "FEV1/FVC",
+        "B": "FEV1%预计值",
+        "C": "VR/TLC",
+        "D": "TLC",
+        "E": "PEF"
+      },
+      "answer": "FEV1%预计值",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "肺纤维化病人，1秒用力呼气量（EEV1）/用力肺活量（FVC）的检查结果是（　　）。",
+      "options": {
+        "A": "FEV1减少，FVC基本不变，FEV1/FVC减小",
+        "B": "FEV1基本不变，FVC减小，FEV1/FVC增大",
+        "C": "FEV1和FVC均减小，FEV1/FVC基本不变",
+        "D": "FEV1和FVC均增大，FEV1/FVC基本不变",
+        "E": "FEV1和FVC均减小，FEV1/FVC减小"
+      },
+      "answer": "FEV1和FVC均减小，FEV1/FVC基本不变",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "2．Ⅱ型呼吸衰竭最常见的病因是（　　）。",
+      "options": {
+        "A": "严重肺结核",
+        "B": "特发性肺间质纤维化",
+        "C": "COPD",
+        "D": "ARDS",
+        "E": "肺脓肿"
+      },
+      "answer": "COPD",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards",
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards",
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "目前用于判断慢性阻塞性肺疾病严重程度的肺功能指标是（　　）。",
+      "options": {
+        "A": "FEV1占预计值百分比",
+        "B": "FVC占预计值百分比",
+        "C": "RV/TLC（残总比）",
+        "D": "MMV占预计值百分比",
+        "E": "FEV1/FVC（一秒率）"
+      },
+      "answer": "FEV1占预计值百分比",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "A",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，男，60岁，吸烟史30年，慢性咳嗽、咳痰12年，气急3年，呈逐渐加重。胸片示肋间隙增宽、双肺透亮度增加，两下肺纹理乱。4．此患者在晨起大便时突然气急显著加重，伴有胸痛，送来急诊，考虑有哪种疾病的可能？（　　）",
+      "options": {
+        "A": "肺炎",
+        "B": "胸膜炎",
+        "C": "ARDS",
+        "D": "肺栓塞",
+        "E": "急性肺水肿"
+      },
+      "answer": "肺栓塞",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "D",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，77岁，为慢性阻塞性肺疾病（COPD）肺气肿型患者。近年来轻微活动即感气急，咳嗽轻，咳痰少。血气分析：PaO2 9.3kPa（70mmHg），PaCO2 4.8kPa（36mmHg）。2．根据血气分析结果，该患者的呼吸功能障碍为（　　）。",
+      "options": {
+        "A": "通气和换气功能障碍并存",
+        "B": "换气功能障碍",
+        "C": "肺泡通气不足",
+        "D": "肺泡膜增厚所致弥散功能降低",
+        "E": "通气/血流比例降低"
+      },
+      "answer": "换气功能障碍",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，60岁。咳嗽、咳痰伴喘息20余年，加重1周，2天来发热、咳嗽、意识不清，血WBC 12.8×109／L，N 0.82，SpO2 85％（吸氧）。2．对于该患者最重要的治疗措施是（　　）。",
+      "options": {
+        "A": "静脉点滴呼吸兴奋剂",
+        "B": "静脉注射10％葡萄糖",
+        "C": "静脉点滴3％氯化钠溶液",
+        "D": "静脉点滴甘露醇",
+        "E": "机械通气"
+      },
+      "answer": "机械通气",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "spo2"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "spo2"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "引起慢性阻塞性肺疾病（COPD）肺动脉高压最重要的原因是（　　）。",
+      "options": {
+        "A": "肺小动脉原位血栓形成",
+        "B": "肺小动脉内膜增厚",
+        "C": "肺小动脉痉挛",
+        "D": "肺小动脉壁纤维化",
+        "E": "肺小动脉微血栓栓塞"
+      },
+      "answer": "肺小动脉痉挛",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男性，44岁，有咳嗽，咳痰史5年，伴喘息，入院前3天因受寒咳嗽，喘加重，咳黄痰入院，入院时查体，桶状胸，叩诊过清音，肺肝界右锁中线第七肋间，双肺干、湿啰音及散在哮鸣音，肺功能：FEV1/FVC为56%，MVV60%，VC降低，RV/TLC为43%。住院第2天，下床时用力过度出现胸痛，呼吸困难，查体：右胸叩诊鼓音，呼吸音消失，发绀。1．此患者入院时最可能诊断为（　　）。",
+      "options": {
+        "A": "支气管哮喘，肺气肿",
+        "B": "支气管扩张症，肺气肿",
+        "C": "慢性气管炎喘息型，阻塞性肺气肿",
+        "D": "支气管肺炎并肺气肿",
+        "E": "支气管肺癌并肺气肿"
+      },
+      "answer": "慢性气管炎喘息型，阻塞性肺气肿",
+      "meta_info": "第二部分　模拟试题",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "艾滋病的英文缩写是（　　）。",
+      "options": {
+        "A": "ARDS",
+        "B": "AIDS",
+        "C": "HIV",
+        "D": "HBV",
+        "E": "HAV"
+      },
+      "answer": "AIDS",
+      "meta_info": "第七部分　传染病、性传播疾病",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "下列哪项肺功能检查结果不符合阻塞性通气功能障碍？（　　）",
+      "options": {
+        "A": "VC减低或正常",
+        "B": "RV增加",
+        "C": "TIM正常或增加",
+        "D": "FEV1/FVC减低",
+        "E": "MMFR正常"
+      },
+      "answer": "MMFR正常",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "患者，女，35岁，近6年反复痰中带血或大咯血。轻咳，少量黏液痰.无低热。胸片检查示“左下肺纹理增粗、紊乱呈卷发样，余肺清晰”。首先考虑可能是（　　）。",
+      "options": {
+        "A": "COPD",
+        "B": "大叶性肺炎",
+        "C": "支气管扩张",
+        "D": "肺结核",
+        "E": "肺癌早期"
+      },
+      "answer": "支气管扩张",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "C",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "引起Ⅰ型呼吸衰竭最常见的疾病是（　　）。",
+      "options": {
+        "A": "慢性支气管炎",
+        "B": "肺炎",
+        "C": "肺癌",
+        "D": "膈肌麻痹",
+        "E": "ARDS"
+      },
+      "answer": "ARDS",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．慢性阻塞性肺疾病的典型肺容量和通气功能的特征性变化是（　　）。",
+      "options": {
+        "A": "FEV1/FVC减低",
+        "B": "TLC减低",
+        "C": "RV/TLC升高",
+        "D": "FEV1占预计值百分比减低",
+        "E": "FVC用力肺活量降低"
+      },
+      "answer": "FEV1/FVC减低",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "A",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男性，30岁，以感染性休克入院，入院后，咳粉红色痰，气短，血动脉氧分压降至60mmHg以下，应首先考虑（　　）。",
+      "options": {
+        "A": "肺泡毛细血管广泛破裂",
+        "B": "ARDS",
+        "C": "急性左心衰竭",
+        "D": "肺内继发性炎症",
+        "E": "缺血性肺组织坏死"
+      },
+      "answer": "ARDS",
+      "meta_info": "第七部分　传染病、性传播疾病",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "ards"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "ards"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "1．慢性阻塞性肺疾病（COPD）的氧疗最常用的是（　　）。",
+      "options": {
+        "A": "有创机械通气",
+        "B": "无创机械通气",
+        "C": "间断高浓度吸氧",
+        "D": "持续高频呼吸机通气",
+        "E": "持续低流量吸氧"
+      },
+      "answer": "持续低流量吸氧",
+      "meta_info": "第1篇　呼吸系统",
+      "answer_idx": "E",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "copd"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [
+            "copd"
+          ],
+          "symptoms": [],
+          "diagnostic": [],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "男，50岁。常规体检胸部X线片示双肺纹理增粗紊乱，既往体健，吸烟20余年。行肺功能检查示FEV1/FVC 68.5％；FEV1占预计值的68％，支气管舒张试验FEV1改善2.5％（30m1）。该患者首先考虑的诊断是（　　）。",
+      "options": {
+        "A": "支气管扩张",
+        "B": "慢性阻塞性肺疾病",
+        "C": "阻塞性肺气肿",
+        "D": "支气管哮喘",
+        "E": "慢性支气管炎"
+      },
+      "answer": "慢性阻塞性肺疾病",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    },
+    {
+      "question": "慢性支气管炎呼吸功能开始出现异常最主要表现为（　　）。",
+      "options": {
+        "A": "小气道阻塞",
+        "B": "FEV1/FVC＜70％",
+        "C": "MVV降低",
+        "D": "RV增加",
+        "E": "DLCO降低"
+      },
+      "answer": "FEV1/FVC＜70％",
+      "meta_info": "第一部分　历年真题",
+      "answer_idx": "B",
+      "respiratory_metadata": {
+        "icd10_codes": [],
+        "matched_keywords": [
+          "fev1",
+          "fvc",
+          "fev1/fvc"
+        ],
+        "match_type": [
+          "keywords"
+        ],
+        "keyword_categories": {
+          "diseases": [],
+          "symptoms": [],
+          "diagnostic": [
+            "fev1",
+            "fvc",
+            "fev1/fvc"
+          ],
+          "anatomical": []
+        }
+      }
+    }
+  ],
+  "count": 63
+}

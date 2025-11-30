@@ -1,341 +1,483 @@
 """
-Example Usage: Respiratory Disease Filtering Pipeline
-Demonstrates practical usage with realistic datasets
+Dataset Filtering Script for Paper 1
+Filters MedQA and MedMCQA datasets for respiratory disease cases
+
+Dataset Structure:
+- MedQA: 3 folders (Mainland, Taiwan, US) × 3 files (dev, test, train) = 9 JSONL files
+- MedMCQA: 3 files (dev, test, train) = 3 JSON/JSONL files
 """
 
-from respiratory_filter_pipeline import (
-    RespiratoryFilter, 
-    load_medqa_dataset,
-    load_medmcqa_dataset,
+import sys
+from pathlib import Path
+
+# Add src to path so we can import our modules
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
+from filtering.respiratory_filter import (
+    RespiratoryFilter,
+    FilterStats,
     save_filtered_dataset
 )
 import json
+from datetime import datetime
+from typing import List, Dict, Tuple
 
 
-def create_sample_datasets():
-    """Create sample datasets for demonstration"""
+def load_json_file(file_path: Path) -> List[Dict]:
+    """Load JSON file (handles both standard JSON and JSON Lines format)"""
+    print(f"  Loading: {file_path.name}")
     
-    # Sample MedQA-style questions
-    medqa_sample = [
-        {
-            'id': 'medqa_001',
-            'question': 'A 55-year-old man with a 30-pack-year smoking history presents with progressive dyspnea and chronic cough. Spirometry shows FEV1/FVC ratio of 0.65. Chest X-ray reveals hyperinflation. What is the most likely diagnosis?',
-            'options': {
-                'A': 'Asthma',
-                'B': 'Chronic obstructive pulmonary disease',
-                'C': 'Interstitial lung disease',
-                'D': 'Congestive heart failure'
-            },
-            'answer': 'B',
-            'explanation': 'FEV1/FVC < 0.70 with smoking history indicates COPD (ICD-10: J44)'
-        },
-        {
-            'id': 'medqa_002',
-            'question': 'A 3-year-old child presents with sudden onset of fever, cough, and difficulty breathing. Chest X-ray shows bilateral infiltrates. Diagnosis: J18.9 pneumonia.',
-            'options': {
-                'A': 'Bacterial pneumonia',
-                'B': 'Viral pneumonia', 
-                'C': 'Aspiration pneumonia',
-                'D': 'Atypical pneumonia'
-            },
-            'answer': 'B'
-        },
-        {
-            'id': 'medqa_003',
-            'question': 'A 28-year-old presents with recurrent episodes of wheezing and dyspnea, particularly at night. Peak flow variability is 25%. Diagnosis consistent with J45.9.',
-            'options': {
-                'A': 'COPD',
-                'B': 'Asthma',
-                'C': 'Bronchitis',
-                'D': 'Pneumonia'
-            },
-            'answer': 'B'
-        },
-        {
-            'id': 'medqa_004',
-            'question': 'A 65-year-old with type 2 diabetes mellitus presents with polyuria and polydipsia. HbA1c is 9.2%.',
-            'options': {
-                'A': 'Increase metformin',
-                'B': 'Add insulin',
-                'C': 'Lifestyle modification only',
-                'D': 'Add SGLT2 inhibitor'
-            },
-            'answer': 'B'
-        },
-        {
-            'id': 'medqa_005',
-            'question': 'Patient presents with hemoptysis and weight loss. CT scan shows cavitary lesion in upper lobe. Sputum AFB positive.',
-            'options': {
-                'A': 'Lung cancer',
-                'B': 'Tuberculosis',
-                'C': 'Fungal infection',
-                'D': 'Bronchiectasis'
-            },
-            'answer': 'B'
-        }
-    ]
+    questions = []
     
-    # Sample MedMCQA-style questions
-    medmcqa_sample = [
-        {
-            'id': 'medmcqa_001',
-            'question': 'Which of the following is the first-line treatment for acute COPD exacerbation?',
-            'opa': 'Antibiotics only',
-            'opb': 'Bronchodilators and corticosteroids',
-            'opc': 'Oxygen therapy only',
-            'opd': 'Mechanical ventilation',
-            'cop': 2,  # correct option
-            'subject': 'Medicine',
-            'topic': 'Respiratory'
-        },
-        {
-            'id': 'medmcqa_002',
-            'question': 'A patient with ARDS (J80) requires mechanical ventilation. What is the target tidal volume?',
-            'opa': '10-12 mL/kg',
-            'opb': '8-10 mL/kg',
-            'opc': '6-8 mL/kg',
-            'opd': '4-6 mL/kg',
-            'cop': 3,
-            'subject': 'Medicine',
-            'topic': 'Critical Care'
-        },
-        {
-            'id': 'medmcqa_003',
-            'question': 'Most common cause of community-acquired pneumonia in adults?',
-            'opa': 'Streptococcus pneumoniae',
-            'opb': 'Haemophilus influenzae',
-            'opc': 'Mycoplasma pneumoniae',
-            'opd': 'Staphylococcus aureus',
-            'cop': 1,
-            'subject': 'Medicine',
-            'topic': 'Infectious Disease'
-        },
-        {
-            'id': 'medmcqa_004',
-            'question': 'What is the gold standard for diagnosing osteoporosis?',
-            'opa': 'X-ray',
-            'opb': 'DEXA scan',
-            'opc': 'MRI',
-            'opd': 'CT scan',
-            'cop': 2,
-            'subject': 'Medicine',
-            'topic': 'Endocrinology'
-        }
-    ]
-    
-    return medqa_sample, medmcqa_sample
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            # First, try to read entire file as standard JSON
+            try:
+                content = f.read()
+                f.seek(0)
+                data = json.loads(content)
+                
+                # Handle different JSON structures
+                if isinstance(data, list):
+                    print(f"    ✓ Loaded {len(data):,} questions (standard JSON)")
+                    return data
+                elif isinstance(data, dict):
+                    # Try common keys
+                    for key in ['questions', 'data', 'train', 'test', 'dev']:
+                        if key in data:
+                            print(f"    ✓ Loaded {len(data[key]):,} questions (JSON with '{key}' key)")
+                            return data[key]
+                    # Single question wrapped in dict
+                    print(f"    ✓ Loaded 1 question (single JSON object)")
+                    return [data]
+                
+            except json.JSONDecodeError:
+                # If standard JSON fails, try JSON Lines format (one JSON per line)
+                f.seek(0)
+                line_count = 0
+                error_count = 0
+                
+                for line_num, line in enumerate(f, 1):
+                    line = line.strip()
+                    if line:
+                        try:
+                            questions.append(json.loads(line))
+                            line_count += 1
+                        except json.JSONDecodeError as e:
+                            error_count += 1
+                            if error_count <= 3:  # Only show first 3 errors
+                                print(f"    ⚠ Line {line_num}: JSON parse error")
+                
+                if error_count > 3:
+                    print(f"    ⚠ Total JSON errors: {error_count} lines (skipped)")
+                
+                if line_count > 0:
+                    print(f"    ✓ Loaded {line_count:,} questions (JSON Lines format)")
+                    return questions
+        
+        if not questions:
+            print(f"    ⚠ No data loaded from {file_path.name}")
+        
+        return questions
+        
+    except Exception as e:
+        print(f"    ⚠ Error loading {file_path.name}: {e}")
+        return []
 
 
-def example_1_basic_filtering():
-    """Example 1: Basic filtering with statistics"""
-    print("\n" + "="*70)
-    print("EXAMPLE 1: Basic Filtering")
-    print("="*70)
+def load_jsonl_file(file_path: Path) -> List[Dict]:
+    """Load JSONL file (MedQA format - one JSON per line)"""
+    print(f"  Loading: {file_path.name}")
     
-    # Create sample data
-    medqa_sample, medmcqa_sample = create_sample_datasets()
+    questions = []
+    error_count = 0
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line_num, line in enumerate(f, 1):
+                line = line.strip()
+                if line:
+                    try:
+                        questions.append(json.loads(line))
+                    except json.JSONDecodeError as e:
+                        error_count += 1
+                        if error_count <= 3:
+                            print(f"    ⚠ Line {line_num}: JSON parse error")
+        
+        if error_count > 3:
+            print(f"    ⚠ Total JSON errors: {error_count} lines (skipped)")
+        
+        if questions:
+            print(f"    ✓ Loaded {len(questions):,} questions")
+        else:
+            print(f"    ⚠ No questions loaded")
+        
+        return questions
+        
+    except Exception as e:
+        print(f"    ⚠ Error loading {file_path.name}: {e}")
+        return []
+
+
+def load_medqa_subset(subset_dir: Path, subset_name: str) -> List[Dict]:
+    """
+    Load all files from a MedQA subset (US, Mainland, Taiwan)
+    
+    Args:
+        subset_dir: Path to subset directory
+        subset_name: Name of subset (e.g., "US", "Mainland", "Taiwan")
+    
+    Returns:
+        List of all questions from dev, test, train files
+    """
+    print(f"\n  Loading MedQA-{subset_name}:")
+    
+    all_questions = []
+    file_names = ['dev.jsonl', 'test.jsonl', 'train.jsonl']
+    
+    for file_name in file_names:
+        file_path = subset_dir / file_name
+        if file_path.exists():
+            questions = load_jsonl_file(file_path)
+            all_questions.extend(questions)
+        else:
+            print(f"    ⚠ {file_name}: Not found")
+    
+    print(f"  Total for MedQA-{subset_name}: {len(all_questions):,} questions")
+    return all_questions
+
+
+def load_medmcqa_all(data_dir: Path) -> List[Dict]:
+    """
+    Load all MedMCQA files (dev, test, train)
+    
+    Args:
+        data_dir: Path to MedMCQA directory
+    
+    Returns:
+        List of all questions from dev, test, train files
+    """
+    print(f"\n  Loading MedMCQA:")
+    
+    all_questions = []
+    file_names = ['dev.json', 'test.json', 'train.json']
+    
+    for file_name in file_names:
+        file_path = data_dir / file_name
+        if file_path.exists():
+            questions = load_json_file(file_path)
+            all_questions.extend(questions)
+        else:
+            print(f"    ⚠ {file_name}: Not found")
+    
+    print(f"  Total for MedMCQA: {len(all_questions):,} questions")
+    return all_questions
+
+
+def process_dataset(data: List[Dict], dataset_name: str, output_dir: Path) -> Tuple[List[Dict], FilterStats]:
+    """
+    Filter a dataset for respiratory cases
+    
+    Args:
+        data: List of questions
+        dataset_name: Name of dataset
+        output_dir: Directory to save results
+    
+    Returns:
+        Tuple of (filtered_data, statistics)
+    """
+    if not data:
+        print(f"  ⚠ No data to process for {dataset_name}")
+        return [], None
+    
+    print(f"\n{'='*70}")
+    print(f"Filtering: {dataset_name}")
+    print(f"{'='*70}")
+    print(f"Total questions: {len(data):,}")
     
     # Initialize filter
     filter_pipeline = RespiratoryFilter()
     
-    # Filter MedQA sample
-    print("\nFiltering MedQA sample...")
-    filtered_medqa, stats = filter_pipeline.filter_dataset(
-        medqa_sample,
-        dataset_name="MedQA Sample"
-    )
-    filter_pipeline.print_statistics("MedQA Sample")
+    # Filter dataset
+    print("Applying respiratory filter...")
+    filtered, stats = filter_pipeline.filter_dataset(data, dataset_name)
     
-    # Show filtered questions
-    print("Filtered MedQA Questions:")
-    for q in filtered_medqa:
-        print(f"  - {q['id']}: {q['question'][:80]}...")
-        print(f"    Match types: {q['respiratory_metadata']['match_type']}")
-        if q['respiratory_metadata']['icd10_codes']:
-            print(f"    ICD-10 codes: {q['respiratory_metadata']['icd10_codes']}")
-        print()
-
-
-def example_2_detailed_metadata():
-    """Example 2: Examining detailed metadata"""
-    print("\n" + "="*70)
-    print("EXAMPLE 2: Detailed Metadata Analysis")
-    print("="*70)
+    # Print statistics
+    filter_pipeline.print_statistics(dataset_name)
     
-    medqa_sample, _ = create_sample_datasets()
-    filter_pipeline = RespiratoryFilter()
+    # Save filtered data
+    output_file = output_dir / f"{dataset_name.lower().replace(' ', '_').replace('-', '_')}_filtered.json"
     
-    # Filter one question with detailed analysis
-    question = medqa_sample[0]  # COPD question
-    is_respiratory, metadata = filter_pipeline.filter_question(question)
-    
-    print(f"\nQuestion: {question['question'][:100]}...")
-    print(f"\nIs Respiratory: {is_respiratory}")
-    print(f"\nMetadata:")
-    print(f"  Match Types: {metadata['match_type']}")
-    print(f"  ICD-10 Codes: {metadata['icd10_codes']}")
-    print(f"  Matched Keywords: {metadata['matched_keywords']}")
-    
-    if 'keyword_categories' in metadata:
-        print(f"\nKeyword Categories:")
-        for category, keywords in metadata['keyword_categories'].items():
-            if keywords:
-                print(f"  {category.capitalize()}: {', '.join(keywords)}")
-
-
-def example_3_cross_linguistic():
-    """Example 3: Cross-linguistic filtering capability"""
-    print("\n" + "="*70)
-    print("EXAMPLE 3: Cross-Linguistic Capability")
-    print("="*70)
-    
-    # Simulate different language versions (all English in this demo)
-    datasets = {
-        'MedQA-USMLE': [
-            {'question': 'Patient with COPD exacerbation and dyspnea', 'answer': 'A'},
-            {'question': 'Asthma with wheezing', 'answer': 'B'}
-        ],
-        'MedQA-MCMLE': [
-            {'question': 'Pneumonia with productive cough', 'answer': 'A'},
-            {'question': 'Tuberculosis with hemoptysis', 'answer': 'B'}
-        ],
-        'MedQA-TWMLE': [
-            {'question': 'ARDS requiring mechanical ventilation', 'answer': 'A'},
-            {'question': 'Bronchitis with chronic cough', 'answer': 'B'}
-        ]
-    }
-    
-    filter_pipeline = RespiratoryFilter()
-    
-    all_results = {}
-    for dataset_name, data in datasets.items():
-        filtered, stats = filter_pipeline.filter_dataset(data, dataset_name)
-        all_results[dataset_name] = {
-            'total': stats.total_questions,
-            'filtered': stats.final_filtered,
-            'percentage': stats.final_filtered / stats.total_questions * 100
-        }
-    
-    print("\nFiltering Results by Dataset:")
-    print(f"{'Dataset':<20} {'Total':<10} {'Filtered':<10} {'Percentage':<10}")
-    print("-" * 50)
-    for dataset_name, results in all_results.items():
-        print(f"{dataset_name:<20} {results['total']:<10} "
-              f"{results['filtered']:<10} {results['percentage']:.1f}%")
-
-
-def example_4_validation_pipeline():
-    """Example 4: Validation against dataset metadata"""
-    print("\n" + "="*70)
-    print("EXAMPLE 4: Validation Pipeline")
-    print("="*70)
-    
-    # Create questions with ground truth respiratory labels
-    validation_dataset = [
-        {'question': 'COPD with dyspnea', 'answer': 'A', 'is_respiratory_ground_truth': True},
-        {'question': 'Diabetes mellitus management', 'answer': 'B', 'is_respiratory_ground_truth': False},
-        {'question': 'Pneumonia diagnosis J18.9', 'answer': 'C', 'is_respiratory_ground_truth': True},
-        {'question': 'Hypertension treatment', 'answer': 'D', 'is_respiratory_ground_truth': False},
-        {'question': 'Asthma with wheezing', 'answer': 'E', 'is_respiratory_ground_truth': True},
-    ]
-    
-    filter_pipeline = RespiratoryFilter()
-    
-    # Validate predictions
-    true_positives = 0
-    true_negatives = 0
-    false_positives = 0
-    false_negatives = 0
-    
-    for question in validation_dataset:
-        is_respiratory, _ = filter_pipeline.filter_question(question)
-        ground_truth = question['is_respiratory_ground_truth']
-        
-        if is_respiratory and ground_truth:
-            true_positives += 1
-        elif not is_respiratory and not ground_truth:
-            true_negatives += 1
-        elif is_respiratory and not ground_truth:
-            false_positives += 1
-        else:
-            false_negatives += 1
-    
-    # Calculate metrics
-    total = len(validation_dataset)
-    accuracy = (true_positives + true_negatives) / total
-    precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
-    recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
-    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-    
-    print("\nValidation Metrics:")
-    print(f"  True Positives:  {true_positives}")
-    print(f"  True Negatives:  {true_negatives}")
-    print(f"  False Positives: {false_positives}")
-    print(f"  False Negatives: {false_negatives}")
-    print(f"\n  Accuracy:  {accuracy:.3f}")
-    print(f"  Precision: {precision:.3f}")
-    print(f"  Recall:    {recall:.3f}")
-    print(f"  F1 Score:  {f1:.3f}")
-
-
-def example_5_save_and_load():
-    """Example 5: Save and load filtered datasets"""
-    print("\n" + "="*70)
-    print("EXAMPLE 5: Save and Load Filtered Data")
-    print("="*70)
-    
-    medqa_sample, medmcqa_sample = create_sample_datasets()
-    filter_pipeline = RespiratoryFilter()
-    
-    # Filter and save
-    filtered, stats = filter_pipeline.filter_dataset(medqa_sample, "MedQA")
-    
-    output_file = '/home/claude/sample_filtered_respiratory.json'
     save_filtered_dataset(
         filtered,
-        output_file,
+        str(output_file),
         metadata={
-            'source': 'MedQA Sample',
+            'source': dataset_name,
             'filter_version': '1.0',
             'icd10_range': 'J00-J99',
-            'total_original': len(medqa_sample),
+            'total_original': len(data),
             'filtered_count': len(filtered),
-            'keyword_categories': list(filter_pipeline.all_keywords)[:10]  # Sample
+            'filter_date': datetime.now().isoformat(),
+            'paper': 'Paper 1 - Hierarchical Verification Framework'
         }
     )
     
-    # Load and verify
-    with open(output_file, 'r') as f:
-        loaded_data = json.load(f)
+    print(f"✓ Saved to: {output_file.name}")
     
-    print(f"\nLoaded Data Summary:")
-    print(f"  Original dataset size: {loaded_data['metadata']['total_original']}")
-    print(f"  Filtered dataset size: {loaded_data['count']}")
-    print(f"  Filter version: {loaded_data['metadata']['filter_version']}")
-    print(f"  ICD-10 range: {loaded_data['metadata']['icd10_range']}")
+    return filtered, stats
 
 
 def main():
-    """Run all examples"""
+    """
+    Main function to process all datasets
+    """
     print("\n" + "="*70)
-    print("RESPIRATORY DISEASE FILTERING PIPELINE - EXAMPLES")
+    print("RESPIRATORY DISEASE FILTERING PIPELINE")
+    print("Paper 1: Hierarchical Verification Framework")
     print("="*70)
     
-    try:
-        example_1_basic_filtering()
-        example_2_detailed_metadata()
-        example_3_cross_linguistic()
-        example_4_validation_pipeline()
-        example_5_save_and_load()
+    # Define project paths
+    project_root = Path(__file__).parent.parent
+    data_dir = project_root / "data" / "raw"
+    output_dir = project_root / "data" / "filtered"
+    
+    # Create output directory if it doesn't exist
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    print(f"\nData directory: {data_dir}")
+    print(f"Output directory: {output_dir}")
+    
+    # Check if data directory exists
+    if not data_dir.exists():
+        print(f"\n⚠ ERROR: Data directory not found: {data_dir}")
+        print("Please create data/raw/ directory and add your datasets.")
+        return
+    
+    # ========================================
+    # Process MedQA Datasets
+    # ========================================
+    print(f"\n{'='*70}")
+    print("LOADING MEDQA DATASETS")
+    print(f"{'='*70}")
+    
+    medqa_dir = data_dir / "MedQA"
+    medqa_datasets = {}
+    
+    if medqa_dir.exists():
+        # Define MedQA subsets
+        medqa_subsets = {
+            'MedQA-USMLE': medqa_dir / "US",
+            'MedQA-MCMLE': medqa_dir / "Mainland",
+            'MedQA-TWMLE': medqa_dir / "Taiwan"
+        }
         
-        print("\n" + "="*70)
-        print("ALL EXAMPLES COMPLETED SUCCESSFULLY")
-        print("="*70 + "\n")
+        # Load each subset
+        for subset_name, subset_path in medqa_subsets.items():
+            if subset_path.exists():
+                data = load_medqa_subset(subset_path, subset_name.split('-')[1])
+                if data:
+                    medqa_datasets[subset_name] = data
+            else:
+                print(f"  ⚠ Directory not found: {subset_path}")
+    else:
+        print(f"  ⚠ MedQA directory not found: {medqa_dir}")
+        print(f"  Expected structure: data/raw/MedQA/{{US,Mainland,Taiwan}}/{{dev,test,train}}.jsonl")
+    
+    # ========================================
+    # Process MedMCQA Dataset
+    # ========================================
+    print(f"\n{'='*70}")
+    print("LOADING MEDMCQA DATASET")
+    print(f"{'='*70}")
+    
+    medmcqa_dir = data_dir / "MedMCQA"
+    medmcqa_data = None
+    
+    if medmcqa_dir.exists():
+        medmcqa_data = load_medmcqa_all(medmcqa_dir)
+        if medmcqa_data:
+            medqa_datasets['MedMCQA'] = medmcqa_data
+    else:
+        print(f"  ⚠ MedMCQA directory not found: {medmcqa_dir}")
+        print(f"  Expected structure: data/raw/MedMCQA/{{dev,test,train}}.json")
+    
+    # ========================================
+    # Check if any datasets were loaded
+    # ========================================
+    if not medqa_datasets:
+        print(f"\n{'='*70}")
+        print("⚠ NO DATASETS FOUND")
+        print(f"{'='*70}")
+        print("\nExpected directory structure:")
+        print("data/raw/")
+        print("├── MedQA/")
+        print("│   ├── US/")
+        print("│   │   ├── dev.jsonl")
+        print("│   │   ├── test.jsonl")
+        print("│   │   └── train.jsonl")
+        print("│   ├── Mainland/")
+        print("│   │   ├── dev.jsonl")
+        print("│   │   ├── test.jsonl")
+        print("│   │   └── train.jsonl")
+        print("│   └── Taiwan/")
+        print("│       ├── dev.jsonl")
+        print("│       ├── test.jsonl")
+        print("│       └── train.jsonl")
+        print("└── MedMCQA/")
+        print("    ├── dev.json (or .jsonl)")
+        print("    ├── test.json (or .jsonl)")
+        print("    └── train.json (or .jsonl)")
+        print("\nDataset sources:")
+        print("  - MedQA: https://github.com/jind11/MedQA")
+        print("  - MedMCQA: https://medmcqa.github.io/")
+        return
+    
+    # ========================================
+    # Filter all datasets
+    # ========================================
+    print(f"\n{'='*70}")
+    print("FILTERING DATASETS")
+    print(f"{'='*70}")
+    
+    all_filtered = []
+    all_stats = {}
+    
+    for dataset_name, data in medqa_datasets.items():
+        filtered, stats = process_dataset(data, dataset_name, output_dir)
         
-    except Exception as e:
-        print(f"\nError running examples: {e}")
-        import traceback
-        traceback.print_exc()
+        if filtered:
+            # Add source information to each question
+            for item in filtered:
+                item['source_dataset'] = dataset_name
+            
+            all_filtered.extend(filtered)
+            all_stats[dataset_name] = stats
+    
+    # ========================================
+    # Save combined dataset
+    # ========================================
+    if all_filtered:
+        print(f"\n{'='*70}")
+        print("SAVING COMBINED DATASET")
+        print(f"{'='*70}")
+        
+        combined_file = output_dir / "respiratory_cases_all.json"
+        
+        # Calculate per-dataset statistics
+        per_dataset_stats = {}
+        for name, stats in all_stats.items():
+            per_dataset_stats[name] = {
+                'total_questions': stats.total_questions,
+                'filtered_questions': stats.final_filtered,
+                'filter_rate': f"{stats.final_filtered/stats.total_questions*100:.2f}%",
+                'icd10_matches': stats.icd10_matches,
+                'keyword_matches': stats.keyword_matches
+            }
+        
+        save_filtered_dataset(
+            all_filtered,
+            str(combined_file),
+            metadata={
+                'datasets': list(all_stats.keys()),
+                'total_cases': len(all_filtered),
+                'filter_version': '1.0',
+                'icd10_range': 'J00-J99',
+                'filter_date': datetime.now().isoformat(),
+                'paper': 'Paper 1 - Hierarchical Verification Framework',
+                'per_dataset_stats': per_dataset_stats
+            }
+        )
+        
+        print(f"✓ Combined dataset saved: {combined_file.name}")
+        print(f"✓ Total respiratory cases: {len(all_filtered):,}")
+        
+        # ========================================
+        # Print summary statistics
+        # ========================================
+        print(f"\n{'='*70}")
+        print("SUMMARY STATISTICS")
+        print(f"{'='*70}")
+        
+        print(f"\n{'Dataset':<20} {'Total':<12} {'Filtered':<12} {'Rate':<10}")
+        print("-" * 70)
+        
+        total_original = 0
+        total_filtered = 0
+        
+        # Sort datasets for consistent display
+        dataset_order = ['MedQA-USMLE', 'MedQA-MCMLE', 'MedQA-TWMLE', 'MedMCQA']
+        
+        for dataset_name in dataset_order:
+            if dataset_name in all_stats:
+                stats = all_stats[dataset_name]
+                total_original += stats.total_questions
+                total_filtered += stats.final_filtered
+                rate = stats.final_filtered / stats.total_questions * 100
+                
+                print(f"{dataset_name:<20} {stats.total_questions:>10,}  "
+                      f"{stats.final_filtered:>10,}  {rate:>8.2f}%")
+        
+        print("-" * 70)
+        print(f"{'TOTAL':<20} {total_original:>10,}  "
+              f"{total_filtered:>10,}  {total_filtered/total_original*100:>8.2f}%")
+        print("=" * 70)
+        
+        # ========================================
+        # Validation check
+        # ========================================
+        print(f"\n{'='*70}")
+        print("VALIDATION CHECK")
+        print(f"{'='*70}")
+        
+        target_min = 1200
+        target_max = 1500
+        
+        print(f"\nTarget range: {target_min:,} - {target_max:,} cases")
+        print(f"Actual count: {len(all_filtered):,} cases")
+        
+        if target_min <= len(all_filtered) <= target_max:
+            print(f"\n✓ PASS: Within target range!")
+            status = "READY FOR EXPERIMENTS"
+        elif len(all_filtered) < target_min:
+            print(f"\n⚠ WARNING: Below target range")
+            print(f"  Short by: {target_min - len(all_filtered):,} cases")
+            status = "NEEDS MORE DATA"
+        else:
+            print(f"\n✓ ABOVE TARGET: Exceeds target range")
+            print(f"  Extra: {len(all_filtered) - target_max:,} cases")
+            print(f"  This is fine - more data is better!")
+            status = "READY FOR EXPERIMENTS"
+        
+        # ========================================
+        # Final summary
+        # ========================================
+        print(f"\n{'='*70}")
+        print("FILTERING COMPLETE")
+        print(f"{'='*70}")
+        print(f"\n✓ Status: {status}")
+        print(f"✓ Filtered datasets saved to: {output_dir}")
+        print(f"\nGenerated files:")
+        for dataset_name in all_stats.keys():
+            filename = f"{dataset_name.lower().replace(' ', '_').replace('-', '_')}_filtered.json"
+            print(f"  - {filename}")
+        print(f"  - respiratory_cases_all.json (combined)")
+        
+        print(f"\n{'='*70}")
+        print("NEXT STEPS")
+        print(f"{'='*70}")
+        print("1. Review filtered data quality")
+        print("2. Validate sample cases manually (recommended: 30 random samples)")
+        print("3. Begin multi-agent system implementation (January 2025)")
+        print("4. Commit and push to GitHub")
+        print(f"\nTo commit:")
+        print(f"  git add data/filtered/")
+        print(f"  git commit -m 'Add filtered respiratory disease datasets'")
+        print(f"  git push")
+        
+    else:
+        print("\n⚠ ERROR: No data was filtered")
+        print("Please check your dataset files and try again.")
 
 
 if __name__ == "__main__":
