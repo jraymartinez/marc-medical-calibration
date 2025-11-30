@@ -249,7 +249,7 @@ python experiments/run_full_system.py
 
 ## 🔒 License
 
-MIT License - See [https://github.com/jraymartinez/paper1-hierarchical-verification/blob/main/LICENSE.md](LICENSE) file for details
+MIT License - See [LICENSE](https://github.com/jraymartinez/paper1-hierarchical-verification/blob/main/LICENSE.md) file for details
 
 ---
 
