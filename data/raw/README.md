@@ -18,7 +18,7 @@
 
 ## Expected Structure
 
-\`\`\`
+```
 data/raw/
 ├── MedQA/
 │   ├── US/
@@ -37,7 +37,7 @@ data/raw/
     ├── dev.json
     ├── test.json
     └── train.json
-\`\`\`
+```
 
 ## Note
 These files are git-ignored due to their large size (>50MB combined).
