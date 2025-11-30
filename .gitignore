@@ -1,0 +1,125 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+.cursorignore
+
+# Data files - CRITICAL: Don't commit large datasets
+data/raw/*.json
+data/raw/*.jsonl
+data/raw/*.csv
+data/filtered/*.json
+data/filtered/*.jsonl
+!data/raw/README.md
+!data/filtered/README.md
+
+# Results - Experiment outputs
+results/**/*
+!results/README.md
+!results/.gitkeep
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+pytest_debug.log
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment variables and secrets - CRITICAL FOR SECURITY
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+config/secrets.yaml
+config/api_keys.json
+
+# API Keys - VERY IMPORTANT
+openai_api_key.txt
+anthropic_api_key.txt
+api_config.json
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Paper artifacts (until ready to share)
+paper/manuscript/*.pdf
+paper/manuscript/*.aux
+paper/manuscript/*.bbl
+paper/manuscript/*.blg
+paper/manuscript/*.log
+paper/manuscript/*.out
+!paper/manuscript/README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Large model files
+*.pkl
+*.h5
+*.hdf5
+*.ckpt
+*.pt
+*.pth
+models/checkpoints/*
+!models/checkpoints/.gitkeep
