@@ -3,7 +3,14 @@ Test Suite for Respiratory Disease Filtering Pipeline
 """
 
 import unittest
-from respiratory_filter_pipeline import RespiratoryFilter, FilterStats
+import sys
+from pathlib import Path
+
+# Add src to path so we can import our modules
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
+from filtering.respiratory_filter import RespiratoryFilter, FilterStats
 
 
 class TestRespiratoryFilter(unittest.TestCase):
@@ -101,13 +108,13 @@ class TestRespiratoryFilter(unittest.TestCase):
     
     def test_keyword_categorization(self):
         """Test keyword categorization"""
-        keywords = {'pneumonia', 'cough', 'chest x-ray', 'lung'}
+        keywords = {'pneumonia', 'dyspnea', 'chest x-ray', 'bronchi'}
         categorized = self.filter._categorize_matches(keywords)
         
         self.assertIn('pneumonia', categorized['diseases'])
-        self.assertIn('cough', categorized['symptoms'])
+        self.assertIn('dyspnea', categorized['symptoms'])
         self.assertIn('chest x-ray', categorized['diagnostic'])
-        self.assertIn('lung', categorized['anatomical'])
+        self.assertIn('bronchi', categorized['anatomical'])
     
     def test_dataset_filtering(self):
         """Test filtering complete dataset"""

@@ -39,6 +39,7 @@ venv.bak/
 *~
 .cursor/
 .cursorignore
+*.code-profile
 
 # Data files - CRITICAL: Don't commit large datasets
 data/raw/**/*.json
