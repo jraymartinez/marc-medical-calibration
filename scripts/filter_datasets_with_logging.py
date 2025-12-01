@@ -175,7 +175,16 @@ def load_medqa_subset(subset_dir: Path, subset_name: str, logger: Logger) -> Lis
     logger.log(f"\n  Loading MedQA-{subset_name}:")
     
     all_questions = []
-    file_names = ['dev.jsonl', 'test.jsonl', 'train.jsonl']
+    
+    # Taiwan uses different filenames (tw_*.jsonl)
+    if subset_name == 'TWMLE':
+        file_names = ['tw_dev.jsonl', 'tw_test.jsonl', 'tw_train.jsonl']
+    # US uses phrases_no_exclude_*.jsonl
+    elif subset_name == 'USMLE':
+        file_names = ['phrases_no_exclude_dev.jsonl', 'phrases_no_exclude_test.jsonl', 'phrases_no_exclude_train.jsonl']
+    else:
+        # Mainland uses standard naming
+        file_names = ['dev.jsonl', 'test.jsonl', 'train.jsonl']
     
     for file_name in file_names:
         file_path = subset_dir / file_name
@@ -237,7 +246,7 @@ def process_dataset(data: List[Dict], dataset_name: str, output_dir: Path, logge
     logger.log(f"Filtered (Respiratory): {stats.final_filtered:,} "
                f"({stats.final_filtered/stats.total_questions*100:.1f}%)")
     logger.log(f"\nMatching Methods:")
-    logger.log(f"  ICD-10 Matches:       {stats.icd10_matches:,}")
+    logger.log(f"  Metadata Matches:     {stats.metadata_matches:,}")
     logger.log(f"  Keyword Matches:      {stats.keyword_matches:,}")
     
     if stats.by_disease:
@@ -264,8 +273,9 @@ def process_dataset(data: List[Dict], dataset_name: str, output_dir: Path, logge
         str(output_file),
         metadata={
             'source': dataset_name,
-            'filter_version': '1.1',
-            'icd10_range': 'J00-J99',
+            'filter_version': '2.0',
+            'filter_method': 'Hybrid: Metadata + Keywords',
+            'respiratory_scope': 'ICD-10 J00-J99 (Respiratory System)',
             'total_original': len(data),
             'filtered_count': len(filtered),
             'filter_date': datetime.now().isoformat(),
@@ -418,7 +428,7 @@ def main():
                 'total_questions': stats.total_questions,
                 'filtered_questions': stats.final_filtered,
                 'filter_rate': f"{stats.final_filtered/stats.total_questions*100:.2f}%",
-                'icd10_matches': stats.icd10_matches,
+                'metadata_matches': stats.metadata_matches,
                 'keyword_matches': stats.keyword_matches
             }
         
@@ -428,8 +438,9 @@ def main():
             metadata={
                 'datasets': list(all_stats.keys()),
                 'total_cases': len(all_filtered),
-                'filter_version': '1.1',
-                'icd10_range': 'J00-J99',
+                'filter_version': '2.0',
+                'filter_method': 'Hybrid: Metadata + Keywords',
+                'respiratory_scope': 'ICD-10 J00-J99 (Respiratory System)',
                 'filter_date': datetime.now().isoformat(),
                 'paper': 'Paper 1 - Hierarchical Verification Framework',
                 'per_dataset_stats': per_dataset_stats

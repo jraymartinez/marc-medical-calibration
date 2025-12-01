@@ -39,6 +39,7 @@ venv.bak/
 *~
 .cursor/
 .cursorignore
+.cursorrules
 *.code-profile
 
 # Data files - CRITICAL: Don't commit large datasets

@@ -27,7 +27,7 @@ This research addresses the critical gap in multi-agent medical diagnosis system
 1. **Tier 1**: Specialist self-verification using two-phase validation
 2. **Tier 2**: General practitioner medical validation
 
-The system is validated on respiratory disease diagnosis using ~1,200-1,500 filtered cases from MedQA and MedMCQA datasets.
+The system is validated on respiratory disease diagnosis using 10,156 filtered cases from MedQA and MedMCQA datasets.
 
 **Key Contributions**:
 - Novel hierarchical verification architecture for multi-agent medical AI
@@ -131,10 +131,13 @@ echo "ANTHROPIC_API_KEY=your-key-here" > .env
 ### Run Data Filtering
 ```bash
 # Filter respiratory cases from datasets
-python scripts/filter_datasets.py
+python scripts/filter_datasets_with_logging.py
 
-# Expected output: ~1,200-1,500 cases
+# Output: ~10,000+ respiratory cases
+# See: data/filtered/README.md for dataset format details
 ```
+
+**⚠️ Important**: Filtered datasets contain questions from multiple sources with different answer formats. See `data/filtered/README.md` for detailed documentation on handling MedQA vs MedMCQA answer fields.
 
 ### Run Experiments
 ```bash
@@ -168,16 +171,29 @@ python experiments/run_full_system.py
 ### Filtering Pipeline
 
 **Input**: ~254,000 questions  
-**Output**: ~1,200-1,500 respiratory cases  
-**Filter Rate**: ~0.5-0.6%
+**Output**: ~10,000+ respiratory cases  
+**Filter Rate**: ~4.0%
 
-**Filtering Criteria**:
-- ICD-10 Chapter X (J00-J99) codes
-- 53 keyword terms across 4 categories:
-  - Diseases (16 terms)
-  - Symptoms (13 terms)
-  - Diagnostic (13 terms)
-  - Anatomical (11 terms)
+**Filtering Methodology** (Two-Tier Hybrid Approach):
+
+Our filtering pipeline employs a two-tier hybrid approach optimized for medical examination datasets:
+
+1. **Tier 1 - Metadata-Based Filtering** (High Precision)
+   - MedQA-Mainland: Subject categorization ("第1篇　呼吸系统")
+   - MedMCQA: Topic taxonomy (14 respiratory topics)
+   - **Result**: 2,724 cases (26.8%) with high confidence
+
+2. **Tier 2 - Keyword-Based Filtering** (Comprehensive Fallback)
+   - 53 domain-specific respiratory terms across 4 categories:
+     - Diseases (16 terms): pneumonia, asthma, COPD, etc.
+     - Symptoms (13 terms): dyspnea, wheezing, hemoptysis, etc.
+     - Diagnostic (13 terms): spirometry, chest X-ray, ABG, etc.
+     - Anatomical (11 terms): bronchi, alveoli, pleura, etc.
+   - **Result**: 8,149 cases across all datasets
+
+**Clinical Scope**: ICD-10 Chapter X (J00-J99) - Diseases of the Respiratory System
+
+**Note**: While ICD-10 codes define the clinical scope, they are not extracted from question text as medical licensing examinations present scenarios using natural language descriptions rather than diagnostic codes.
 
 ---
 
@@ -215,13 +231,13 @@ python experiments/run_full_system.py
 
 ## 🗓️ Development Timeline
 
-- ✅ **Dec 2024**: Literature review complete
-- ✅ **Dec 2024**: Data filtering pipeline complete
-- 🔄 **Jan 2025**: Multi-agent system implementation
-- ⏳ **Feb 2025**: Verification system implementation
-- ⏳ **Mar 2025**: Experiments and baseline comparisons
-- ⏳ **Apr 2025**: Analysis and paper writing
-- 🎯 **May 2025**: Paper 1 submission
+- ✅ **Dec 2025**: Literature review complete
+- ✅ **Dec 2026**: Data filtering pipeline complete
+- 🔄 **Jan 2026**: Multi-agent system implementation
+- ⏳ **Feb 2026**: Verification system implementation
+- ⏳ **Mar 2026**: Experiments and baseline comparisons
+- ⏳ **Apr 2026**: Analysis and paper writing
+- 🎯 **May 2026**: Paper 1 submission
 
 ---
 

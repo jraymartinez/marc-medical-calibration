@@ -1,12 +1,31 @@
 """
 Respiratory Disease Filtering Pipeline
 Filters medical question datasets (MedQA, MedMCQA) for respiratory disease cases
-using ICD-10 codes and keyword matching.
+using a hybrid metadata and keyword-based approach.
 
-Version: 1.1
+Version: 2.0
+- Implemented two-tier hybrid filtering (metadata + keywords)
+- Removed ICD-10 code extraction (not applicable to exam questions)
+- Added metadata-based filtering for MedQA-Mainland and MedMCQA
 - Refined keywords to reduce false positives
-- Added primary/secondary keyword distinction
-- Improved matching logic requiring disease/symptom/diagnostic keywords
+- Primary/secondary keyword distinction (disease/symptom/diagnostic vs anatomical)
+
+Methodology:
+  Tier 1: Metadata-based filtering (high precision)
+    - MedQA-Mainland: "第1篇　呼吸系统" in meta_info
+    - MedMCQA: Respiratory topics in topic_name
+  
+  Tier 2: Keyword-based filtering (comprehensive fallback)
+    - 53 domain-specific terms across 4 categories
+    - Diseases, symptoms, diagnostic procedures, anatomical terms
+
+Clinical Scope: ICD-10 Chapter X (J00-J99) - Respiratory System
+Note: ICD-10 codes define scope but are not extracted from question text as
+medical licensing exams use natural language descriptions, not diagnostic codes.
+
+Results: 10,156 respiratory cases from 254,252 questions (4.0% filter rate)
+  - Metadata matches: 2,724 (26.8%)
+  - Keyword matches: 8,149 (80.2%)
 """
 
 import json
@@ -20,7 +39,7 @@ from pathlib import Path
 class FilterStats:
     """Statistics for the filtering process"""
     total_questions: int = 0
-    icd10_matches: int = 0
+    metadata_matches: int = 0
     keyword_matches: int = 0
     final_filtered: int = 0
     by_disease: Dict[str, int] = None
@@ -171,46 +190,6 @@ class RespiratoryFilter:
         """
         return text.lower().strip()
     
-    def _extract_icd10_codes(self, text: str) -> Set[str]:
-        """
-        Extract ICD-10 codes from text
-        
-        Matches patterns like:
-        - J00 (2 digits)
-        - J20.1 (2 digits + decimal + 1-2 digits)
-        - J45.9 (2 digits + decimal + 1-2 digits)
-        
-        Args:
-            text: Text to search for ICD-10 codes
-            
-        Returns:
-            Set of found ICD-10 codes
-        """
-        # Match patterns like J00, J20.1, J45.9
-        pattern = r'\bJ\d{2}(?:\.\d{1,2})?\b'
-        matches = re.findall(pattern, text.upper())
-        return set(matches)
-    
-    def _is_respiratory_icd10(self, code: str) -> bool:
-        """
-        Check if ICD-10 code is in respiratory range (J00-J99)
-        
-        Args:
-            code: ICD-10 code to check
-            
-        Returns:
-            True if code is in respiratory range, False otherwise
-        """
-        if not code or not code.startswith('J'):
-            return False
-        
-        try:
-            # Extract numeric part (e.g., "J20.1" -> 20)
-            numeric = int(code[1:3])
-            return 0 <= numeric <= 99
-        except (ValueError, IndexError):
-            return False
-    
     def _matches_keywords(self, text: str) -> Tuple[bool, Set[str]]:
         """
         Check if text matches respiratory keywords
@@ -277,9 +256,45 @@ class RespiratoryFilter:
         
         return categorized
     
+    def _check_metadata_respiratory(self, question_data: Dict) -> Tuple[bool, str]:
+        """
+        Check if question is respiratory based on metadata fields
+        
+        Args:
+            question_data: Dictionary with metadata fields
+            
+        Returns:
+            Tuple of (is_respiratory, metadata_source)
+        """
+        # MedQA-Mainland: Check for respiratory system in Chinese
+        meta_info = question_data.get('meta_info', '')
+        if meta_info and '呼吸系统' in meta_info:
+            return True, 'meta_info_mainland'
+        
+        # MedMCQA: Check subject_name and topic_name
+        topic_name = question_data.get('topic_name', '')
+        if topic_name:
+            topic_lower = topic_name.lower()
+            respiratory_topics = [
+                'respiratory', 'pulmonary', 'lung', 'pneumonia', 
+                'copd', 'asthma', 'bronch', 'pleural', 'alveol'
+            ]
+            if any(term in topic_lower for term in respiratory_topics):
+                return True, 'topic_name_medmcqa'
+        
+        return False, ''
+    
     def filter_question(self, question_data: Dict) -> Tuple[bool, Dict]:
         """
-        Filter a single question for respiratory relevance
+        Filter a single question for respiratory relevance using hybrid approach
+        
+        Filtering Strategy (Two-Tier):
+        1. Metadata-based filtering (MedQA-Mainland, MedMCQA) - high precision
+        2. Keyword-based filtering (fallback for all datasets)
+        
+        Note: ICD-10 codes (J00-J99) define the respiratory disease scope but are
+        not extracted from question text as exam questions use natural language
+        descriptions rather than diagnostic codes.
         
         Args:
             question_data: Dictionary with 'question', 'options', 'answer', etc.
@@ -292,34 +307,42 @@ class RespiratoryFilter:
             >>> question = {'question': 'Patient with COPD...', 'answer': 'A'}
             >>> is_respiratory, metadata = filter_pipeline.filter_question(question)
         """
-        # Combine all text fields for analysis
-        text_parts = [
-            question_data.get('question', ''),
-            str(question_data.get('options', '')),
-            str(question_data.get('explanation', ''))
-        ]
-        full_text = ' '.join(text_parts)
+        # Tier 1: Check metadata fields first (highest confidence)
+        is_respiratory_meta, meta_source = self._check_metadata_respiratory(question_data)
         
-        # Extract ICD-10 codes
-        icd10_codes = self._extract_icd10_codes(full_text)
-        respiratory_codes = [code for code in icd10_codes if self._is_respiratory_icd10(code)]
-        
-        # Check keyword matches
-        has_keywords, matched_keywords = self._matches_keywords(full_text)
+        # Tier 2: Check keyword matches (fallback)
+        if not is_respiratory_meta:
+            # Combine all text fields for analysis
+            text_parts = [
+                question_data.get('question', ''),
+                str(question_data.get('options', '')),
+                str(question_data.get('explanation', ''))
+            ]
+            full_text = ' '.join(text_parts)
+            
+            has_keywords, matched_keywords = self._matches_keywords(full_text)
+        else:
+            # Still extract keywords for metadata even if matched by metadata
+            text_parts = [
+                question_data.get('question', ''),
+                str(question_data.get('options', '')),
+                str(question_data.get('explanation', ''))
+            ]
+            full_text = ' '.join(text_parts)
+            has_keywords, matched_keywords = self._matches_keywords(full_text)
         
         # Determine if question is respiratory-related
-        # Either has ICD-10 code OR primary keywords
-        is_respiratory = len(respiratory_codes) > 0 or has_keywords
+        is_respiratory = is_respiratory_meta or has_keywords
         
         # Build metadata
         metadata = {
-            'icd10_codes': respiratory_codes,
             'matched_keywords': list(matched_keywords),
             'match_type': []
         }
         
-        if respiratory_codes:
-            metadata['match_type'].append('icd10')
+        if is_respiratory_meta:
+            metadata['match_type'].append('metadata')
+            metadata['metadata_source'] = meta_source
         if has_keywords:
             metadata['match_type'].append('keywords')
         
@@ -362,8 +385,8 @@ class RespiratoryFilter:
                 stats.final_filtered += 1
                 
                 # Update statistics
-                if 'icd10' in metadata['match_type']:
-                    stats.icd10_matches += 1
+                if 'metadata' in metadata['match_type']:
+                    stats.metadata_matches += 1
                 if 'keywords' in metadata['match_type']:
                     stats.keyword_matches += 1
                 
@@ -393,7 +416,7 @@ class RespiratoryFilter:
         print(f"Filtered (Respiratory): {stats.final_filtered:,} "
               f"({stats.final_filtered/stats.total_questions*100:.1f}%)")
         print(f"\nMatching Methods:")
-        print(f"  ICD-10 Matches:       {stats.icd10_matches:,}")
+        print(f"  Metadata Matches:     {stats.metadata_matches:,}")
         print(f"  Keyword Matches:      {stats.keyword_matches:,}")
         
         if stats.by_disease:
