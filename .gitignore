@@ -51,8 +51,18 @@ data/raw/**/*.csv
 !data/raw/README.md
 !data/filtered/README.md
 
+# Model files
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+models/
+
 # Results - Experiment outputs
 #results/**/*
+results/**/*.json
+results/**/*.csv
 !results/README.md
 !results/.gitkeep
 
@@ -125,3 +135,14 @@ paper/manuscript/*.out
 *.pth
 models/checkpoints/*
 !models/checkpoints/.gitkeep
+
+# Exclude root-level work-in-progress files
+/*.md
+/*.py
+/*.txt
+!requirements.txt
+!README.md
+!LICENSE.md
+
+# Exclude scripts directory (work in progress)
+scripts/

@@ -40,16 +40,16 @@ def load_json_file(file_path: Path) -> List[Dict]:
                 
                 # Handle different JSON structures
                 if isinstance(data, list):
-                    print(f"    ✓ Loaded {len(data):,} questions (standard JSON)")
+                    print(f"    OK Loaded {len(data):,} questions (standard JSON)")
                     return data
                 elif isinstance(data, dict):
                     # Try common keys
                     for key in ['questions', 'data', 'train', 'test', 'dev']:
                         if key in data:
-                            print(f"    ✓ Loaded {len(data[key]):,} questions (JSON with '{key}' key)")
+                            print(f"    OK Loaded {len(data[key]):,} questions (JSON with '{key}' key)")
                             return data[key]
                     # Single question wrapped in dict
-                    print(f"    ✓ Loaded 1 question (single JSON object)")
+                    print(f"    OK Loaded 1 question (single JSON object)")
                     return [data]
                 
             except json.JSONDecodeError:
@@ -67,22 +67,22 @@ def load_json_file(file_path: Path) -> List[Dict]:
                         except json.JSONDecodeError as e:
                             error_count += 1
                             if error_count <= 3:  # Only show first 3 errors
-                                print(f"    ⚠ Line {line_num}: JSON parse error")
+                                print(f"    WARNING Line {line_num}: JSON parse error")
                 
                 if error_count > 3:
-                    print(f"    ⚠ Total JSON errors: {error_count} lines (skipped)")
+                    print(f"    WARNING Total JSON errors: {error_count} lines (skipped)")
                 
                 if line_count > 0:
-                    print(f"    ✓ Loaded {line_count:,} questions (JSON Lines format)")
+                    print(f"    OK Loaded {line_count:,} questions (JSON Lines format)")
                     return questions
         
         if not questions:
-            print(f"    ⚠ No data loaded from {file_path.name}")
+            print(f"    WARNING: No data loaded from {file_path.name}")
         
         return questions
         
     except Exception as e:
-        print(f"    ⚠ Error loading {file_path.name}: {e}")
+        print(f"    WARNING: Error loading {file_path.name}: {e}")
         return []
 
 
@@ -103,20 +103,20 @@ def load_jsonl_file(file_path: Path) -> List[Dict]:
                     except json.JSONDecodeError as e:
                         error_count += 1
                         if error_count <= 3:
-                            print(f"    ⚠ Line {line_num}: JSON parse error")
+                            print(f"    WARNING: Line {line_num}: JSON parse error")
         
         if error_count > 3:
-            print(f"    ⚠ Total JSON errors: {error_count} lines (skipped)")
+            print(f"    WARNING: Total JSON errors: {error_count} lines (skipped)")
         
         if questions:
-            print(f"    ✓ Loaded {len(questions):,} questions")
+            print(f"    OK Loaded {len(questions):,} questions")
         else:
-            print(f"    ⚠ No questions loaded")
+            print(f"    WARNING: No questions loaded")
         
         return questions
         
     except Exception as e:
-        print(f"    ⚠ Error loading {file_path.name}: {e}")
+        print(f"    WARNING: Error loading {file_path.name}: {e}")
         return []
 
 
@@ -134,7 +134,25 @@ def load_medqa_subset(subset_dir: Path, subset_name: str) -> List[Dict]:
     print(f"\n  Loading MedQA-{subset_name}:")
     
     all_questions = []
-    file_names = ['dev.jsonl', 'test.jsonl', 'train.jsonl']
+    
+    # Different file naming conventions by region
+    if subset_name == 'USMLE':
+        # US MedQA uses phrases_no_exclude_* prefix
+        file_names = [
+            'phrases_no_exclude_dev.jsonl',
+            'phrases_no_exclude_test.jsonl', 
+            'phrases_no_exclude_train.jsonl'
+        ]
+    elif subset_name == 'TWMLE':
+        # Taiwan MedQA uses tw_* prefix
+        file_names = [
+            'tw_dev.jsonl',
+            'tw_test.jsonl',
+            'tw_train.jsonl'
+        ]
+    else:
+        # Mainland China uses standard naming
+        file_names = ['dev.jsonl', 'test.jsonl', 'train.jsonl']
     
     for file_name in file_names:
         file_path = subset_dir / file_name
@@ -142,7 +160,7 @@ def load_medqa_subset(subset_dir: Path, subset_name: str) -> List[Dict]:
             questions = load_jsonl_file(file_path)
             all_questions.extend(questions)
         else:
-            print(f"    ⚠ {file_name}: Not found")
+            print(f"    WARNING: {file_name}: Not found")
     
     print(f"  Total for MedQA-{subset_name}: {len(all_questions):,} questions")
     return all_questions
@@ -169,7 +187,7 @@ def load_medmcqa_all(data_dir: Path) -> List[Dict]:
             questions = load_json_file(file_path)
             all_questions.extend(questions)
         else:
-            print(f"    ⚠ {file_name}: Not found")
+            print(f"    WARNING: {file_name}: Not found")
     
     print(f"  Total for MedMCQA: {len(all_questions):,} questions")
     return all_questions
@@ -188,7 +206,7 @@ def process_dataset(data: List[Dict], dataset_name: str, output_dir: Path) -> Tu
         Tuple of (filtered_data, statistics)
     """
     if not data:
-        print(f"  ⚠ No data to process for {dataset_name}")
+        print(f"  WARNING: No data to process for {dataset_name}")
         return [], None
     
     print(f"\n{'='*70}")
@@ -223,7 +241,7 @@ def process_dataset(data: List[Dict], dataset_name: str, output_dir: Path) -> Tu
         }
     )
     
-    print(f"✓ Saved to: {output_file.name}")
+    print(f"OK Saved to: {output_file.name}")
     
     return filtered, stats
 
@@ -250,7 +268,7 @@ def main():
     
     # Check if data directory exists
     if not data_dir.exists():
-        print(f"\n⚠ ERROR: Data directory not found: {data_dir}")
+        print(f"\nWARNING: ERROR: Data directory not found: {data_dir}")
         print("Please create data/raw/ directory and add your datasets.")
         return
     
@@ -279,9 +297,9 @@ def main():
                 if data:
                     medqa_datasets[subset_name] = data
             else:
-                print(f"  ⚠ Directory not found: {subset_path}")
+                print(f"  WARNING: Directory not found: {subset_path}")
     else:
-        print(f"  ⚠ MedQA directory not found: {medqa_dir}")
+        print(f"  WARNING: MedQA directory not found: {medqa_dir}")
         print(f"  Expected structure: data/raw/MedQA/{{US,Mainland,Taiwan}}/{{dev,test,train}}.jsonl")
     
     # ========================================
@@ -299,7 +317,7 @@ def main():
         if medmcqa_data:
             medqa_datasets['MedMCQA'] = medmcqa_data
     else:
-        print(f"  ⚠ MedMCQA directory not found: {medmcqa_dir}")
+        print(f"  WARNING: MedMCQA directory not found: {medmcqa_dir}")
         print(f"  Expected structure: data/raw/MedMCQA/{{dev,test,train}}.json")
     
     # ========================================
@@ -307,7 +325,7 @@ def main():
     # ========================================
     if not medqa_datasets:
         print(f"\n{'='*70}")
-        print("⚠ NO DATASETS FOUND")
+        print("WARNING: NO DATASETS FOUND")
         print(f"{'='*70}")
         print("\nExpected directory structure:")
         print("data/raw/")
@@ -371,7 +389,7 @@ def main():
                 'total_questions': stats.total_questions,
                 'filtered_questions': stats.final_filtered,
                 'filter_rate': f"{stats.final_filtered/stats.total_questions*100:.2f}%",
-                'icd10_matches': stats.icd10_matches,
+                'metadata_matches': stats.metadata_matches,
                 'keyword_matches': stats.keyword_matches
             }
         
@@ -389,8 +407,8 @@ def main():
             }
         )
         
-        print(f"✓ Combined dataset saved: {combined_file.name}")
-        print(f"✓ Total respiratory cases: {len(all_filtered):,}")
+        print(f"OK Combined dataset saved: {combined_file.name}")
+        print(f"OK Total respiratory cases: {len(all_filtered):,}")
         
         # ========================================
         # Print summary statistics
@@ -437,14 +455,14 @@ def main():
         print(f"Actual count: {len(all_filtered):,} cases")
         
         if target_min <= len(all_filtered) <= target_max:
-            print(f"\n✓ PASS: Within target range!")
+            print(f"\nOK PASS: Within target range!")
             status = "READY FOR EXPERIMENTS"
         elif len(all_filtered) < target_min:
-            print(f"\n⚠ WARNING: Below target range")
+            print(f"\nWARNING: WARNING: Below target range")
             print(f"  Short by: {target_min - len(all_filtered):,} cases")
             status = "NEEDS MORE DATA"
         else:
-            print(f"\n✓ ABOVE TARGET: Exceeds target range")
+            print(f"\nOK ABOVE TARGET: Exceeds target range")
             print(f"  Extra: {len(all_filtered) - target_max:,} cases")
             print(f"  This is fine - more data is better!")
             status = "READY FOR EXPERIMENTS"
@@ -455,8 +473,8 @@ def main():
         print(f"\n{'='*70}")
         print("FILTERING COMPLETE")
         print(f"{'='*70}")
-        print(f"\n✓ Status: {status}")
-        print(f"✓ Filtered datasets saved to: {output_dir}")
+        print(f"\nOK Status: {status}")
+        print(f"OK Filtered datasets saved to: {output_dir}")
         print(f"\nGenerated files:")
         for dataset_name in all_stats.keys():
             filename = f"{dataset_name.lower().replace(' ', '_').replace('-', '_')}_filtered.json"
@@ -476,7 +494,7 @@ def main():
         print(f"  git push")
         
     else:
-        print("\n⚠ ERROR: No data was filtered")
+        print("\nWARNING: ERROR: No data was filtered")
         print("Please check your dataset files and try again.")
 
 

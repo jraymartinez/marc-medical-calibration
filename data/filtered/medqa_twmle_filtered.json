@@ -1,12 +1,11 @@
 {
   "metadata": {
     "source": "MedQA-TWMLE",
-    "filter_version": "2.0",
-    "filter_method": "Hybrid: Metadata + Keywords",
-    "respiratory_scope": "ICD-10 J00-J99 (Respiratory System)",
+    "filter_version": "1.0",
+    "icd10_range": "J00-J99",
     "total_original": 14123,
     "filtered_count": 1128,
-    "filter_date": "2025-11-30T23:28:49.850103",
+    "filter_date": "2026-01-10T00:08:52.667293",
     "paper": "Paper 1 - Hierarchical Verification Framework"
   },
   "filtered_questions": [
@@ -82,9 +81,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
           "chest x-ray",
-          "shortness of breath"
+          "shortness of breath",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
@@ -177,18 +176,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "pulmonary edema",
           "acute respiratory distress syndrome",
-          "respiratory distress"
+          "respiratory distress",
+          "alveolar",
+          "pulmonary edema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary edema",
-            "acute respiratory distress syndrome"
+            "acute respiratory distress syndrome",
+            "pulmonary edema"
           ],
           "symptoms": [
             "respiratory distress"
@@ -234,9 +233,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "difficulty breathing",
           "dyspnea",
-          "trachea"
+          "trachea",
+          "difficulty breathing"
         ],
         "match_type": [
           "keywords"
@@ -244,8 +243,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "difficulty breathing",
-            "dyspnea"
+            "dyspnea",
+            "difficulty breathing"
           ],
           "diagnostic": [],
           "anatomical": [
@@ -355,9 +354,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "copd",
+          "pulmonary fibrosis",
           "fvc",
-          "dyspnea",
-          "pulmonary fibrosis"
+          "dyspnea"
         ],
         "match_type": [
           "keywords"
@@ -752,9 +751,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
+          "bronchial",
           "asthma",
-          "bronchial"
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -888,8 +887,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -1105,18 +1104,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
+          "pneumonia",
           "chest x-ray",
           "difficulty breathing",
-          "pneumonia"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
-            "pneumonia"
+            "pneumonia",
+            "emphysema"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -1193,16 +1192,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chronic obstructive pulmonary disease",
-          "pneumonia"
+          "pneumonia",
+          "chronic obstructive pulmonary disease"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "chronic obstructive pulmonary disease",
-            "pneumonia"
+            "pneumonia",
+            "chronic obstructive pulmonary disease"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -1324,9 +1323,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
           "shortness of breath",
           "fvc",
+          "arterial blood gas",
           "oxygen saturation"
         ],
         "match_type": [
@@ -1339,8 +1338,8 @@
           ],
           "diagnostic": [
             "chest x-ray",
-            "arterial blood gas",
             "fvc",
+            "arterial blood gas",
             "oxygen saturation"
           ],
           "anatomical": []
@@ -1407,17 +1406,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "chronic obstructive pulmonary disease",
-          "dlco"
+          "dlco",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -1718,16 +1717,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -1947,16 +1946,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary embolism",
-          "pneumonia"
+          "pneumonia",
+          "pulmonary embolism"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary embolism",
-            "pneumonia"
+            "pneumonia",
+            "pulmonary embolism"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -1986,8 +1985,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "alveolar"
+          "alveolar",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
@@ -2489,8 +2488,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "hypoxia",
           "chest x-ray",
+          "hypoxia",
           "cystic fibrosis"
         ],
         "match_type": [
@@ -2605,8 +2604,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
+          "asthma",
           "pleural"
         ],
         "match_type": [
@@ -2643,16 +2642,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "atypical pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "atypical pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "atypical pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "atypical pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -2838,8 +2837,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "hypoxemia",
-          "respiratory distress"
+          "respiratory distress",
+          "hypoxemia"
         ],
         "match_type": [
           "keywords"
@@ -2847,8 +2846,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "hypoxemia",
-            "respiratory distress"
+            "respiratory distress",
+            "hypoxemia"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -2923,19 +2922,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "chronic obstructive pulmonary disease",
           "asthma",
           "stridor",
-          "tuberculosis",
-          "chronic obstructive pulmonary disease"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "chronic obstructive pulmonary disease",
             "asthma",
-            "tuberculosis",
-            "chronic obstructive pulmonary disease"
+            "tuberculosis"
           ],
           "symptoms": [
             "stridor"
@@ -3001,8 +3000,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chronic cough"
+          "chronic cough",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -3287,8 +3286,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
           "chest tube",
+          "chest x-ray",
           "arterial blood gas"
         ],
         "match_type": [
@@ -3298,8 +3297,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "chest x-ray",
             "chest tube",
+            "chest x-ray",
             "arterial blood gas"
           ],
           "anatomical": []
@@ -3324,16 +3323,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -3406,11 +3405,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "chronic obstructive pulmonary disease",
           "hypoxemia",
+          "pulmonary fibrosis",
           "respiratory failure",
           "pulmonary edema",
-          "pulmonary fibrosis",
-          "chronic obstructive pulmonary disease",
           "pneumonia"
         ],
         "match_type": [
@@ -3418,10 +3417,10 @@
         ],
         "keyword_categories": {
           "diseases": [
+            "chronic obstructive pulmonary disease",
+            "pulmonary fibrosis",
             "respiratory failure",
             "pulmonary edema",
-            "pulmonary fibrosis",
-            "chronic obstructive pulmonary disease",
             "pneumonia"
           ],
           "symptoms": [
@@ -3596,8 +3595,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "fvc"
+          "fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -3606,8 +3605,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -3793,8 +3792,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -3802,8 +3801,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -3877,16 +3876,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "atypical pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "atypical pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "atypical pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "atypical pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -4038,16 +4037,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "sarcoidosis"
+          "sarcoidosis",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "sarcoidosis"
+            "sarcoidosis",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -4395,16 +4394,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -5103,16 +5102,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -5139,20 +5138,20 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bacterial pneumonia",
           "pneumonia",
-          "viral pneumonia"
+          "bacterial pneumonia",
+          "viral pneumonia",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "bacterial pneumonia",
             "pneumonia",
-            "viral pneumonia"
+            "bacterial pneumonia",
+            "viral pneumonia",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -5304,18 +5303,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "bacterial pneumonia",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -5431,18 +5430,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
           "mesothelioma",
-          "bronchiectasis"
+          "bronchiectasis",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
             "mesothelioma",
-            "bronchiectasis"
+            "bronchiectasis",
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -5468,8 +5467,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "bronchus"
+          "bronchus",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -5551,8 +5550,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pleural",
-          "pneumonia"
+          "pneumonia",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -5798,25 +5797,25 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "upper respiratory tract",
-          "pulmonary edema",
-          "respiratory distress",
           "pulmonary embolism",
           "shortness of breath",
-          "respiratory tract",
-          "wheezing"
+          "pulmonary edema",
+          "respiratory distress",
+          "upper respiratory tract",
+          "wheezing",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary edema",
-            "pulmonary embolism"
+            "pulmonary embolism",
+            "pulmonary edema"
           ],
           "symptoms": [
-            "respiratory distress",
             "shortness of breath",
+            "respiratory distress",
             "wheezing"
           ],
           "diagnostic": [
@@ -5848,10 +5847,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tachypnea",
           "chest x-ray",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "tachypnea",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -5865,8 +5864,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -5888,16 +5887,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bacterial pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "bacterial pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -6068,8 +6067,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
-          "shortness of breath"
+          "shortness of breath",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -6118,8 +6117,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -6204,21 +6203,21 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pulmonary embolism",
           "difficulty breathing",
           "pulmonary edema",
-          "pulmonary embolism",
-          "asthma",
-          "pneumonia"
+          "pneumonia",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary edema",
             "pulmonary embolism",
-            "asthma",
-            "pneumonia"
+            "pulmonary edema",
+            "pneumonia",
+            "asthma"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -6556,16 +6555,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
-          "bronchiectasis"
+          "bronchiectasis",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
-            "bronchiectasis"
+            "bronchiectasis",
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -6738,16 +6737,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -6965,8 +6964,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -7115,16 +7114,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "whooping cough",
-          "pertussis"
+          "pertussis",
+          "whooping cough"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "whooping cough",
-            "pertussis"
+            "pertussis",
+            "whooping cough"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -7150,8 +7149,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "asthma",
-          "emphysema",
-          "trachea"
+          "trachea",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -7444,30 +7443,30 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "respiratory failure",
           "chronic obstructive pulmonary disease",
-          "dyspnea",
-          "asthma",
+          "respiratory failure",
           "fvc",
-          "pneumonia"
+          "dyspnea",
+          "fev1",
+          "pneumonia",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
             "chronic obstructive pulmonary disease",
-            "asthma",
-            "pneumonia"
+            "respiratory failure",
+            "pneumonia",
+            "asthma"
           ],
           "symptoms": [
             "dyspnea"
           ],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -7494,8 +7493,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pulmonary embolism",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -7507,8 +7506,8 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -7532,9 +7531,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -7598,9 +7597,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pulmonary embolism",
-          "pleural",
           "pleural effusion",
-          "difficulty breathing"
+          "difficulty breathing",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -7614,8 +7613,8 @@
           ],
           "diagnostic": [],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -7742,9 +7741,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -8062,12 +8061,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchial",
           "chest x-ray",
-          "pulmonary function test",
-          "chronic cough",
+          "bronchial",
+          "fvc",
           "fev1",
-          "fvc"
+          "chronic cough",
+          "pulmonary function test"
         ],
         "match_type": [
           "keywords"
@@ -8079,9 +8078,9 @@
           ],
           "diagnostic": [
             "chest x-ray",
-            "pulmonary function test",
+            "fvc",
             "fev1",
-            "fvc"
+            "pulmonary function test"
           ],
           "anatomical": [
             "bronchial"
@@ -8127,12 +8126,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchial",
           "chest x-ray",
+          "bronchial",
           "shortness of breath",
           "pleura",
-          "tuberculosis",
-          "thoracentesis"
+          "thoracentesis",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
@@ -8216,16 +8215,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -8318,8 +8317,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pleura",
-          "pneumonia"
+          "pneumonia",
+          "pleura"
         ],
         "match_type": [
           "keywords"
@@ -8392,8 +8391,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveoli",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "alveoli"
         ],
         "match_type": [
           "keywords"
@@ -8504,8 +8503,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "difficulty breathing",
-          "dyspnea"
+          "dyspnea",
+          "difficulty breathing"
         ],
         "match_type": [
           "keywords"
@@ -8513,8 +8512,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "difficulty breathing",
-            "dyspnea"
+            "dyspnea",
+            "difficulty breathing"
           ],
           "diagnostic": [
             "chest x-ray"
@@ -8680,8 +8679,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "hypoxia",
           "chest x-ray",
+          "hypoxia",
           "upper respiratory tract",
           "respiratory tract"
         ],
@@ -8722,8 +8721,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
           "chest x-ray",
+          "alveolar",
           "pulmonary edema"
         ],
         "match_type": [
@@ -8808,8 +8807,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -8817,8 +8816,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -9182,8 +9181,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "chest x-ray"
+          "chest x-ray",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -9427,19 +9426,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "alveolar",
+          "pneumonia",
           "bacterial pneumonia",
-          "pneumonia"
+          "alveolar",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
+            "pneumonia",
             "bacterial pneumonia",
-            "pneumonia"
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -9665,16 +9664,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "pneumonia"
+          "pneumonia",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pneumonia"
+            "pneumonia",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -10061,19 +10060,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "chest x-ray",
-          "emphysema",
           "bronchiectasis",
-          "pneumonia"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
+            "pneumonia",
             "bronchiectasis",
-            "pneumonia"
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -10155,18 +10154,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
+          "pneumonia",
           "aspiration pneumonia",
-          "pneumonia"
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
+            "pneumonia",
             "aspiration pneumonia",
-            "pneumonia"
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -10288,16 +10287,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -10324,8 +10323,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tachypnea",
-          "respiratory distress"
+          "respiratory distress",
+          "tachypnea"
         ],
         "match_type": [
           "keywords"
@@ -10333,8 +10332,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "tachypnea",
-            "respiratory distress"
+            "respiratory distress",
+            "tachypnea"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -10398,10 +10397,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "bronchi",
+          "alveoli",
           "bronchioles",
           "bronchus",
-          "alveoli",
-          "bronchi",
           "asthma"
         ],
         "match_type": [
@@ -10414,10 +10413,10 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "bronchioles",
-            "bronchus",
+            "bronchi",
             "alveoli",
-            "bronchi"
+            "bronchioles",
+            "bronchus"
           ]
         }
       }
@@ -10478,16 +10477,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -10522,8 +10521,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pulmonary embolism",
-          "shortness of breath",
-          "wheezing"
+          "wheezing",
+          "shortness of breath"
         ],
         "match_type": [
           "keywords"
@@ -10533,8 +10532,8 @@
             "pulmonary embolism"
           ],
           "symptoms": [
-            "shortness of breath",
-            "wheezing"
+            "wheezing",
+            "shortness of breath"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -10639,10 +10638,10 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest tube",
-          "bronchoscopy",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "pneumonia",
+          "bronchoscopy",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -10740,8 +10739,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -10821,8 +10820,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "oxygen saturation"
+          "oxygen saturation",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -11066,8 +11065,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pulmonary fibrosis",
           "pulmonary embolism",
+          "pulmonary fibrosis",
           "hemoptysis",
           "bronchiectasis"
         ],
@@ -11076,8 +11075,8 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary fibrosis",
             "pulmonary embolism",
+            "pulmonary fibrosis",
             "bronchiectasis"
           ],
           "symptoms": [
@@ -11323,8 +11322,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
           "alveoli",
+          "alveolar",
           "pulmonary edema"
         ],
         "match_type": [
@@ -11337,8 +11336,8 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "alveolar",
-            "alveoli"
+            "alveoli",
+            "alveolar"
           ]
         }
       }
@@ -11640,21 +11639,21 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "persistent cough",
-          "bronchiolitis",
-          "upper respiratory tract",
           "bronchitis",
-          "respiratory tract",
+          "bronchiolitis",
+          "persistent cough",
+          "upper respiratory tract",
           "wheezing",
-          "asthma"
+          "asthma",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiolitis",
             "bronchitis",
+            "bronchiolitis",
             "asthma"
           ],
           "symptoms": [
@@ -11688,18 +11687,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory syncytial virus",
+          "pneumonia",
           "asthma",
-          "pneumonia"
+          "respiratory syncytial virus"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory syncytial virus",
+            "pneumonia",
             "asthma",
-            "pneumonia"
+            "respiratory syncytial virus"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -11828,13 +11827,13 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic cough",
-          "fev1",
           "chronic obstructive pulmonary disease",
-          "dyspnea",
-          "asthma",
+          "copd",
           "fvc",
+          "dyspnea",
+          "fev1",
+          "chronic cough",
+          "asthma",
           "bronchiectasis"
         ],
         "match_type": [
@@ -11842,18 +11841,18 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
             "chronic obstructive pulmonary disease",
+            "copd",
             "asthma",
             "bronchiectasis"
           ],
           "symptoms": [
-            "chronic cough",
-            "dyspnea"
+            "dyspnea",
+            "chronic cough"
           ],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -12378,10 +12377,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "stridor",
           "bronchoscopy",
-          "tracheal"
+          "tracheal",
+          "asthma",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -12591,8 +12590,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -12600,8 +12599,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -12682,8 +12681,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
-          "emphysema"
+          "emphysema",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -12721,18 +12720,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
+          "pneumonia",
           "bronchiectasis",
-          "pneumonia"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
+            "pneumonia",
             "bronchiectasis",
-            "pneumonia"
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -12818,12 +12817,12 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "sarcoidosis",
-          "fev1",
           "alveolar",
           "pulmonary fibrosis",
-          "dlco",
+          "fvc",
+          "fev1",
           "diffusing capacity",
-          "fvc"
+          "dlco"
         ],
         "match_type": [
           "keywords"
@@ -12835,10 +12834,10 @@
           ],
           "symptoms": [],
           "diagnostic": [
+            "fvc",
             "fev1",
-            "dlco",
             "diffusing capacity",
-            "fvc"
+            "dlco"
           ],
           "anatomical": [
             "alveolar"
@@ -12930,20 +12929,20 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest tube",
-          "pulmonary edema",
-          "pleural effusion",
           "pulmonary embolism",
-          "pleural",
-          "dyspnea"
+          "pleural effusion",
+          "pulmonary edema",
+          "dyspnea",
+          "chest tube",
+          "pleural"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary edema",
-            "pulmonary embolism"
+            "pulmonary embolism",
+            "pulmonary edema"
           ],
           "symptoms": [
             "dyspnea"
@@ -12976,16 +12975,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -13205,19 +13204,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pneumonia",
+          "bacterial pneumonia",
           "pleural effusion",
           "pleura",
-          "pleural",
-          "bacterial pneumonia"
+          "pneumonia",
+          "pleural"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pneumonia",
-            "bacterial pneumonia"
+            "bacterial pneumonia",
+            "pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -13251,16 +13250,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "pneumonia"
+          "pneumonia",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pneumonia"
+            "pneumonia",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -13642,8 +13641,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chest x-ray"
+          "chest x-ray",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -13755,8 +13754,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "pulmonary function test"
+          "pulmonary function test",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -13765,8 +13764,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "pulmonary function test"
+            "pulmonary function test",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -13893,16 +13892,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "pneumonia"
+          "pneumonia",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pneumonia"
+            "pneumonia",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -14050,17 +14049,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
+          "wheezing",
           "bronchitis",
-          "wheezing"
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "bronchitis"
+            "bronchitis",
+            "asthma"
           ],
           "symptoms": [
             "wheezing"
@@ -14127,17 +14126,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "alveolar",
-          "tuberculosis",
-          "pneumonia"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pneumonia"
+            "pneumonia",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -14163,9 +14162,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchioles",
-          "alveoli",
           "bronchus",
+          "alveoli",
+          "bronchioles",
           "emphysema"
         ],
         "match_type": [
@@ -14178,9 +14177,9 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "bronchioles",
+            "bronchus",
             "alveoli",
-            "bronchus"
+            "bronchioles"
           ]
         }
       }
@@ -14263,17 +14262,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "shortness of breath",
-          "bronchiectasis",
-          "pneumonia"
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiectasis",
-            "pneumonia"
+            "pneumonia",
+            "bronchiectasis"
           ],
           "symptoms": [
             "shortness of breath"
@@ -14303,16 +14302,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -14385,9 +14384,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
           "shortness of breath",
-          "productive cough"
+          "productive cough",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -14638,10 +14637,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "asthma",
           "fvc",
-          "fev1/fvc"
+          "asthma",
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -14652,9 +14651,9 @@
           ],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -14723,10 +14722,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
+          "pneumonia",
           "pleura",
-          "dyspnea",
-          "pneumonia"
+          "chest x-ray",
+          "dyspnea"
         ],
         "match_type": [
           "keywords"
@@ -15110,17 +15109,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
           "chronic obstructive pulmonary disease",
-          "respiratory distress"
+          "respiratory distress",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [
             "respiratory distress"
@@ -15231,8 +15230,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pneumonia",
-          "tuberculosis",
-          "chronic cough"
+          "chronic cough",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
@@ -15390,8 +15389,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "hypoxemia",
+          "asthma",
           "dyspnea"
         ],
         "match_type": [
@@ -15502,16 +15501,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -15733,10 +15732,10 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "copd",
-          "emphysema",
-          "productive cough",
           "dyspnea",
           "rapid breathing",
+          "productive cough",
+          "emphysema",
           "pneumonia"
         ],
         "match_type": [
@@ -15749,9 +15748,9 @@
             "pneumonia"
           ],
           "symptoms": [
-            "productive cough",
             "dyspnea",
-            "rapid breathing"
+            "rapid breathing",
+            "productive cough"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -15840,9 +15839,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
+          "aspiration pneumonia",
           "arterial blood gas",
           "acute respiratory distress syndrome",
-          "aspiration pneumonia",
           "respiratory distress",
           "pneumonia"
         ],
@@ -15851,8 +15850,8 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "acute respiratory distress syndrome",
             "aspiration pneumonia",
+            "acute respiratory distress syndrome",
             "pneumonia"
           ],
           "symptoms": [
@@ -15914,8 +15913,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "chest x-ray"
+          "chest x-ray",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -16096,8 +16095,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "dyspnea",
-          "oxygen saturation"
+          "oxygen saturation",
+          "dyspnea"
         ],
         "match_type": [
           "keywords"
@@ -16285,17 +16284,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
+          "pneumonia",
           "shortness of breath",
-          "pneumonia"
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
-            "pneumonia"
+            "pneumonia",
+            "respiratory failure"
           ],
           "symptoms": [
             "shortness of breath"
@@ -16364,8 +16363,8 @@
         "matched_keywords": [
           "hemoptysis",
           "pulmonary embolism",
-          "shortness of breath",
-          "dyspnea"
+          "dyspnea",
+          "shortness of breath"
         ],
         "match_type": [
           "keywords"
@@ -16376,8 +16375,8 @@
           ],
           "symptoms": [
             "hemoptysis",
-            "shortness of breath",
-            "dyspnea"
+            "dyspnea",
+            "shortness of breath"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -16402,8 +16401,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory tract",
-          "chronic cough"
+          "chronic cough",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -16440,8 +16439,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "hypoxia"
+          "hypoxia",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -16477,16 +16476,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -16513,8 +16512,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "pulmonary fibrosis"
+          "pulmonary fibrosis",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -16759,16 +16758,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -16843,10 +16842,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
+          "pneumonia",
           "bronchoscopy",
           "dyspnea",
-          "pneumonia"
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -16859,8 +16858,8 @@
             "dyspnea"
           ],
           "diagnostic": [
-            "chest x-ray",
-            "bronchoscopy"
+            "bronchoscopy",
+            "chest x-ray"
           ],
           "anatomical": []
         }
@@ -16914,18 +16913,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
+          "pneumonia",
           "bacterial pneumonia",
           "dyspnea",
-          "pneumonia"
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [
             "dyspnea"
@@ -17066,19 +17065,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
+          "dlco",
           "bronchitis",
           "emphysema",
-          "dlco"
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
             "bronchitis",
-            "emphysema"
+            "emphysema",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -17272,8 +17271,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "hemoptysis",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -17285,8 +17284,8 @@
           ],
           "diagnostic": [],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -17360,8 +17359,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
-          "trachea"
+          "trachea",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -17570,10 +17569,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
+          "emphysema",
           "alveolar",
           "fvc",
-          "emphysema"
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -17584,8 +17583,8 @@
           ],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": [
             "alveolar"
@@ -17613,8 +17612,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
-          "respiratory distress"
+          "respiratory distress",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -17709,8 +17708,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "spo2",
           "hypoxia",
+          "spo2",
           "pulse oximetry"
         ],
         "match_type": [
@@ -17821,19 +17820,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
-          "bronchitis",
           "respiratory distress",
-          "ards"
+          "ards",
+          "bronchitis",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
+            "ards",
             "bronchitis",
-            "ards"
+            "emphysema"
           ],
           "symptoms": [
             "respiratory distress"
@@ -17867,8 +17866,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "hypoxemia",
-          "pulmonary embolism"
+          "pulmonary embolism",
+          "hypoxemia"
         ],
         "match_type": [
           "keywords"
@@ -17904,8 +17903,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
-          "bronchiectasis"
+          "bronchiectasis",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -18115,16 +18114,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "copd"
+          "copd",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "copd"
+            "copd",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -18330,9 +18329,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
+          "pleural effusion",
           "difficulty breathing",
-          "pleural",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -18346,8 +18345,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -18379,8 +18378,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -18463,11 +18462,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "upper respiratory tract",
           "bronchiolitis",
-          "respiratory tract",
+          "upper respiratory tract",
           "wheezing",
-          "asthma"
+          "asthma",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -18603,8 +18602,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
+          "asthma",
           "bronchiectasis"
         ],
         "match_type": [
@@ -18695,17 +18694,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "shortness of breath",
+          "pneumonia",
           "bacterial pneumonia",
-          "pneumonia"
+          "shortness of breath"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [
             "shortness of breath"
@@ -18915,9 +18914,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chronic obstructive pulmonary disease",
+          "pleural effusion",
           "pleura",
-          "pleural",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -18929,9 +18928,9 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
+            "pleural effusion",
             "pleura",
-            "pleural",
-            "pleural effusion"
+            "pleural"
           ]
         }
       }
@@ -18964,9 +18963,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary embolism",
-          "bacterial pneumonia",
           "pneumonia",
+          "bacterial pneumonia",
+          "pulmonary embolism",
           "difficulty breathing"
         ],
         "match_type": [
@@ -18974,9 +18973,9 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary embolism",
+            "pneumonia",
             "bacterial pneumonia",
-            "pneumonia"
+            "pulmonary embolism"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -19026,9 +19025,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -19079,9 +19078,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
+          "wheezing",
           "dyspnea",
-          "wheezing"
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -19089,9 +19088,9 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
+            "wheezing",
             "dyspnea",
-            "wheezing"
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -19191,16 +19190,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -19271,8 +19270,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
-          "pneumonia"
+          "pneumonia",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -19374,16 +19373,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "atypical pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "atypical pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "atypical pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "atypical pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -19667,30 +19666,30 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
           "chest x-ray",
-          "chronic cough",
+          "arterial blood gas",
           "dyspnea",
-          "asthma",
           "rapid breathing",
-          "pneumonia"
+          "pneumonia",
+          "chronic cough",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "pneumonia"
+            "pneumonia",
+            "asthma"
           ],
           "symptoms": [
-            "chronic cough",
             "dyspnea",
-            "rapid breathing"
+            "rapid breathing",
+            "chronic cough"
           ],
           "diagnostic": [
-            "arterial blood gas",
-            "chest x-ray"
+            "chest x-ray",
+            "arterial blood gas"
           ],
           "anatomical": []
         }
@@ -19962,9 +19961,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pleural",
+          "pleural effusion",
           "dyspnea",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -19978,8 +19977,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -20081,8 +20080,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
-          "pneumonia"
+          "pneumonia",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -20128,9 +20127,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pneumonia",
           "aspiration pneumonia",
           "dyspnea",
+          "pneumonia",
           "bronchiectasis"
         ],
         "match_type": [
@@ -20138,8 +20137,8 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "pneumonia",
             "aspiration pneumonia",
+            "pneumonia",
             "bronchiectasis"
           ],
           "symptoms": [
@@ -20218,16 +20217,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "copd"
+          "copd",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "copd"
+            "copd",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -20380,8 +20379,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -20545,8 +20544,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -20554,8 +20553,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -20629,22 +20628,22 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tachypnea",
-          "respiratory distress",
+          "pneumonia",
           "bacterial pneumonia",
-          "pneumonia"
+          "respiratory distress",
+          "tachypnea"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [
-            "tachypnea",
-            "respiratory distress"
+            "respiratory distress",
+            "tachypnea"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -20708,8 +20707,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -21245,9 +21244,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
+          "wheezing",
           "bronchoscopy",
-          "wheezing"
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -21258,8 +21257,8 @@
             "wheezing"
           ],
           "diagnostic": [
-            "chest x-ray",
-            "bronchoscopy"
+            "bronchoscopy",
+            "chest x-ray"
           ],
           "anatomical": []
         }
@@ -21335,8 +21334,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "interstitial lung disease",
-          "emphysema",
-          "pulmonary fibrosis"
+          "pulmonary fibrosis",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -21344,8 +21343,8 @@
         "keyword_categories": {
           "diseases": [
             "interstitial lung disease",
-            "emphysema",
-            "pulmonary fibrosis"
+            "pulmonary fibrosis",
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -21549,11 +21548,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chronic cough",
-          "bronchoscopy",
           "tracheal",
           "trachea",
-          "asthma"
+          "chronic cough",
+          "asthma",
+          "bronchoscopy"
         ],
         "match_type": [
           "keywords"
@@ -21808,17 +21807,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
           "chest x-ray",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -21900,8 +21899,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "spo2",
-          "asthma",
-          "pulse oximetry"
+          "pulse oximetry",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -21939,16 +21938,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary fibrosis",
-          "pneumonia"
+          "pneumonia",
+          "pulmonary fibrosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary fibrosis",
-            "pneumonia"
+            "pneumonia",
+            "pulmonary fibrosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -22156,8 +22155,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
-          "pneumonia"
+          "pneumonia",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -22419,10 +22418,10 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pleural effusion",
+          "mesothelioma",
           "pleura",
-          "pleural",
           "dyspnea",
-          "mesothelioma"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -22510,8 +22509,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tachypnea",
-          "respiratory distress"
+          "respiratory distress",
+          "tachypnea"
         ],
         "match_type": [
           "keywords"
@@ -22519,8 +22518,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "tachypnea",
-            "respiratory distress"
+            "respiratory distress",
+            "tachypnea"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -22552,9 +22551,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "emphysema",
-          "tuberculosis",
           "dyspnea",
+          "tuberculosis",
+          "emphysema",
           "asthma",
           "bronchiectasis"
         ],
@@ -22563,8 +22562,8 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
             "tuberculosis",
+            "emphysema",
             "asthma",
             "bronchiectasis"
           ],
@@ -22819,8 +22818,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "pulmonary function test"
+          "pulmonary function test",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -22829,8 +22828,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "pulmonary function test"
+            "pulmonary function test",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -22910,22 +22909,22 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
+          "chronic obstructive pulmonary disease",
           "hypoxemia",
           "respiratory failure",
-          "chronic obstructive pulmonary disease",
-          "asthma",
-          "pneumonia"
+          "arterial blood gas",
+          "pneumonia",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
             "chronic obstructive pulmonary disease",
-            "asthma",
-            "pneumonia"
+            "respiratory failure",
+            "pneumonia",
+            "asthma"
           ],
           "symptoms": [
             "hypoxemia"
@@ -22978,10 +22977,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "asthma",
           "chronic cough",
-          "wheezing"
+          "wheezing",
+          "asthma",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -23085,8 +23084,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "shortness of breath"
+          "shortness of breath",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
@@ -23129,18 +23128,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "pulmonary embolism",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
             "pulmonary embolism",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -23533,9 +23532,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "bronchial",
-          "pleural",
+          "pleural effusion",
           "dyspnea",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -23548,8 +23547,8 @@
           "diagnostic": [],
           "anatomical": [
             "bronchial",
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -23611,8 +23610,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
+          "asthma",
           "respiratory tract"
         ],
         "match_type": [
@@ -23672,12 +23671,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
           "chest x-ray",
-          "fev1",
-          "dyspnea",
+          "copd",
           "fvc",
-          "emphysema"
+          "dyspnea",
+          "emphysema",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -23692,8 +23691,8 @@
           ],
           "diagnostic": [
             "chest x-ray",
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -23738,9 +23737,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "chest x-ray",
-          "rapid breathing",
-          "pneumonia"
+          "rapid breathing"
         ],
         "match_type": [
           "keywords"
@@ -23819,8 +23818,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "tracheal"
+          "tracheal",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -23995,8 +23994,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -24075,8 +24074,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "tracheal"
+          "tracheal",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -24154,19 +24153,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pulmonary embolism",
           "chest x-ray",
-          "tuberculosis",
-          "pneumonia"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "pulmonary embolism",
-            "tuberculosis",
-            "pneumonia"
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -24277,8 +24276,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -24336,10 +24335,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
+          "pneumonia",
           "shortness of breath",
-          "sputum culture",
-          "pneumonia"
+          "chest x-ray",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -24607,16 +24606,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "whooping cough",
-          "pertussis"
+          "pertussis",
+          "whooping cough"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "whooping cough",
-            "pertussis"
+            "pertussis",
+            "whooping cough"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -24643,20 +24642,20 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
+          "chronic obstructive pulmonary disease",
           "hypoxemia",
-          "respiratory failure",
           "pulmonary fibrosis",
-          "chronic obstructive pulmonary disease"
+          "respiratory failure",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
+            "chronic obstructive pulmonary disease",
             "pulmonary fibrosis",
-            "chronic obstructive pulmonary disease"
+            "respiratory failure"
           ],
           "symptoms": [
             "hypoxemia"
@@ -24724,16 +24723,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -24846,8 +24845,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pleural",
-          "respiratory distress"
+          "respiratory distress",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -25056,8 +25055,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary embolism",
           "chest x-ray",
+          "pulmonary embolism",
           "shortness of breath",
           "pleural"
         ],
@@ -25098,8 +25097,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory tract",
-          "wheezing"
+          "wheezing",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -25617,11 +25616,11 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "difficulty breathing",
-          "fev1",
           "alveolar",
+          "fvc",
+          "difficulty breathing",
           "dyspnea",
-          "fvc"
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -25634,8 +25633,8 @@
           ],
           "diagnostic": [
             "chest x-ray",
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": [
             "alveolar"
@@ -25722,8 +25721,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchioles",
-          "chest x-ray"
+          "chest x-ray",
+          "bronchioles"
         ],
         "match_type": [
           "keywords"
@@ -25825,16 +25824,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -25908,9 +25907,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
           "respiratory distress",
-          "ards"
+          "ards",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -25949,8 +25948,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest tube",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -25962,8 +25961,8 @@
             "chest tube"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -25991,18 +25990,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "asthma",
-          "tuberculosis",
-          "pneumonia"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "asthma",
-            "tuberculosis",
-            "pneumonia"
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -26034,9 +26033,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "shortness of breath",
-          "fvc"
+          "fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -26047,8 +26046,8 @@
             "shortness of breath"
           ],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -26229,9 +26228,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "bronchial",
-          "alveolar",
-          "pneumonia"
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -26318,8 +26317,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "bronchoscopy",
-          "chronic cough"
+          "chronic cough",
+          "bronchoscopy"
         ],
         "match_type": [
           "keywords"
@@ -26437,9 +26436,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "alveolar",
-          "pleural",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -26537,18 +26536,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
+          "pneumonia",
           "aspiration pneumonia",
-          "pneumonia"
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
+            "pneumonia",
             "aspiration pneumonia",
-            "pneumonia"
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -26649,25 +26648,25 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chronic cough",
+          "ards",
+          "hemoptysis",
           "dyspnea",
           "trachea",
-          "hemoptysis",
-          "bronchiectasis",
-          "ards"
+          "chronic cough",
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiectasis",
-            "ards"
+            "ards",
+            "bronchiectasis"
           ],
           "symptoms": [
-            "chronic cough",
+            "hemoptysis",
             "dyspnea",
-            "hemoptysis"
+            "chronic cough"
           ],
           "diagnostic": [],
           "anatomical": [
@@ -26778,9 +26777,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "stridor",
           "shortness of breath",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -26788,9 +26787,9 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
             "shortness of breath",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [
             "chest x-ray"
@@ -26921,8 +26920,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -26976,9 +26975,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "hypoxia",
-          "respiratory distress",
-          "pneumonia"
+          "respiratory distress"
         ],
         "match_type": [
           "keywords"
@@ -27062,9 +27061,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
           "hypoxia",
           "pleura",
+          "alveolar",
           "pleural"
         ],
         "match_type": [
@@ -27077,8 +27076,8 @@
           ],
           "diagnostic": [],
           "anatomical": [
-            "alveolar",
             "pleura",
+            "alveolar",
             "pleural"
           ]
         }
@@ -27190,8 +27189,8 @@
         "matched_keywords": [
           "chest x-ray",
           "pulmonary embolism",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -27205,8 +27204,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -27234,9 +27233,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pulmonary embolism",
+          "chronic cough",
           "pulmonary edema",
-          "bronchiectasis",
-          "chronic cough"
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
@@ -27337,9 +27336,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest tube",
+          "pleural effusion",
           "shortness of breath",
-          "pleural",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -27353,8 +27352,8 @@
             "chest tube"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -27377,18 +27376,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
+          "pulmonary fibrosis",
           "pulmonary edema",
-          "pulmonary fibrosis"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
+            "pulmonary fibrosis",
             "pulmonary edema",
-            "pulmonary fibrosis"
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -28189,10 +28188,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
+          "wheezing",
           "chronic obstructive pulmonary disease",
           "respiratory distress",
-          "wheezing"
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -28202,8 +28201,8 @@
             "chronic obstructive pulmonary disease"
           ],
           "symptoms": [
-            "respiratory distress",
-            "wheezing"
+            "wheezing",
+            "respiratory distress"
           ],
           "diagnostic": [
             "arterial blood gas"
@@ -28241,16 +28240,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "pneumonia"
+          "pneumonia",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
-            "pneumonia"
+            "pneumonia",
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -28738,9 +28737,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "diffusing capacity",
+          "dlco",
           "interstitial lung disease",
-          "emphysema",
-          "dlco"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -28781,16 +28780,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bacterial pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "bacterial pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -28827,16 +28826,16 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "bronchiectasis",
-          "pulmonary fibrosis"
+          "pulmonary fibrosis",
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiectasis",
-            "pulmonary fibrosis"
+            "pulmonary fibrosis",
+            "bronchiectasis"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -28921,8 +28920,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -28934,8 +28933,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -28958,17 +28957,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "aspiration pneumonia",
-          "tracheal",
-          "pneumonia"
+          "tracheal"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29001,9 +29000,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "respiratory distress",
-          "difficulty breathing",
-          "pneumonia"
+          "difficulty breathing"
         ],
         "match_type": [
           "keywords"
@@ -29050,18 +29049,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "asthma",
-          "emphysema",
-          "pneumonia"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "asthma",
-            "emphysema",
-            "pneumonia"
+            "emphysema"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29120,16 +29119,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bacterial pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "bacterial pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29392,13 +29391,13 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "difficulty breathing",
-          "fev1",
           "pulmonary fibrosis",
-          "dlco",
-          "asthma",
           "fvc",
-          "emphysema"
+          "difficulty breathing",
+          "emphysema",
+          "fev1",
+          "dlco",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -29406,16 +29405,16 @@
         "keyword_categories": {
           "diseases": [
             "pulmonary fibrosis",
-            "asthma",
-            "emphysema"
+            "emphysema",
+            "asthma"
           ],
           "symptoms": [
             "difficulty breathing"
           ],
           "diagnostic": [
+            "fvc",
             "fev1",
-            "dlco",
-            "fvc"
+            "dlco"
           ],
           "anatomical": []
         }
@@ -29492,18 +29491,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory syncytial virus",
+          "pneumonia",
           "upper respiratory tract",
           "respiratory tract",
-          "pneumonia"
+          "respiratory syncytial virus"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory syncytial virus",
-            "pneumonia"
+            "pneumonia",
+            "respiratory syncytial virus"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29574,16 +29573,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchiectasis",
-          "pneumonia"
+          "pneumonia",
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiectasis",
-            "pneumonia"
+            "pneumonia",
+            "bronchiectasis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29647,16 +29646,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -29870,8 +29869,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest tube",
-          "chest x-ray",
           "bronchoscopy",
+          "chest x-ray",
           "bronchus"
         ],
         "match_type": [
@@ -29882,8 +29881,8 @@
           "symptoms": [],
           "diagnostic": [
             "chest tube",
-            "chest x-ray",
-            "bronchoscopy"
+            "bronchoscopy",
+            "chest x-ray"
           ],
           "anatomical": [
             "bronchus"
@@ -29922,18 +29921,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "emphysema",
-          "pleura",
           "pneumonia",
-          "difficulty breathing"
+          "pleura",
+          "difficulty breathing",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
-            "pneumonia"
+            "pneumonia",
+            "emphysema"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -30038,20 +30037,20 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
-          "respiratory failure",
-          "shortness of breath",
           "chronic obstructive pulmonary disease",
-          "wheezing",
-          "pneumonia"
+          "shortness of breath",
+          "respiratory failure",
+          "arterial blood gas",
+          "pneumonia",
+          "wheezing"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
             "chronic obstructive pulmonary disease",
+            "respiratory failure",
             "pneumonia"
           ],
           "symptoms": [
@@ -30083,8 +30082,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "pneumonia"
+          "pneumonia",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -30332,8 +30331,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "wheezing"
+          "wheezing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -30341,8 +30340,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -30469,8 +30468,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "hemoptysis",
-          "chest x-ray",
-          "chronic cough"
+          "chronic cough",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -30688,9 +30687,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
           "dyspnea",
-          "bronchitis"
+          "bronchitis",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -30700,8 +30699,8 @@
             "bronchitis"
           ],
           "symptoms": [
-            "stridor",
-            "dyspnea"
+            "dyspnea",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -30880,8 +30879,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "upper respiratory tract",
+          "asthma",
           "respiratory tract"
         ],
         "match_type": [
@@ -31111,10 +31110,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
           "emphysema",
-          "pleural",
-          "trachea"
+          "alveolar",
+          "trachea",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -31127,8 +31126,8 @@
           "diagnostic": [],
           "anatomical": [
             "alveolar",
-            "pleural",
-            "trachea"
+            "trachea",
+            "pleural"
           ]
         }
       }
@@ -31170,8 +31169,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -31794,18 +31793,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "abg",
+          "pneumonia",
           "respiratory distress",
           "acute respiratory distress syndrome",
-          "pneumonia"
+          "abg"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "acute respiratory distress syndrome",
-            "pneumonia"
+            "pneumonia",
+            "acute respiratory distress syndrome"
           ],
           "symptoms": [
             "respiratory distress"
@@ -31916,8 +31915,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -31929,8 +31928,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -32220,16 +32219,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "pertussis"
+          "pertussis",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pertussis"
+            "pertussis",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -32256,9 +32255,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -32558,8 +32557,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -32763,18 +32762,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "chronic obstructive pulmonary disease",
-          "copd"
+          "copd",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
             "chronic obstructive pulmonary disease",
-            "copd"
+            "copd",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -33269,8 +33268,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "hypoxia",
-          "respiratory tract",
-          "oxygen saturation"
+          "oxygen saturation",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -33323,11 +33322,11 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "bronchial",
-          "pulmonary edema",
           "pleural effusion",
           "shortness of breath",
-          "pleural",
-          "pneumonia"
+          "pulmonary edema",
+          "pneumonia",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -33519,12 +33518,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchial",
           "chest x-ray",
           "bronchus",
-          "stridor",
+          "bronchial",
+          "pneumonia",
           "wheezing",
-          "pneumonia"
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -33534,15 +33533,15 @@
             "pneumonia"
           ],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [
             "chest x-ray"
           ],
           "anatomical": [
-            "bronchial",
-            "bronchus"
+            "bronchus",
+            "bronchial"
           ]
         }
       }
@@ -33631,10 +33630,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "wheeze",
           "pneumonia",
-          "wheezing"
+          "wheezing",
+          "chest x-ray",
+          "wheeze"
         ],
         "match_type": [
           "keywords"
@@ -33644,8 +33643,8 @@
             "pneumonia"
           ],
           "symptoms": [
-            "wheeze",
-            "wheezing"
+            "wheezing",
+            "wheeze"
           ],
           "diagnostic": [
             "chest x-ray"
@@ -33798,10 +33797,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "abg",
+          "respiratory distress",
           "respiratory failure",
-          "emphysema",
-          "respiratory distress"
+          "abg",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -33925,8 +33924,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "difficulty breathing",
-          "dyspnea"
+          "dyspnea",
+          "difficulty breathing"
         ],
         "match_type": [
           "keywords"
@@ -33934,8 +33933,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "difficulty breathing",
-            "dyspnea"
+            "dyspnea",
+            "difficulty breathing"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -34085,8 +34084,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "respiratory distress"
+          "respiratory distress",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -34120,9 +34119,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pulmonary embolism",
           "sarcoidosis",
           "pleural effusion",
-          "pulmonary embolism",
           "tuberculosis",
           "pleural"
         ],
@@ -34131,8 +34130,8 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "sarcoidosis",
             "pulmonary embolism",
+            "sarcoidosis",
             "tuberculosis"
           ],
           "symptoms": [],
@@ -34162,8 +34161,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -34206,8 +34205,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "asthma"
+          "asthma",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -34415,16 +34414,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchiectasis",
-          "cystic fibrosis"
+          "cystic fibrosis",
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bronchiectasis",
-            "cystic fibrosis"
+            "cystic fibrosis",
+            "bronchiectasis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -34472,8 +34471,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
-          "oxygen saturation"
+          "oxygen saturation",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -34483,8 +34482,8 @@
           "symptoms": [],
           "diagnostic": [
             "chest x-ray",
-            "arterial blood gas",
-            "oxygen saturation"
+            "oxygen saturation",
+            "arterial blood gas"
           ],
           "anatomical": []
         }
@@ -34593,16 +34592,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -34708,8 +34707,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "fvc"
+          "fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -34718,8 +34717,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -35125,8 +35124,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory tract",
-          "pneumonia"
+          "pneumonia",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -35174,12 +35173,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest tube",
           "chest x-ray",
-          "respiratory tract",
           "tracheal",
           "trachea",
-          "asthma"
+          "chest tube",
+          "asthma",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -35190,13 +35189,13 @@
           ],
           "symptoms": [],
           "diagnostic": [
-            "chest tube",
-            "chest x-ray"
+            "chest x-ray",
+            "chest tube"
           ],
           "anatomical": [
-            "respiratory tract",
             "tracheal",
-            "trachea"
+            "trachea",
+            "respiratory tract"
           ]
         }
       }
@@ -35219,10 +35218,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
           "acute respiratory distress syndrome",
           "respiratory distress",
-          "ards"
+          "ards",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -35404,8 +35403,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "pulmonary embolism",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -35417,8 +35416,8 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -35572,10 +35571,10 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "wheeze",
-          "fev1",
           "chronic obstructive pulmonary disease",
-          "fvc"
+          "fvc",
+          "fev1",
+          "wheeze"
         ],
         "match_type": [
           "keywords"
@@ -35589,8 +35588,8 @@
           ],
           "diagnostic": [
             "chest x-ray",
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -35615,10 +35614,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "stridor",
-          "difficulty breathing",
+          "wheezing",
           "dyspnea",
-          "wheezing"
+          "difficulty breathing",
+          "stridor"
         ],
         "match_type": [
           "keywords"
@@ -35626,10 +35625,10 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "stridor",
-            "difficulty breathing",
+            "wheezing",
             "dyspnea",
-            "wheezing"
+            "difficulty breathing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -36101,8 +36100,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -36159,10 +36158,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
+          "wheezing",
           "chronic obstructive pulmonary disease",
           "respiratory distress",
-          "wheezing"
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -36172,8 +36171,8 @@
             "chronic obstructive pulmonary disease"
           ],
           "symptoms": [
-            "respiratory distress",
-            "wheezing"
+            "wheezing",
+            "respiratory distress"
           ],
           "diagnostic": [
             "arterial blood gas"
@@ -36272,16 +36271,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "sarcoidosis"
+          "sarcoidosis",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "sarcoidosis"
+            "sarcoidosis",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -36376,8 +36375,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "oxygen saturation"
+          "oxygen saturation",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -36485,10 +36484,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pleural effusion",
           "pleura",
           "tuberculosis",
-          "pleural",
-          "pleural effusion"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -36500,9 +36499,9 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
+            "pleural effusion",
             "pleura",
-            "pleural",
-            "pleural effusion"
+            "pleural"
           ]
         }
       }
@@ -36564,8 +36563,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -36633,8 +36632,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pleura",
-          "pneumonia"
+          "pneumonia",
+          "pleura"
         ],
         "match_type": [
           "keywords"
@@ -36819,9 +36818,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "diffusing capacity",
-          "shortness of breath",
           "pulmonary fibrosis",
-          "mesothelioma"
+          "mesothelioma",
+          "shortness of breath"
         ],
         "match_type": [
           "keywords"
@@ -36900,16 +36899,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -37004,16 +37003,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "atypical pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "atypical pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "atypical pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "atypical pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -37184,8 +37183,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchial",
           "chest x-ray",
+          "bronchial",
           "bronchoscopy",
           "bronchiectasis"
         ],
@@ -37238,18 +37237,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "alveolar",
           "chest x-ray",
-          "pulmonary edema",
-          "pneumonia"
+          "pulmonary edema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary edema",
-            "pneumonia"
+            "pneumonia",
+            "pulmonary edema"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -37372,8 +37371,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
+          "asthma",
           "bronchiolitis",
           "emphysema"
         ],
@@ -37451,9 +37450,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
+          "hypoxia",
           "copd",
-          "hypoxia"
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -37517,9 +37516,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "wheezing",
           "tuberculosis",
-          "bronchiectasis",
-          "wheezing"
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
@@ -37598,8 +37597,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -37671,12 +37670,12 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchial",
-          "emphysema",
-          "cystic fibrosis",
           "alveolar",
           "bronchitis",
+          "cystic fibrosis",
+          "bronchial",
           "tuberculosis",
+          "emphysema",
           "bronchiectasis"
         ],
         "match_type": [
@@ -37684,17 +37683,17 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "emphysema",
-            "cystic fibrosis",
             "bronchitis",
+            "cystic fibrosis",
             "tuberculosis",
+            "emphysema",
             "bronchiectasis"
           ],
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "bronchial",
-            "alveolar"
+            "alveolar",
+            "bronchial"
           ]
         }
       }
@@ -37773,10 +37772,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
+          "wheezing",
           "bronchoscopy",
-          "pulmonary edema",
-          "wheezing"
+          "asthma",
+          "pulmonary edema"
         ],
         "match_type": [
           "keywords"
@@ -37816,8 +37815,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchioles",
           "alveolar",
+          "bronchioles",
           "bronchus",
           "trachea",
           "emphysema"
@@ -37832,8 +37831,8 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "bronchioles",
             "alveolar",
+            "bronchioles",
             "bronchus",
             "trachea"
           ]
@@ -38232,8 +38231,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory tract",
-          "pertussis"
+          "pertussis",
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
@@ -38415,8 +38414,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pleural",
-          "pleural effusion"
+          "pleural effusion",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -38428,8 +38427,8 @@
             "chest x-ray"
           ],
           "anatomical": [
-            "pleural",
-            "pleural effusion"
+            "pleural effusion",
+            "pleural"
           ]
         }
       }
@@ -38497,8 +38496,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -38576,8 +38575,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "respiratory distress"
+          "respiratory distress",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
@@ -38625,11 +38624,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest tube",
           "pleural effusion",
           "shortness of breath",
-          "pleural",
-          "trachea"
+          "trachea",
+          "chest tube",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -38644,8 +38643,8 @@
           ],
           "anatomical": [
             "pleural effusion",
-            "pleural",
-            "trachea"
+            "trachea",
+            "pleural"
           ]
         }
       }
@@ -38687,16 +38686,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory syncytial virus",
-          "pneumonia"
+          "pneumonia",
+          "respiratory syncytial virus"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory syncytial virus",
-            "pneumonia"
+            "pneumonia",
+            "respiratory syncytial virus"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -38725,16 +38724,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "atypical pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "atypical pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "atypical pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "atypical pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -39077,8 +39076,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
-          "respiratory distress"
+          "respiratory distress",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -39202,16 +39201,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -39422,18 +39421,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pulmonary embolism",
-          "aspiration pneumonia",
-          "pneumonia"
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "pulmonary embolism",
-            "aspiration pneumonia",
-            "pneumonia"
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -39463,16 +39462,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "interstitial lung disease",
-          "pneumonia"
+          "pneumonia",
+          "interstitial lung disease"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "interstitial lung disease",
-            "pneumonia"
+            "pneumonia",
+            "interstitial lung disease"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -39545,8 +39544,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "respiratory syncytial virus",
-          "bronchiolitis",
-          "bronchitis"
+          "bronchitis",
+          "bronchiolitis"
         ],
         "match_type": [
           "keywords"
@@ -39554,8 +39553,8 @@
         "keyword_categories": {
           "diseases": [
             "respiratory syncytial virus",
-            "bronchiolitis",
-            "bronchitis"
+            "bronchitis",
+            "bronchiolitis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -39607,9 +39606,9 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "difficulty breathing",
-          "pleural effusion",
           "pulmonary embolism",
+          "pleural effusion",
+          "difficulty breathing",
           "pleural"
         ],
         "match_type": [
@@ -39993,8 +39992,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "chest x-ray",
+          "asthma",
           "pulmonary edema"
         ],
         "match_type": [
@@ -40067,9 +40066,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveolar",
           "acute respiratory distress syndrome",
-          "respiratory distress"
+          "respiratory distress",
+          "alveolar"
         ],
         "match_type": [
           "keywords"
@@ -40241,17 +40240,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "emphysema",
           "asthma",
-          "pleural",
-          "emphysema"
+          "pleural"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "emphysema"
+            "emphysema",
+            "asthma"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -40336,18 +40335,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "shortness of breath",
           "chest x-ray",
-          "tuberculosis",
-          "pneumonia"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "pneumonia"
+            "pneumonia",
+            "tuberculosis"
           ],
           "symptoms": [
             "shortness of breath"
@@ -40392,18 +40391,18 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "pneumonia",
+          "bacterial pneumonia",
           "pleural effusion",
-          "pleural",
-          "bacterial pneumonia"
+          "pneumonia",
+          "pleural"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pneumonia",
-            "bacterial pneumonia"
+            "bacterial pneumonia",
+            "pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -40529,9 +40528,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "copd",
-          "fvc"
+          "fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -40542,8 +40541,8 @@
           ],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -40647,10 +40646,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "chest x-ray",
           "shortness of breath",
-          "emphysema"
+          "emphysema",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -40663,8 +40662,8 @@
             "shortness of breath"
           ],
           "diagnostic": [
-            "fev1",
-            "chest x-ray"
+            "chest x-ray",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -40779,19 +40778,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary fibrosis",
-          "pulmonary edema",
           "pneumonia",
-          "difficulty breathing"
+          "pulmonary fibrosis",
+          "difficulty breathing",
+          "pulmonary edema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "pulmonary fibrosis",
-            "pulmonary edema",
-            "pneumonia"
+            "pulmonary edema"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -41045,24 +41044,24 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
+          "chronic obstructive pulmonary disease",
           "bronchial",
-          "pulmonary function test",
+          "copd",
           "fev1",
-          "chronic obstructive pulmonary disease"
+          "pulmonary function test"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [
-            "pulmonary function test",
-            "fev1"
+            "fev1",
+            "pulmonary function test"
           ],
           "anatomical": [
             "bronchial"
@@ -41099,11 +41098,11 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "arterial blood gas",
-          "fev1",
-          "dlco",
           "fvc",
-          "emphysema"
+          "arterial blood gas",
+          "emphysema",
+          "dlco",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -41115,10 +41114,10 @@
           "symptoms": [],
           "diagnostic": [
             "chest x-ray",
+            "fvc",
             "arterial blood gas",
-            "fev1",
             "dlco",
-            "fvc"
+            "fev1"
           ],
           "anatomical": []
         }
@@ -41184,16 +41183,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "aspiration pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "aspiration pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "aspiration pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "aspiration pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -41307,19 +41306,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "chronic obstructive pulmonary disease",
           "copd",
           "respiratory failure",
-          "respiratory tract",
-          "chronic obstructive pulmonary disease"
+          "respiratory tract"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "chronic obstructive pulmonary disease",
             "copd",
-            "respiratory failure",
-            "chronic obstructive pulmonary disease"
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -41427,16 +41426,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -41631,9 +41630,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveoli",
+          "pneumonia",
           "bronchi",
-          "pneumonia"
+          "alveoli"
         ],
         "match_type": [
           "keywords"
@@ -41645,8 +41644,8 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "alveoli",
-            "bronchi"
+            "bronchi",
+            "alveoli"
           ]
         }
       }
@@ -41872,8 +41871,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "respiratory syncytial virus",
-          "asthma",
-          "shortness of breath"
+          "shortness of breath",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -42143,9 +42142,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bacterial pneumonia",
           "pneumonia",
+          "bacterial pneumonia",
+          "asthma",
           "cystic fibrosis"
         ],
         "match_type": [
@@ -42153,9 +42152,9 @@
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "bacterial pneumonia",
             "pneumonia",
+            "bacterial pneumonia",
+            "asthma",
             "cystic fibrosis"
           ],
           "symptoms": [],
@@ -42182,19 +42181,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory syncytial virus",
-          "asthma",
           "pneumonia",
-          "wheezing"
+          "wheezing",
+          "asthma",
+          "respiratory syncytial virus"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory syncytial virus",
+            "pneumonia",
             "asthma",
-            "pneumonia"
+            "respiratory syncytial virus"
           ],
           "symptoms": [
             "wheezing"
@@ -42294,8 +42293,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -42429,16 +42428,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -42731,10 +42730,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
+          "pneumonia",
           "pleural effusion",
-          "pleural",
-          "pneumonia"
+          "chest x-ray",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -43009,22 +43008,22 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
+          "chronic obstructive pulmonary disease",
           "hypoxemia",
           "respiratory failure",
-          "chronic obstructive pulmonary disease",
-          "asthma",
-          "pneumonia"
+          "arterial blood gas",
+          "pneumonia",
+          "asthma"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
             "chronic obstructive pulmonary disease",
-            "asthma",
-            "pneumonia"
+            "respiratory failure",
+            "pneumonia",
+            "asthma"
           ],
           "symptoms": [
             "hypoxemia"
@@ -43063,19 +43062,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "hemoptysis",
           "tuberculosis",
-          "bronchiectasis",
-          "pneumonia"
+          "bronchiectasis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "pneumonia",
             "tuberculosis",
-            "bronchiectasis",
-            "pneumonia"
+            "bronchiectasis"
           ],
           "symptoms": [
             "hemoptysis"
@@ -43104,8 +43103,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pleura",
-          "mesothelioma"
+          "mesothelioma",
+          "pleura"
         ],
         "match_type": [
           "keywords"
@@ -43177,9 +43176,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "shortness of breath",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -43253,8 +43252,8 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "hemoptysis",
-          "pleural",
-          "respiratory distress"
+          "respiratory distress",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -43427,8 +43426,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -43591,11 +43590,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest tube",
           "chest x-ray",
-          "pleural",
+          "thoracentesis",
           "trachea",
-          "thoracentesis"
+          "chest tube",
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -43604,13 +43603,13 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "chest tube",
             "chest x-ray",
-            "thoracentesis"
+            "thoracentesis",
+            "chest tube"
           ],
           "anatomical": [
-            "pleural",
-            "trachea"
+            "trachea",
+            "pleural"
           ]
         }
       }
@@ -43773,8 +43772,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "respiratory failure",
-          "shortness of breath"
+          "shortness of breath",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
@@ -43991,8 +43990,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chest x-ray"
+          "chest x-ray",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -44040,19 +44039,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
-          "pulmonary fibrosis",
           "pneumonia",
-          "difficulty breathing"
+          "pulmonary fibrosis",
+          "difficulty breathing",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
+            "pneumonia",
             "pulmonary fibrosis",
-            "pneumonia"
+            "tuberculosis"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -44190,9 +44189,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "arterial blood gas",
           "acute respiratory distress syndrome",
-          "respiratory distress"
+          "respiratory distress",
+          "arterial blood gas"
         ],
         "match_type": [
           "keywords"
@@ -44330,10 +44329,10 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "respiratory syncytial virus",
-          "wheeze",
-          "rsv",
           "shortness of breath",
-          "wheezing"
+          "rsv",
+          "wheezing",
+          "wheeze"
         ],
         "match_type": [
           "keywords"
@@ -44344,9 +44343,9 @@
             "rsv"
           ],
           "symptoms": [
-            "wheeze",
             "shortness of breath",
-            "wheezing"
+            "wheezing",
+            "wheeze"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -44377,11 +44376,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "pulmonary function test",
-          "fev1",
           "alveolar",
           "fvc",
-          "oxygen saturation"
+          "fev1",
+          "oxygen saturation",
+          "pulmonary function test"
         ],
         "match_type": [
           "keywords"
@@ -44390,10 +44389,10 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "pulmonary function test",
-            "fev1",
             "fvc",
-            "oxygen saturation"
+            "fev1",
+            "oxygen saturation",
+            "pulmonary function test"
           ],
           "anatomical": [
             "alveolar"
@@ -44706,16 +44705,16 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "tuberculosis",
-          "sarcoidosis"
+          "sarcoidosis",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
-            "sarcoidosis"
+            "sarcoidosis",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [
@@ -44870,8 +44869,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "sputum culture",
-          "difficulty breathing"
+          "difficulty breathing",
+          "sputum culture"
         ],
         "match_type": [
           "keywords"
@@ -44948,16 +44947,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bacterial pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "bacterial pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -45070,8 +45069,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "alveoli",
-          "pneumonia"
+          "pneumonia",
+          "alveoli"
         ],
         "match_type": [
           "keywords"
@@ -45120,8 +45119,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chest x-ray"
+          "chest x-ray",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -45409,8 +45408,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "chest x-ray"
+          "chest x-ray",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -45447,19 +45446,19 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
-          "difficulty breathing",
-          "pneumonia",
           "aspiration pneumonia",
-          "emphysema"
+          "difficulty breathing",
+          "emphysema",
+          "pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pneumonia",
             "aspiration pneumonia",
-            "emphysema"
+            "emphysema",
+            "pneumonia"
           ],
           "symptoms": [
             "difficulty breathing"
@@ -45687,20 +45686,20 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "tuberculosis",
+          "pneumonia",
           "aspiration pneumonia",
-          "pneumonia"
+          "asthma",
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "asthma",
-            "tuberculosis",
+            "pneumonia",
             "aspiration pneumonia",
-            "pneumonia"
+            "asthma",
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -45962,16 +45961,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bacterial pneumonia",
-          "pneumonia"
+          "pneumonia",
+          "bacterial pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "bacterial pneumonia",
-            "pneumonia"
+            "pneumonia",
+            "bacterial pneumonia"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -46155,8 +46154,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "shortness of breath",
           "chest x-ray",
+          "shortness of breath",
           "tuberculosis",
           "emphysema"
         ],
@@ -46353,8 +46352,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
-          "pneumonia"
+          "pneumonia",
+          "chest x-ray"
         ],
         "match_type": [
           "keywords"
@@ -46440,19 +46439,19 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "bronchiectasis",
-          "emphysema",
+          "chronic cough",
           "bronchitis",
-          "chronic cough"
+          "bronchiectasis",
+          "emphysema"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "bronchitis",
             "bronchiectasis",
-            "emphysema",
-            "bronchitis"
+            "emphysema"
           ],
           "symptoms": [
             "chronic cough"
@@ -46747,17 +46746,17 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "pneumonia",
           "pulmonary embolism",
-          "shortness of breath",
-          "pneumonia"
+          "shortness of breath"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "pulmonary embolism",
-            "pneumonia"
+            "pneumonia",
+            "pulmonary embolism"
           ],
           "symptoms": [
             "shortness of breath"
@@ -46802,23 +46801,23 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "chest x-ray",
           "chest tube",
-          "respiratory failure",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "chest x-ray",
+          "respiratory failure"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "respiratory failure",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "respiratory failure"
           ],
           "symptoms": [],
           "diagnostic": [
-            "chest x-ray",
-            "chest tube"
+            "chest tube",
+            "chest x-ray"
           ],
           "anatomical": []
         }
@@ -47461,16 +47460,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "copd",
-          "chronic obstructive pulmonary disease"
+          "chronic obstructive pulmonary disease",
+          "copd"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "copd",
-            "chronic obstructive pulmonary disease"
+            "chronic obstructive pulmonary disease",
+            "copd"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -47906,9 +47905,9 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
+          "wheezing",
           "stridor",
-          "emphysema",
-          "wheezing"
+          "emphysema"
         ],
         "match_type": [
           "keywords"
@@ -47918,8 +47917,8 @@
             "emphysema"
           ],
           "symptoms": [
-            "stridor",
-            "wheezing"
+            "wheezing",
+            "stridor"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -48284,19 +48283,19 @@
       "respiratory_metadata": {
         "matched_keywords": [
           "chest x-ray",
+          "ards",
           "acute respiratory distress syndrome",
           "respiratory distress",
-          "pneumonia",
-          "ards"
+          "pneumonia"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
+            "ards",
             "acute respiratory distress syndrome",
-            "pneumonia",
-            "ards"
+            "pneumonia"
           ],
           "symptoms": [
             "respiratory distress"
@@ -48365,8 +48364,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "bronchial",
+          "asthma",
           "trachea"
         ],
         "match_type": [
@@ -48403,16 +48402,16 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "whooping cough",
-          "pertussis"
+          "pertussis",
+          "whooping cough"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "whooping cough",
-            "pertussis"
+            "pertussis",
+            "whooping cough"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -48480,11 +48479,11 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "lower respiratory tract",
           "pleura",
-          "pleural",
+          "lower respiratory tract",
+          "pneumonia",
           "respiratory tract",
-          "pneumonia"
+          "pleural"
         ],
         "match_type": [
           "keywords"
@@ -48496,10 +48495,10 @@
           "symptoms": [],
           "diagnostic": [],
           "anatomical": [
-            "lower respiratory tract",
             "pleura",
-            "pleural",
-            "respiratory tract"
+            "lower respiratory tract",
+            "respiratory tract",
+            "pleural"
           ]
         }
       }
@@ -48609,8 +48608,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "dyspnea",
-          "wheezing"
+          "wheezing",
+          "dyspnea"
         ],
         "match_type": [
           "keywords"
@@ -48618,8 +48617,8 @@
         "keyword_categories": {
           "diseases": [],
           "symptoms": [
-            "dyspnea",
-            "wheezing"
+            "wheezing",
+            "dyspnea"
           ],
           "diagnostic": [],
           "anatomical": []
@@ -48882,18 +48881,18 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "tuberculosis",
+          "pneumonia",
           "bacterial pneumonia",
-          "pneumonia"
+          "tuberculosis"
         ],
         "match_type": [
           "keywords"
         ],
         "keyword_categories": {
           "diseases": [
-            "tuberculosis",
+            "pneumonia",
             "bacterial pneumonia",
-            "pneumonia"
+            "tuberculosis"
           ],
           "symptoms": [],
           "diagnostic": [],
@@ -48937,10 +48936,10 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
           "chest x-ray",
           "shortness of breath",
-          "wheezing"
+          "wheezing",
+          "asthma"
         ],
         "match_type": [
           "keywords"
@@ -49157,8 +49156,8 @@
       ],
       "respiratory_metadata": {
         "matched_keywords": [
-          "asthma",
-          "bronchial"
+          "bronchial",
+          "asthma"
         ],
         "match_type": [
           "keywords"

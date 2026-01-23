@@ -1,12 +1,11 @@
 {
   "metadata": {
     "source": "MedQA-MCMLE",
-    "filter_version": "2.0",
-    "filter_method": "Hybrid: Metadata + Keywords",
-    "respiratory_scope": "ICD-10 J00-J99 (Respiratory System)",
+    "filter_version": "1.0",
+    "icd10_range": "J00-J99",
     "total_original": 34251,
     "filtered_count": 513,
-    "filter_date": "2025-11-30T23:28:35.821197",
+    "filter_date": "2026-01-10T00:08:47.638315",
     "paper": "Paper 1 - Hierarchical Verification Framework"
   },
   "filtered_questions": [
@@ -746,9 +745,9 @@
       "answer_idx": "D",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -757,9 +756,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -1122,9 +1121,9 @@
       "answer_idx": "D",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -1133,9 +1132,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -3386,9 +3385,9 @@
       "answer_idx": "A",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "metadata",
@@ -3399,9 +3398,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -4324,9 +4323,9 @@
       "answer_idx": "A",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -4335,9 +4334,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -4653,9 +4652,9 @@
       "answer_idx": "D",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -4664,9 +4663,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -6185,9 +6184,9 @@
       "answer_idx": "C",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -6196,9 +6195,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -6782,8 +6781,8 @@
       "answer_idx": "C",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
-          "fvc"
+          "fvc",
+          "fev1"
         ],
         "match_type": [
           "metadata",
@@ -6794,8 +6793,8 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
-            "fvc"
+            "fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -7017,9 +7016,9 @@
       "answer_idx": "A",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -7028,9 +7027,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }
@@ -10238,9 +10237,9 @@
       "answer_idx": "B",
       "respiratory_metadata": {
         "matched_keywords": [
-          "fev1",
           "fvc",
-          "fev1/fvc"
+          "fev1/fvc",
+          "fev1"
         ],
         "match_type": [
           "keywords"
@@ -10249,9 +10248,9 @@
           "diseases": [],
           "symptoms": [],
           "diagnostic": [
-            "fev1",
             "fvc",
-            "fev1/fvc"
+            "fev1/fvc",
+            "fev1"
           ],
           "anatomical": []
         }

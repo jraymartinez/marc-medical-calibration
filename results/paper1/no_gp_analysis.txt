@@ -1,0 +1,113 @@
+﻿================================================================================
+COMPARING WITH GP vs WITHOUT GP
+================================================================================
+
+1. OVERALL METRICS COMPARISON
+--------------------------------------------------------------------------------
+With GP:    Accuracy: 63.3% (19/30)
+Without GP: Accuracy: 60.0% (18/30)
+Change:     -1 questions (-1)
+
+2. QUESTIONS THAT CHANGED
+--------------------------------------------------------------------------------
+
+Improved (Wrong -> Correct): 5 questions: [6, 7, 10, 13, 28]
+Worsened (Correct -> Wrong): 6 questions: [3, 8, 9, 12, 21, 26]
+Unchanged: 19 questions
+
+3. WORSENED QUESTIONS ANALYSIS
+--------------------------------------------------------------------------------
+
+Q3: Increase in length constant...
+  With GP:    A (Conf: 0.825, Fusion: gp_fallback)
+  Without GP: B (Conf: 0.825, Fusion: max_s_yield_to_majority)
+  [GP was in team] GP answer: A, S_score: 0.825
+  Without GP Specialist Outputs:
+    [  ] respiratory          B     S: 0.450 V: NO I: 1.0
+    [  ] cardiology           B     S: 0.700 V: NO I: 0.5
+    [  ] neurology            A     S: 0.450 V: NO I: 1.0
+    [  ] gastroenterology     B     S: 0.825 V: UNCERTAIN I: 0.25
+
+Q8: Type III hypersensitivity...
+  With GP:    C (Conf: 0.787, Fusion: gp_fallback)
+  Without GP: D (Conf: 0.604, Fusion: max_s_yield_to_majority)
+  [GP was in team] GP answer: C, S_score: 0.700
+  Without GP Specialist Outputs:
+    [  ] respiratory          D     S: 0.450 V: NO I: 1.0
+    [  ] cardiology           C     S: 0.617 V: NO I: 0.6666666666666666
+    [  ] neurology            D     S: 0.575 V: NO I: 0.75
+    [  ] gastroenterology     D     S: 0.450 V: NO I: 1.0
+
+Q9: Decreased physiologic dead space...
+  With GP:    B (Conf: 0.900, Fusion: gp_fallback)
+  Without GP: C (Conf: 0.950, Fusion: max_s_no_majority)
+  [GP was in team] GP answer: B, S_score: 0.783
+  Without GP Specialist Outputs:
+    [  ] respiratory          B     S: 0.700 V: NO I: 0.5
+    [  ] cardiology           C     S: 0.700 V: NO I: 0.5
+    [  ] neurology            C     S: 1.000 V: YES I: 0.0
+    [  ] gastroenterology     B     S: 0.783 V: UNCERTAIN I: 0.3333333333333333
+
+Q12: 21-hydroxylase...
+  With GP:    C (Conf: 0.950, Fusion: verified_consensus)
+  Without GP: A (Conf: 0.875, Fusion: max_s_yield_to_majority)
+  [GP was in team] GP answer: C, S_score: 0.950
+  Without GP Specialist Outputs:
+    [  ] respiratory          C     S: 0.750 V: NO I: 0.5
+    [  ] cardiology           A     S: 0.875 V: UNCERTAIN I: 0.25
+    [  ] neurology            A     S: 0.700 V: NO I: 0.5
+    [  ] gastroenterology     A     S: 0.575 V: NO I: 0.75
+
+Q21: Urinary tract infection...
+  With GP:    A (Conf: 0.950, Fusion: gp_fallback)
+  Without GP: B (Conf: 0.825, Fusion: max_s_no_majority)
+  [GP was in team] GP answer: A, S_score: 0.950
+  Without GP Specialist Outputs:
+    [  ] respiratory          A     S: 0.450 V: NO I: 1.0
+    [  ] cardiology           B     S: 0.825 V: UNCERTAIN I: 0.25
+    [  ] neurology            A     S: 0.450 V: NO I: 1.0
+    [  ] gastroenterology     B     S: 0.575 V: NO I: 0.75
+
+Q26: Shingles vaccine...
+  With GP:    D (Conf: 0.950, Fusion: gp_fallback)
+  Without GP: B (Conf: 0.825, Fusion: max_s_no_majority)
+  [GP was in team] GP answer: D, S_score: 0.950
+  Without GP Specialist Outputs:
+    [  ] respiratory          B     S: 0.825 V: UNCERTAIN I: 0.25
+    [  ] cardiology           B     S: 0.825 V: UNCERTAIN I: 0.25
+    [  ] neurology            D     S: 0.575 V: NO I: 0.75
+    [  ] gastroenterology     A     S: 0.450 V: NO I: 1.0
+
+4. FUSION REASON CHANGES
+--------------------------------------------------------------------------------
+
+With GP:
+  gp_fallback: 19
+  max_s_override_majority: 5
+  max_s_yield_to_majority: 2
+  verified_consensus: 2
+  verified_disagreement_best: 2
+
+Without GP:
+  max_s_yield_to_majority: 15
+  max_s_override_majority: 6
+  max_s_no_majority: 6
+  verified_consensus: 2
+  verified_disagreement_best: 1
+
+5. S_SCORE DISTRIBUTION
+--------------------------------------------------------------------------------
+
+With GP:
+  Correct: Mean=0.876
+  Wrong:   Mean=0.861
+  Gap:     0.015
+
+Without GP:
+  Correct: Mean=0.869
+  Wrong:   Mean=0.821
+  Gap:     0.048
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================

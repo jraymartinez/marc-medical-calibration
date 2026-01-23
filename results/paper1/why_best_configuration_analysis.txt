@@ -1,0 +1,44 @@
+﻿================================================================================
+python : Traceback (most recent call last):
+At C:\Users\marti\AppData\Local\Temp\ps-script-ee3f8cea-ed5f-4369-8ee7-db491ba391ad.ps1:92 char:73
++ ... ate paper1; python scripts/analyze_why_best_configuration.py 2>&1 | O ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\Research\paper1-hierarchical-verification\scripts\analyze_why_best_configuration.py", line 257, in <module>
+WHY MULTI-AGENT + TWO-PHASE BECAME THE BEST CONFIGURATION
+================================================================================
+
+1. CURRENT RESULTS (All Improvements)
+--------------------------------------------------------------------------------
+Configuration                                      Accuracy     ECE        AUROC      Score     
+--------------------------------------------------------------------------------
+Single Specialist                                    46.7%      0.356     0.348     0.484
+Single Specialist + Two-Phase Verification           46.7%      0.156     0.473     0.582
+Multi-Agent (No Verification)                        60.0%      0.321     0.167     0.494
+Multi-Agent + Two-Phase Verification                 63.3%      0.146     0.359     0.617
+
+BEST: Multi-Agent + Two-Phase Verification (Score: 0.617)
+
+2. PREVIOUS RESULTS (No GP, before improvements)
+--------------------------------------------------------------------------------
+Configuration                                      Accuracy     ECE        AUROC      Score     
+--------------------------------------------------------------------------------
+Single Specialist                                    70.0%      0.192     0.111     0.556
+Single Specialist + Two-Phase Verification           70.0%      0.188     0.434     0.654
+Multi-Agent (No Verification)                        60.0%      0.314     0.227     0.514
+Multi-Agent + Two-Phase Verification                 60.0%      0.238     0.505     0.620
+
+3. CHANGES IN MULTI-METRIC SCORE
+--------------------------------------------------------------------------------
+Configuration                                      Previous   Current    Change    
+--------------------------------------------------------------------------------
+    analyze_why_best()
+  File "D:\Research\paper1-hierarchical-verification\scripts\analyze_why_best_configuration.py", line 167, in 
+analyze_why_best
+    print(f"{config_name:<50} {prev_score:>6.3f}     {curr_score:>6.3f}     {change:>+6.3f} {marker}")
+  File "C:\Users\marti\miniconda3\envs\paper1\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 80: character maps to <undefined>

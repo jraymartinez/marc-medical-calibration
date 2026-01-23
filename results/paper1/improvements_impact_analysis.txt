@@ -1,0 +1,50 @@
+﻿================================================================================
+ANALYZING IMPROVEMENTS IMPACT
+================================================================================
+
+1. OVERALL METRICS COMPARISON
+--------------------------------------------------------------------------------
+Previous (No GP, before improvements): Accuracy: 60.0% (18/30)
+Current (All improvements):            Accuracy: 63.3% (19/30)
+Change:                                1 questions (+1)
+
+2. QUESTIONS THAT CHANGED
+--------------------------------------------------------------------------------
+
+Improved (Wrong -> Correct): 7 questions: [4, 8, 9, 12, 17, 21, 24]
+Worsened (Correct -> Wrong): 6 questions: [6, 10, 13, 16, 19, 28]
+Unchanged: 17 questions
+
+3. IMPROVED QUESTIONS ANALYSIS
+--------------------------------------------------------------------------------
+
+Q4: Meningioma...
+  Previous: B (Conf: 0.783, Fusion: max_s_yield_to_majority)
+  Current:  Meningioma (Conf: 0.621, Fusion: max_s_no_majority)
+  Current Specialist Outputs:
+    [  ] respiratory          None of the above options are directly related to the patient's condition. However, considering the potential for secondary effects, I would expect the patient to develop complications related to the tumor's impact on surrounding structures, such as cranial nerve compression or hydrocephalus. S: 0.050 V: NO I: 1.0
+    [OK] cardiology           Meningioma S: 0.565 V: NO I: 0.75
+    [  ] neurology            B. Telangiectasias S: 0.050 V: NO I: 0.5
+    [OK] gastroenterology     Meningioma S: 0.597 V: NO I: 0.5
+
+Q8: Type III hypersensitivity...
+  Previous: D (Conf: 0.604, Fusion: max_s_yield_to_majority)
+  Current:  Type III hypersensitivity (Conf: 0.657, Fusion: max_s_no_majority)
+  Current Specialist Outputs:
+    [  ] respiratory          C     S: 0.630 V: NO I: 1.0
+    [  ] cardiology           C     S: 0.630 V: NO I: 1.0
+    [OK] neurology            Type III hypersensitivity S: 0.635 V: NO I: 0.75
+python : Traceback (most recent call last):
+At C:\Users\marti\AppData\Local\Temp\ps-script-a7f61e6d-64dc-4813-b617-8739b8843c43.ps1:92 char:73
++ ... ate paper1; python scripts/analyze_improvements_impact.py 2>&1 | Out- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\Research\paper1-hierarchical-verification\scripts\analyze_improvements_impact.py", line 240, in <module>
+    analyze_improvements()
+  File "D:\Research\paper1-hierarchical-verification\scripts\analyze_improvements_impact.py", line 112, in 
+analyze_improvements
+    print(f"    {marker} {spec['specialty']:20s} {spec['answer']:5s} "
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__

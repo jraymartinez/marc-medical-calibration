@@ -1,0 +1,281 @@
+======================================================================
+RESPIRATORY DISEASE FILTERING PIPELINE - EXECUTION LOG
+======================================================================
+Start Time: 2025-12-24 17:22:51
+Log File: D:\Research\paper1-hierarchical-verification\results\filtering_log_20251224_172251.txt
+======================================================================
+
+
+======================================================================
+RESPIRATORY DISEASE FILTERING PIPELINE
+======================================================================
+Paper 1: Hierarchical Verification Framework
+
+Data directory: D:\Research\paper1-hierarchical-verification\data\raw
+Output directory: D:\Research\paper1-hierarchical-verification\data\filtered
+Log file: D:\Research\paper1-hierarchical-verification\results\filtering_log_20251224_172251.txt
+
+======================================================================
+LOADING MEDQA DATASETS
+======================================================================
+
+  Loading MedQA-USMLE:
+  Loading: phrases_no_exclude_dev.jsonl
+    ✓ Loaded 1,272 questions
+  Loading: phrases_no_exclude_test.jsonl
+    ✓ Loaded 1,273 questions
+  Loading: phrases_no_exclude_train.jsonl
+    ✓ Loaded 10,178 questions
+  Total for MedQA-USMLE: 12,723 questions
+
+  Loading MedQA-MCMLE:
+  Loading: dev.jsonl
+    ✓ Loaded 3,425 questions
+  Loading: test.jsonl
+    ✓ Loaded 3,426 questions
+  Loading: train.jsonl
+    ✓ Loaded 27,400 questions
+  Total for MedQA-MCMLE: 34,251 questions
+
+  Loading MedQA-TWMLE:
+  Loading: tw_dev.jsonl
+    ✓ Loaded 1,412 questions
+  Loading: tw_test.jsonl
+    ✓ Loaded 1,413 questions
+  Loading: tw_train.jsonl
+    ✓ Loaded 11,298 questions
+  Total for MedQA-TWMLE: 14,123 questions
+
+======================================================================
+LOADING MEDMCQA DATASET
+======================================================================
+
+  Loading MedMCQA:
+  Loading: dev.json
+    ✓ Loaded 4,183 questions (JSON Lines format)
+  Loading: test.json
+    ✓ Loaded 6,150 questions (JSON Lines format)
+  Loading: train.json
+    ✓ Loaded 182,822 questions (JSON Lines format)
+  Total for MedMCQA: 193,155 questions
+
+======================================================================
+FILTERING DATASETS
+======================================================================
+
+======================================================================
+Filtering: MedQA-USMLE
+======================================================================
+Total questions: 12,723
+Applying respiratory filter...
+
+============================================================
+Respiratory Filter Statistics - MedQA-USMLE
+============================================================
+Total Questions:        12,723
+Filtered (Respiratory): 3,016 (23.7%)
+
+Matching Methods:
+  Metadata Matches:     0
+  Keyword Matches:      3,016
+
+Top Disease Keywords:
+  asthma                        :  342
+  pneumonia                     :  193
+  tuberculosis                  :  115
+  chronic obstructive pulmonary disease:   70
+  pulmonary embolism            :   65
+  copd                          :   49
+  bronchitis                    :   35
+  emphysema                     :   32
+  cystic fibrosis               :   31
+  pulmonary fibrosis            :   29
+
+Top Symptom Keywords:
+  shortness of breath           :  722
+  dyspnea                       :  283
+  wheezing                      :  206
+  difficulty breathing          :  179
+  productive cough              :  153
+  respiratory distress          :  108
+  hemoptysis                    :   47
+  nonproductive cough           :   41
+  chronic cough                 :   40
+  stridor                       :   36
+============================================================
+
+✓ Saved to: medqa_usmle_filtered.json
+
+======================================================================
+Filtering: MedQA-MCMLE
+======================================================================
+Total questions: 34,251
+Applying respiratory filter...
+
+============================================================
+Respiratory Filter Statistics - MedQA-MCMLE
+============================================================
+Total Questions:        34,251
+Filtered (Respiratory): 513 (1.5%)
+
+Matching Methods:
+  Metadata Matches:     481
+  Keyword Matches:      58
+
+Top Disease Keywords:
+  ards                          :   18
+  copd                          :   16
+============================================================
+
+✓ Saved to: medqa_mcmle_filtered.json
+
+======================================================================
+Filtering: MedQA-TWMLE
+======================================================================
+Total questions: 14,123
+Applying respiratory filter...
+
+============================================================
+Respiratory Filter Statistics - MedQA-TWMLE
+============================================================
+Total Questions:        14,123
+Filtered (Respiratory): 1,128 (8.0%)
+
+Matching Methods:
+  Metadata Matches:     0
+  Keyword Matches:      1,128
+
+Top Disease Keywords:
+  pneumonia                     :  194
+  asthma                        :  169
+  tuberculosis                  :  122
+  emphysema                     :   57
+  chronic obstructive pulmonary disease:   44
+  pulmonary edema               :   41
+  pulmonary embolism            :   41
+  respiratory failure           :   34
+  bronchiectasis                :   28
+  copd                          :   26
+
+Top Symptom Keywords:
+  shortness of breath           :   98
+  respiratory distress          :   59
+  dyspnea                       :   53
+  hypoxia                       :   48
+  difficulty breathing          :   40
+  wheezing                      :   37
+  hemoptysis                    :   17
+  chronic cough                 :   16
+  stridor                       :   15
+  hypoxemia                     :    9
+============================================================
+
+✓ Saved to: medqa_twmle_filtered.json
+
+======================================================================
+Filtering: MedMCQA
+======================================================================
+Total questions: 193,155
+Applying respiratory filter...
+
+============================================================
+Respiratory Filter Statistics - MedMCQA
+============================================================
+Total Questions:        193,155
+Filtered (Respiratory): 5,499 (2.8%)
+
+Matching Methods:
+  Metadata Matches:     2,243
+  Keyword Matches:      3,947
+
+Top Disease Keywords:
+  tuberculosis                  :  538
+  pneumonia                     :  436
+  asthma                        :  414
+  pulmonary embolism            :  129
+  cystic fibrosis               :  115
+  sarcoidosis                   :   79
+  copd                          :   77
+  bronchiectasis                :   74
+  ards                          :   74
+  emphysema                     :   68
+
+Top Symptom Keywords:
+  respiratory distress          :  303
+  dyspnea                       :  214
+  hemoptysis                    :  150
+  stridor                       :  136
+  hypoxia                       :  107
+  shortness of breath           :   85
+  wheezing                      :   77
+  productive cough              :   75
+  tachypnea                     :   61
+  chronic cough                 :   52
+============================================================
+
+✓ Saved to: medmcqa_filtered.json
+
+======================================================================
+SAVING COMBINED DATASET
+======================================================================
+
+✓ Combined dataset saved: respiratory_cases_all.json
+✓ Total respiratory cases: 10,156
+
+======================================================================
+SUMMARY STATISTICS
+======================================================================
+
+Dataset              Total        Filtered     Rate      
+----------------------------------------------------------------------
+MedQA-USMLE              12,723       3,016     23.71%
+MedQA-MCMLE              34,251         513      1.50%
+MedQA-TWMLE              14,123       1,128      7.99%
+MedMCQA                 193,155       5,499      2.85%
+----------------------------------------------------------------------
+TOTAL                   254,252      10,156      3.99%
+======================================================================
+
+======================================================================
+VALIDATION CHECK
+======================================================================
+
+Target range: 1,200 - 1,500 cases
+Actual count: 10,156 cases
+
+✓ ABOVE TARGET: Exceeds target range
+  Extra: 8,656 cases
+  This is fine - more data is better!
+
+======================================================================
+FILTERING COMPLETE
+======================================================================
+
+✓ Status: READY FOR EXPERIMENTS
+✓ Filtered datasets saved to: D:\Research\paper1-hierarchical-verification\data\filtered
+
+Generated files:
+  - medqa_usmle_filtered.json
+  - medqa_mcmle_filtered.json
+  - medqa_twmle_filtered.json
+  - medmcqa_filtered.json
+  - respiratory_cases_all.json (combined)
+
+======================================================================
+NEXT STEPS
+======================================================================
+1. Review filtered data quality
+2. Validate sample cases manually (recommended: 30 random samples)
+3. Begin multi-agent system implementation (January 2025)
+4. Commit and push to GitHub
+
+To commit:
+  git add data/filtered/ results/
+  git commit -m 'Add filtered respiratory disease datasets'
+  git push
+
+✓ Complete log saved to: D:\Research\paper1-hierarchical-verification\results\filtering_log_20251224_172251.txt
+
+======================================================================
+End Time: 2025-12-24 17:23:29
+======================================================================

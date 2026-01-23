@@ -1,0 +1,60 @@
+======================================================================
+RESPIRATORY DISEASE FILTERING PIPELINE - EXECUTION LOG
+======================================================================
+Start Time: 2025-12-24 17:07:20
+Log File: D:\Research\paper1-hierarchical-verification\results\filtering_log_20251224_170720.txt
+======================================================================
+
+
+======================================================================
+RESPIRATORY DISEASE FILTERING PIPELINE
+======================================================================
+Paper 1: Hierarchical Verification Framework
+
+Data directory: D:\Research\paper1-hierarchical-verification\data\raw
+Output directory: D:\Research\paper1-hierarchical-verification\data\filtered
+Log file: D:\Research\paper1-hierarchical-verification\results\filtering_log_20251224_170720.txt
+
+======================================================================
+LOADING MEDQA DATASETS
+======================================================================
+  ⚠ MedQA directory not found: D:\Research\paper1-hierarchical-verification\data\raw\MedQA
+  Expected structure: data/raw/MedQA/{US,Mainland,Taiwan}/{dev,test,train}.jsonl
+
+======================================================================
+LOADING MEDMCQA DATASET
+======================================================================
+  ⚠ MedMCQA directory not found: D:\Research\paper1-hierarchical-verification\data\raw\MedMCQA
+  Expected structure: data/raw/MedMCQA/{dev,test,train}.json
+
+======================================================================
+⚠ NO DATASETS FOUND
+======================================================================
+
+Expected directory structure:
+data/raw/
+├── MedQA/
+│   ├── US/
+│   │   ├── dev.jsonl
+│   │   ├── test.jsonl
+│   │   └── train.jsonl
+│   ├── Mainland/
+│   │   ├── dev.jsonl
+│   │   ├── test.jsonl
+│   │   └── train.jsonl
+│   └── Taiwan/
+│       ├── dev.jsonl
+│       ├── test.jsonl
+│       └── train.jsonl
+└── MedMCQA/
+    ├── dev.json (or .jsonl)
+    ├── test.json (or .jsonl)
+    └── train.json (or .jsonl)
+
+Dataset sources:
+  - MedQA: https://github.com/jind11/MedQA
+  - MedMCQA: https://medmcqa.github.io/
+
+======================================================================
+End Time: 2025-12-24 17:07:20
+======================================================================
