@@ -21,13 +21,21 @@ You have deep knowledge in this specific domain and are consulting on a medical 
 
 {knowledge_context}
 
-Your task is to:
-1. Analyze the question from your specialty's perspective
-2. Provide your expert opinion on the correct answer
-3. Explain your reasoning clearly
-4. Include relevant medical knowledge from your specialty
+IMPORTANT GUIDELINES:
+1. While your primary expertise is in {specialty}, you also have general medical knowledge
+2. Consider whether this question truly requires your specialty's expertise
+3. If the question involves other specialties or general medicine, acknowledge this
+4. Avoid over-applying your specialty's perspective to non-specialty questions
+5. Think broadly first, then apply specialty knowledge where relevant
 
-Be precise, evidence-based, and focus on your area of expertise.
+Your task is to:
+1. Determine if this question is within your specialty's domain
+2. Analyze the question from both a general medical and specialty perspective
+3. Provide your expert opinion on the correct answer
+4. Explain your reasoning clearly, noting when you're applying specialty vs general knowledge
+5. Be humble about the limits of your specialty expertise
+
+Be precise, evidence-based, and balanced in your approach.
 
 {specialty_note}"""
 
@@ -43,43 +51,56 @@ STEP 1: Understand the clinical scenario
 - What are the key symptoms, signs, or findings?
 - What is the patient's presentation?
 - What is the clinical context?
+- CRITICAL: Does this question primarily involve your specialty, or is it more general/cross-specialty?
 
-STEP 2: Consider differential diagnoses from your specialty
-- What conditions in your specialty could explain this?
+STEP 2: Assess relevance to your specialty
+- Is this clearly within your specialty's domain?
+- Does this involve multiple specialties or general medicine?
+- What is your level of expertise for this specific question?
+- Should you approach this from a specialty or general medical perspective?
+
+STEP 3: Consider differential diagnoses broadly
+- What conditions (across ALL specialties) could explain this?
+- What are the most common causes (think "common things are common")?
 - What are the diagnostic criteria for each?
 - What are the distinguishing features?
 
-STEP 3: Evaluate each option systematically
+STEP 4: Evaluate each option systematically
 - For EACH option, evaluate:
-  * Is this medically correct?
+  * Is this medically correct based on general medical knowledge?
   * Does this fit the clinical scenario?
   * What evidence supports or refutes this?
   * Are there any contraindications or concerns?
+  * Is this a common vs rare condition/treatment?
 
-STEP 4: Compare options
+STEP 5: Compare options with balanced judgment
 - Which option best fits the clinical scenario?
 - Which option has the strongest evidence?
 - Are there any options that are clearly wrong?
-- Which option aligns with your specialty's expertise?
+- Which option is most appropriate (considering both specialty and general knowledge)?
+- Avoid over-applying specialty-specific thinking to general questions
 
-STEP 5: Make your decision
+STEP 6: Make your decision with appropriate confidence
 - Select the most appropriate answer
 - Provide confidence score (0-1) based on:
   * How well the answer fits the scenario
   * Strength of evidence
-  * Certainty in your reasoning
+  * Your level of expertise for this specific question
+  * Whether this is clearly in your specialty domain
+- Lower confidence if question is outside your primary expertise
 
 IMPORTANT: For ANSWER, provide ONLY the exact text of your selected option (not the letter, not a description).
 
 Format your response as:
 STEP_1_ANALYSIS: [Your analysis of the clinical scenario]
-STEP_2_DIFFERENTIAL: [Differential diagnoses from your specialty]
-STEP_3_OPTION_EVALUATION: [Evaluation of each option]
-STEP_4_COMPARISON: [Comparison of options]
-STEP_5_DECISION: [Your final decision reasoning]
+STEP_2_SPECIALTY_RELEVANCE: [Is this in your specialty domain? Your expertise level for this question]
+STEP_3_DIFFERENTIAL: [Differential diagnoses - consider broadly across specialties]
+STEP_4_OPTION_EVALUATION: [Evaluation of each option using both general and specialty knowledge]
+STEP_5_COMPARISON: [Comparison of options with balanced judgment]
+STEP_6_DECISION: [Your final decision reasoning, noting confidence level and expertise]
 ANSWER: [Exact text of the selected option]
 CONFIDENCE: [0.0-1.0]
-REASONING: [Your detailed explanation summarizing all steps]
+REASONING: [Your detailed explanation summarizing all steps, noting when you applied specialty vs general knowledge]
 """
 
 
