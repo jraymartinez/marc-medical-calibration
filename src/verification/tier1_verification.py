@@ -13,6 +13,8 @@ Phase 2: Two-Phase Verification
 Output: Specialist Confidence Score (S) based on inconsistency measure
 """
 import re
+import torch
+import hashlib
 from typing import Dict, Any, Optional, List
 from ..agents.llm_client import LocalLLMClient, get_llm_client
 
@@ -63,6 +65,27 @@ class Tier1Verifier:
         self.reference_temp = reference_temp  # Lower for consistency
         self.question_temp = question_temp  # Moderate for question formulation
     
+    def _get_deterministic_seed(self, question: str, answer: str, stage: str) -> int:
+        """
+        Generate deterministic seed from question+answer+stage hash.
+        
+        This ensures:
+        - Same question+answer always gets same seed (reproducible)
+        - Different stages get different seeds (diversity across stages)
+        - Seed is deterministic but allows sampling (best of both worlds)
+        
+        Args:
+            question: The medical question
+            answer: The proposed answer
+            stage: Verification stage ("questions", "independent", "reference")
+            
+        Returns:
+            Deterministic seed (0 to 2^32-1)
+        """
+        hash_str = f"{question}_{answer}_{stage}"
+        hash_digest = hashlib.md5(hash_str.encode('utf-8')).hexdigest()
+        return int(hash_digest, 16) % (2**32)
+    
     def verify_specialist(
         self,
         specialist_name: str,
@@ -106,6 +129,7 @@ class Tier1Verifier:
         # Step 2b: Answer verification questions independently (without reference)
         independent_answers = self._answer_verification_questions_independently(
             question=question,
+            answer=answer,
             verification_questions=verification_questions,
             specialist_name=specialist_name
         )
@@ -113,6 +137,7 @@ class Tier1Verifier:
         # Step 2c: Answer verification questions again, referencing the original explanation
         reference_answers = self._answer_verification_questions_with_reference(
             question=question,
+            answer=answer,
             verification_questions=verification_questions,
             reasoning=reasoning,
             specialist_name=specialist_name
@@ -208,10 +233,15 @@ VERIFICATION_QUESTIONS:
 ...
 """
         
+        # Set deterministic seed for reproducible sampling
+        seed = self._get_deterministic_seed(question, answer, "questions")
+        torch.manual_seed(seed)
+        
         response = self.llm_client.generate(
             system_prompt=f"You are formulating verification questions for a {specialist_name}'s diagnosis.",
             user_prompt=prompt,
-            temperature=self.question_temp,  # Use question-specific temperature
+            temperature=self.question_temp,  # Use moderate temperature for diversity
+            do_sample=True,  # Sampling for exploration (with fixed seed)
             max_new_tokens=500
         )
         
@@ -254,6 +284,7 @@ VERIFICATION_QUESTIONS:
     def _answer_verification_questions_independently(
         self,
         question: str,
+        answer: str,
         verification_questions: List[str],
         specialist_name: str
     ) -> Dict[str, str]:
@@ -281,10 +312,15 @@ ANSWERS:
 ...
 """
         
+        # Set deterministic seed for reproducible sampling
+        seed = self._get_deterministic_seed(question, answer, "independent")
+        torch.manual_seed(seed)
+        
         response = self.llm_client.generate(
             system_prompt=f"You are answering verification questions independently as a medical expert.",
             user_prompt=prompt,
-            temperature=self.independent_temp,  # Higher temperature for diversity (better inconsistency detection)
+            temperature=self.independent_temp,  # Higher temperature for diversity
+            do_sample=True,  # Sampling for exploration (with fixed seed)
             max_new_tokens=800
         )
         
@@ -324,6 +360,7 @@ ANSWERS:
     def _answer_verification_questions_with_reference(
         self,
         question: str,
+        answer: str,
         verification_questions: List[str],
         reasoning: str,
         specialist_name: str
@@ -355,10 +392,15 @@ ANSWERS:
 ...
 """
         
+        # Set deterministic seed for reproducible sampling
+        seed = self._get_deterministic_seed(question, answer, "reference")
+        torch.manual_seed(seed)
+        
         response = self.llm_client.generate(
             system_prompt=f"You are answering verification questions with reference to the original explanation.",
             user_prompt=prompt,
-            temperature=self.reference_temp,  # Lower temperature for consistency with explanation
+            temperature=self.reference_temp,  # Lower temperature for consistency
+            do_sample=True,  # Sampling for exploration (with fixed seed)
             max_new_tokens=800
         )
         

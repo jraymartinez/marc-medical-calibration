@@ -63,6 +63,8 @@ models/
 #results/**/*
 results/**/*.json
 results/**/*.csv
+results/paper1/*.md
+results/paper1/*.txt
 !results/README.md
 !results/.gitkeep
 
@@ -145,4 +147,7 @@ models/checkpoints/*
 !LICENSE.md
 
 # Exclude scripts directory (work in progress)
-scripts/
+# Exclude scripts directory contents but keep the folder
+scripts/*
+!scripts/README.md
+!scripts/.gitkeep

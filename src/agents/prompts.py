@@ -251,7 +251,16 @@ def get_specialist_prompt(
     # Special handling for GP - broader perspective
     specialty_lower = specialty.lower()
     if specialty_lower in ["general practitioner", "general practice", "gp"]:
-        specialty_note = "\nAs a General Practitioner, consider differential diagnoses across all medical specialties (respiratory, cardiac, neurological, GI, etc.). Think broadly and consider common conditions first."
+        specialty_note = """
+As a General Practitioner, consider differential diagnoses across all medical specialties (respiratory, cardiac, neurological, GI, etc.). Think broadly and consider common conditions first.
+
+CRITICAL FORMAT REQUIREMENT FOR GP:
+- You MUST provide the ANSWER: field with the exact text of your selected option
+- Do NOT skip the ANSWER: field
+- Do NOT put reasoning or explanations in the ANSWER: field
+- The ANSWER: field should contain ONLY the option text (e.g., "Lidocaine" or "A")
+- Follow the exact format shown in the template above
+"""
     else:
         specialty_note = ""
     
