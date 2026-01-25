@@ -151,3 +151,4 @@ models/checkpoints/*
 scripts/*
 !scripts/README.md
 !scripts/.gitkeep
+!scripts/run_final_comparison.py
