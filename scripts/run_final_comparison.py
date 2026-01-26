@@ -90,7 +90,8 @@ def run_configuration(
         
         question_text = q.get('question', '')
         options = q.get('options', {})
-        correct_answer = q.get('answer', q.get('correct_answer', ''))
+        # Use letter format (answer_idx) as ground truth - cleaner comparison
+        correct_answer_letter = q.get('answer_idx', '')
         
         # Store raw options for this question (used later for metrics answer matching)
         all_options.append(options)
@@ -452,25 +453,42 @@ def run_configuration(
         
         # Convert letter answer to full text if needed
         # Safety check: ensure final_answer is not None
+        # Convert final_answer to letter format for clean comparison
         if final_answer is None:
             final_answer = ""
-        final_answer_text = final_answer.strip() if final_answer else ""
-        if isinstance(options, dict) and len(final_answer_text) == 1 and final_answer_text.upper() in options:
-            final_answer_text = options[final_answer_text.upper()]
+        final_answer_str = str(final_answer).strip()
         
-        # Strip letter prefixes
+        # Extract letter from final answer
         import re
-        final_answer_text = re.sub(r'^[A-Z]\.\s*', '', final_answer_text, flags=re.IGNORECASE).strip()
-        correct_answer_normalized = re.sub(r'^[A-Z]\.\s*', '', correct_answer, flags=re.IGNORECASE).strip()
+        final_answer_letter = None
         
-        # Check if correct
-        is_correct = (final_answer_text.lower() == correct_answer_normalized.lower())
+        # Case 1: Already a single letter (A, B, C, D)
+        if len(final_answer_str) == 1 and final_answer_str.upper() in ['A', 'B', 'C', 'D']:
+            final_answer_letter = final_answer_str.upper()
+        # Case 2: Starts with letter (e.g., "A: Text" or "A. Text")
+        elif final_answer_str and final_answer_str[0].upper() in ['A', 'B', 'C', 'D']:
+            final_answer_letter = final_answer_str[0].upper()
+        # Case 3: Full text answer - match against options to get letter
+        elif isinstance(options, dict) and final_answer_str:
+            # Try to find matching option text
+            for letter, option_text in options.items():
+                # Normalize both for comparison
+                option_normalized = re.sub(r'^[A-Z][\.\:\)]\s*', '', str(option_text), flags=re.IGNORECASE).strip().lower()
+                answer_normalized = re.sub(r'^[A-Z][\.\:\)]\s*', '', final_answer_str, flags=re.IGNORECASE).strip().lower()
+                if option_normalized == answer_normalized:
+                    final_answer_letter = letter.upper()
+                    break
+        
+        # Check if correct (letter to letter comparison)
+        is_correct = (final_answer_letter is not None and 
+                     final_answer_letter.upper() == correct_answer_letter.upper())
         
         result = {
             'question_idx': idx,
             'question': question_text[:100] + '...' if len(question_text) > 100 else question_text,
-            'correct_answer': correct_answer,
-            'final_answer': final_answer,
+            'correct_answer': correct_answer_letter,  # Store as letter (A, B, C, D)
+            'final_answer': final_answer_letter if final_answer_letter else final_answer,  # Store normalized letter
+            'final_answer_raw': final_answer,  # Keep raw answer for debugging
             'is_correct': is_correct,
             'final_confidence': final_confidence,
             'fusion_reason': fusion_reason,
@@ -541,7 +559,7 @@ def main():
     
     # Configuration
     dataset_path = "data/filtered/medqa_us_100q_high_disagreement.json"
-    num_questions = 30  # Start with 30 questions for initial test (~2-3 hours)
+    num_questions = 100  # Full 100-question test for publication (~6-7 hours)
     random_seed = 42
     
     # Load dataset
