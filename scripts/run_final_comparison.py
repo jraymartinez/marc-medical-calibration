@@ -4,7 +4,7 @@ Final Comparison: Single Specialist vs Multi-Agent with Two-Phase Verification
 Configurations:
 1. Single Specialist (Baseline)
 2. Multi-Agent (No Verification)
-3. Multi-Agent + Two-Phase Verification ⭐ MAIN CONTRIBUTION
+3. Multi-Agent + Two-Phase Verification - MAIN CONTRIBUTION
 4. Single Specialist + Two-Phase Verification (Optional - to show multi-agent helps)
 
 Purpose: Show that Multi-Agent + Two-Phase Verification is the best configuration.
@@ -68,10 +68,12 @@ def run_configuration(
     is_single_specialist=False
 ):
     """Run a single configuration and return results."""
-    print(f"\n{'='*70}")
-    print(f"Running Configuration: {config_name}")
-    print(f"{'='*70}")
+    print(f"[ENTER run_configuration] config_name={config_name}", flush=True)
+    print(f"\n{'='*70}", flush=True)
+    print(f"Running Configuration: {config_name}", flush=True)
+    print(f"{'='*70}", flush=True)
     
+    print(f"[DEBUG] Creating results dict...", flush=True)
     results = {
         'config_name': config_name,
         'timestamp': datetime.now().isoformat(),
@@ -85,13 +87,14 @@ def run_configuration(
     # Store options for metrics calculation (letter-to-text conversion in metrics)
     all_options = []
     
+    print(f"[DEBUG] Starting question loop with {len(questions)} questions...", flush=True)
     for idx, q in enumerate(questions, 1):
-        print(f"\nProcessing Q{idx}/{len(questions)}...", end=' ')
+        print(f"[DEBUG] Loop iteration {idx} started", flush=True)
+        print(f"\nProcessing Q{idx}/{len(questions)}...", end=' ', flush=True)
         
         question_text = q.get('question', '')
         options = q.get('options', {})
-        # Use letter format (answer_idx) as ground truth - cleaner comparison
-        correct_answer_letter = q.get('answer_idx', '')
+        correct_answer = q.get('answer', q.get('correct_answer', ''))
         
         # Store raw options for this question (used later for metrics answer matching)
         all_options.append(options)
@@ -190,7 +193,7 @@ def run_configuration(
                     strong_yes_specialists.append(spec_out)
 
             # FIXED: Require consensus for verified answers - don't trust single verified specialist
-            # Single verified answers can be wrong (consistency ≠ correctness)
+            # Single verified answers can be wrong (consistency ??? correctness)
             # Only trust if at least 2 specialists agree on the same verified answer
             if len(strong_yes_specialists) >= 2:
                 # Check if multiple verified specialists agree on the same answer
@@ -453,42 +456,25 @@ def run_configuration(
         
         # Convert letter answer to full text if needed
         # Safety check: ensure final_answer is not None
-        # Convert final_answer to letter format for clean comparison
         if final_answer is None:
             final_answer = ""
-        final_answer_str = str(final_answer).strip()
+        final_answer_text = final_answer.strip() if final_answer else ""
+        if isinstance(options, dict) and len(final_answer_text) == 1 and final_answer_text.upper() in options:
+            final_answer_text = options[final_answer_text.upper()]
         
-        # Extract letter from final answer
+        # Strip letter prefixes
         import re
-        final_answer_letter = None
+        final_answer_text = re.sub(r'^[A-Z]\.\s*', '', final_answer_text, flags=re.IGNORECASE).strip()
+        correct_answer_normalized = re.sub(r'^[A-Z]\.\s*', '', correct_answer, flags=re.IGNORECASE).strip()
         
-        # Case 1: Already a single letter (A, B, C, D)
-        if len(final_answer_str) == 1 and final_answer_str.upper() in ['A', 'B', 'C', 'D']:
-            final_answer_letter = final_answer_str.upper()
-        # Case 2: Starts with letter (e.g., "A: Text" or "A. Text")
-        elif final_answer_str and final_answer_str[0].upper() in ['A', 'B', 'C', 'D']:
-            final_answer_letter = final_answer_str[0].upper()
-        # Case 3: Full text answer - match against options to get letter
-        elif isinstance(options, dict) and final_answer_str:
-            # Try to find matching option text
-            for letter, option_text in options.items():
-                # Normalize both for comparison
-                option_normalized = re.sub(r'^[A-Z][\.\:\)]\s*', '', str(option_text), flags=re.IGNORECASE).strip().lower()
-                answer_normalized = re.sub(r'^[A-Z][\.\:\)]\s*', '', final_answer_str, flags=re.IGNORECASE).strip().lower()
-                if option_normalized == answer_normalized:
-                    final_answer_letter = letter.upper()
-                    break
-        
-        # Check if correct (letter to letter comparison)
-        is_correct = (final_answer_letter is not None and 
-                     final_answer_letter.upper() == correct_answer_letter.upper())
+        # Check if correct
+        is_correct = (final_answer_text.lower() == correct_answer_normalized.lower())
         
         result = {
             'question_idx': idx,
             'question': question_text[:100] + '...' if len(question_text) > 100 else question_text,
-            'correct_answer': correct_answer_letter,  # Store as letter (A, B, C, D)
-            'final_answer': final_answer_letter if final_answer_letter else final_answer,  # Store normalized letter
-            'final_answer_raw': final_answer,  # Keep raw answer for debugging
+            'correct_answer': correct_answer,
+            'final_answer': final_answer,
             'is_correct': is_correct,
             'final_confidence': final_confidence,
             'fusion_reason': fusion_reason,
@@ -634,9 +620,10 @@ def main():
         llm_client,
         s_score_formula=s_score_formula
     )  # Tier1Verifier implements Two-Phase Verification (Wu et al. 2024)
-    print(f"OK Two-Phase Verification ready (formula: {s_score_formula})")
-    print("   Note: Tier 2 (GP validation) is not used in this comparison")
-    print(f"   S_score formula: {s_score_formula}")
+    print(f"OK Two-Phase Verification ready (formula: {s_score_formula})", flush=True)
+    print("   Note: Tier 2 (GP validation) is not used in this comparison", flush=True)
+    print(f"   S_score formula: {s_score_formula}", flush=True)
+    print("", flush=True)  # Empty line for spacing
     
     # Define configurations (ordered for logical progression)
     # IMPORTANT: All configurations use SAME temperature_scale for fair comparison
@@ -672,7 +659,7 @@ def main():
             'is_single_specialist': False
         },
         {
-            'name': 'Multi-Agent + Two-Phase Verification',  # ⭐ MAIN CONTRIBUTION
+            'name': 'Multi-Agent + Two-Phase Verification',  # ??? MAIN CONTRIBUTION
             'specialists': multi_specialist_team,
             'two_phase': two_phase_verifier,
             'tier2': None,
@@ -687,7 +674,9 @@ def main():
     all_results = []
     start_time = datetime.now()
     
+    print("Starting configuration loop...", flush=True)
     for config in configurations:
+        print(f"About to run configuration: {config['name']}", flush=True)
         result = run_configuration(
             config_name=config['name'],
             llm_client=llm_client,

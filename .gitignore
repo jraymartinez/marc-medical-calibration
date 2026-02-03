@@ -142,6 +142,7 @@ models/checkpoints/*
 /*.md
 /*.py
 /*.txt
+/*.tex
 !requirements.txt
 !README.md
 !LICENSE.md
@@ -152,3 +153,6 @@ scripts/*
 !scripts/README.md
 !scripts/.gitkeep
 !scripts/run_final_comparison.py
+
+# Exclude debug directory contents but keep the folder
+debug/*

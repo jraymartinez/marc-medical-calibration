@@ -57,7 +57,12 @@ class Tier1Verifier:
             reference_temp: Temperature for reference answers (lower = more consistent with explanation)
             question_temp: Temperature for verification question formulation
         """
-        self.llm_client = llm_client or get_llm_client()
+        if llm_client is None:
+            print("WARNING: No LLM client provided to Tier1Verifier, creating new one (this may cause OOM)", flush=True)
+            self.llm_client = get_llm_client()
+        else:
+            print("DEBUG: Using provided LLM client for Tier1Verifier", flush=True)
+            self.llm_client = llm_client
         self.temperature = temperature  # Keep for backward compatibility
         self.consistency_weight = consistency_weight
         self.s_score_formula = s_score_formula
