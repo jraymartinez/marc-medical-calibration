@@ -61,7 +61,8 @@ def calculate_confidence_metrics(
     predictions: List[str],
     ground_truth: List[str],
     confidences: List[float],
-    options: Optional[List[Dict[str, str]]] = None
+    options: Optional[List[Dict[str, str]]] = None,
+    is_correct: Optional[List[bool]] = None
 ) -> Dict[str, float]:
     """
     Calculate confidence-related metrics including calibration.
@@ -70,12 +71,17 @@ def calculate_confidence_metrics(
         predictions: List of predicted answers
         ground_truth: List of correct answers
         confidences: List of confidence scores
+        options: Optional list of option dictionaries for answer matching
+        is_correct: Optional pre-computed correctness flags (recommended for accuracy)
         
     Returns:
         Dictionary of confidence metrics
     """
     if not (len(predictions) == len(ground_truth) == len(confidences)):
         raise ValueError("All lists must have same length")
+    
+    if is_correct is not None and len(is_correct) != len(predictions):
+        raise ValueError("is_correct must have same length as predictions")
     
     # Accuracy by confidence bins
     bins = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
@@ -87,20 +93,28 @@ def calculate_confidence_metrics(
         bin_preds = []
         bin_gts = []
         bin_confs = []
+        bin_correct = []
         
-        for pred, gt, conf in zip(predictions, ground_truth, confidences):
+        for idx, (pred, gt, conf) in enumerate(zip(predictions, ground_truth, confidences)):
             if bins[i] <= conf < bins[i + 1] or (i == len(bins) - 2 and conf == 1.0):
                 bin_preds.append(pred)
                 bin_gts.append(gt)
                 bin_confs.append(conf)
+                if is_correct is not None:
+                    bin_correct.append(is_correct[idx])
         
         if bin_preds:
-            # Use options if available for answer matching
-            bin_options = None
-            if options:
-                # Get options for questions in this bin (approximate - use first question's options)
-                bin_options = [options[0]] * len(bin_preds) if len(options) > 0 else None
-            acc = calculate_accuracy(bin_preds, bin_gts, bin_options)
+            # Use pre-computed is_correct if available (more reliable)
+            if is_correct is not None and bin_correct:
+                acc = sum(bin_correct) / len(bin_correct)
+            else:
+                # Fallback to answer matching (less reliable due to format mismatches)
+                bin_options = None
+                if options:
+                    # Get options for questions in this bin (approximate - use first question's options)
+                    bin_options = [options[0]] * len(bin_preds) if len(options) > 0 else None
+                acc = calculate_accuracy(bin_preds, bin_gts, bin_options)
+            
             avg_conf = np.mean(bin_confs)
             bin_accuracies.append(acc)
             bin_confidences.append(avg_conf)

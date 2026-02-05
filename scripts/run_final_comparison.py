@@ -509,8 +509,10 @@ def run_configuration(
     # But for ECE and AUROC, we need proper answer matching
     
     # Calculate confidence metrics (requires predictions, ground_truth, confidences)
-    # Pass options for proper answer matching (letter to full text conversion)
-    confidence_metrics = calculate_confidence_metrics(predictions, ground_truth, confidences, options=all_options)
+    # Pass is_correct flags for accurate ECE calculation (avoids answer format mismatch issues)
+    is_correct_list = [r['is_correct'] for r in results['question_results']]
+    confidence_metrics = calculate_confidence_metrics(predictions, ground_truth, confidences, 
+                                                     options=all_options, is_correct=is_correct_list)
     ece = confidence_metrics.get('ece', 0.0)
     brier_score = confidence_metrics.get('brier_score', 0.0) if 'brier_score' in confidence_metrics else 0.0
     auroc = calculate_auroc(predictions, ground_truth, confidences, options=all_options)

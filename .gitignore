@@ -153,6 +153,7 @@ scripts/*
 !scripts/README.md
 !scripts/.gitkeep
 !scripts/run_final_comparison.py
+!scripts/visualize_comparison.py
 
 # Exclude debug directory contents but keep the folder
 debug/*
