@@ -68,12 +68,9 @@ def run_configuration(
     is_single_specialist=False
 ):
     """Run a single configuration and return results."""
-    print(f"[ENTER run_configuration] config_name={config_name}", flush=True)
     print(f"\n{'='*70}", flush=True)
     print(f"Running Configuration: {config_name}", flush=True)
     print(f"{'='*70}", flush=True)
-    
-    print(f"[DEBUG] Creating results dict...", flush=True)
     results = {
         'config_name': config_name,
         'timestamp': datetime.now().isoformat(),
@@ -87,9 +84,7 @@ def run_configuration(
     # Store options for metrics calculation (letter-to-text conversion in metrics)
     all_options = []
     
-    print(f"[DEBUG] Starting question loop with {len(questions)} questions...", flush=True)
     for idx, q in enumerate(questions, 1):
-        print(f"[DEBUG] Loop iteration {idx} started", flush=True)
         print(f"\nProcessing Q{idx}/{len(questions)}...", end=' ', flush=True)
         
         question_text = q.get('question', '')
@@ -539,8 +534,31 @@ def run_configuration(
 
 def main():
     """Run final comparison experiment."""
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Run final comparison experiment')
+    parser.add_argument('--model', type=str, 
+                       default='meta-llama/Llama-3.1-8B-Instruct',
+                       help='Model name (default: meta-llama/Llama-3.1-8B-Instruct)')
+    args = parser.parse_args()
+    
+    model_name = args.model
+    
+    # Extract short model name for display
+    if 'llama' in model_name.lower():
+        model_display = 'LLAMA-3.1-8B'
+        model_short = 'llama'
+    elif 'mistral' in model_name.lower():
+        model_display = 'MISTRAL-7B'
+        model_short = 'mistral'
+    else:
+        model_display = model_name.split('/')[-1]
+        model_short = 'model'
+    
     print("="*70)
-    print("FINAL COMPARISON: Single Specialist vs Multi-Agent + Two-Phase Verification")
+    print(f"FINAL COMPARISON - {model_display}")
+    print("Single Specialist vs Multi-Agent + Two-Phase Verification")
     print("="*70)
     
     # Configuration
@@ -554,9 +572,9 @@ def main():
     print(f"Loaded {len(questions)} questions")
     
     # Initialize LLM client
-    print("\nInitializing LLM client...")
+    print(f"\nInitializing LLM client ({model_display})...")
     llm_client = LocalLLMClient(
-        model_name="meta-llama/Llama-3.1-8B-Instruct",
+        model_name=model_name,
         use_4bit=False,  # FP16 for better accuracy
         hf_token=os.getenv('HF_TOKEN')
     )
@@ -623,7 +641,6 @@ def main():
     print(f"OK Two-Phase Verification ready (formula: {s_score_formula})", flush=True)
     print("   Note: Tier 2 (GP validation) is not used in this comparison", flush=True)
     print(f"   S_score formula: {s_score_formula}", flush=True)
-    print("", flush=True)  # Empty line for spacing
     
     # Define configurations (ordered for logical progression)
     # IMPORTANT: All configurations use SAME temperature_scale for fair comparison
@@ -674,9 +691,7 @@ def main():
     all_results = []
     start_time = datetime.now()
     
-    print("Starting configuration loop...", flush=True)
     for config in configurations:
-        print(f"About to run configuration: {config['name']}", flush=True)
         result = run_configuration(
             config_name=config['name'],
             llm_client=llm_client,
@@ -699,9 +714,11 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = output_dir / f"final_comparison_{timestamp}.json"
+    output_file = output_dir / f"final_comparison_{model_short}_{timestamp}.json"
     
     comparison_results = {
+        'experiment': f'Final Comparison - {model_display}',
+        'model': model_name,
         'timestamp': timestamp,
         'elapsed_time_seconds': elapsed.total_seconds(),
         'num_questions': num_questions,
