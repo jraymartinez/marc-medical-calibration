@@ -201,7 +201,7 @@ def run_configuration(
                     agreed_specialists = [s for s in strong_yes_specialists if s['answer'] == agreed_answer]
                     best_verified = max(agreed_specialists, key=lambda x: x.get('S_score', x['confidence']))
                     final_answer = best_verified['answer']
-                    final_confidence = min(1.0, best_verified['confidence'] * 1.2)  # Reduced boost from 1.4 to 1.2
+                    final_confidence = best_verified['confidence']  # No boost - use S_score directly for better calibration
                     final_answer_set = True
                     fusion_reason = "verified_consensus"
                 elif len(strong_yes_specialists) >= 2:
@@ -386,7 +386,7 @@ def run_configuration(
                         best_agreement_specs = [s for s in specialist_outputs if s['answer'] == best_agreement_answer]
                         best_agreement_spec = max(best_agreement_specs, key=lambda x: x.get('S_score', x['confidence']))
                         final_answer = best_agreement_spec['answer']
-                        final_confidence = min(1.0, best_agreement_spec['confidence'] * 1.15)  # Small boost
+                        final_confidence = best_agreement_spec['confidence']  # No boost - better calibration
                         final_answer_set = True
                         fusion_reason = "agreement_2plus_no_majority"
                 
@@ -429,21 +429,18 @@ def run_configuration(
         if not is_single_specialist and specialist_outputs:
             max_s_score = max([s.get('S_score', s['confidence']) for s in specialist_outputs])
             
-            # Calibration: Apply temperature scaling to S_score
-            # This helps calibrate S_scores to better match actual accuracy
-            calibrated_s_score = max_s_score ** 0.9  # Slight scaling down for calibration
+            # Calibration: Apply scaling to reduce overconfidence
+            # Use same exponent for fair comparison across configurations
+            calibrated_s_score = max_s_score ** 1.3
             
-            # Weighted combination: 75% calibrated S_score, 25% fusion result
-            # Increased weight on S_score since it has better discrimination
-            final_confidence = 0.75 * calibrated_s_score + 0.25 * final_confidence
+            # Weighted combination: Balanced weighting for better calibration
+            final_confidence = 0.5 * calibrated_s_score + 0.5 * final_confidence
         
-        # Apply temperature scaling for calibration (less aggressive for Multi-Agent + Two-Phase)
-        # For Multi-Agent + Two-Phase, use less scaling since we're already using S_scores
-        if not is_single_specialist:
-            # Less aggressive scaling when using S_scores
-            temp_scale = max(1.0, temperature_scale - 0.1)  # Reduce by 0.1
-        else:
-            temp_scale = temperature_scale
+        # Apply temperature scaling for calibration
+        # IMPORTANT: Use SAME temperature_scale for all configurations (fair comparison)
+        # Different configs may have different accuracy levels, but calibration
+        # method should be consistent for valid comparison
+        temp_scale = temperature_scale
         
         final_confidence = final_confidence ** temp_scale
         final_confidence = min(final_confidence, 0.95)
