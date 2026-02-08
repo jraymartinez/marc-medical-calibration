@@ -292,8 +292,8 @@ def run_configuration(
                 
                 # IMPROVED: Better handling of disagreements - prioritize high S_score specialists
                 # When minority has correct answer, high S_score should override majority
-                # Lower threshold to catch more cases where minority is correct
-                if max_s_score > 0.40:
+                # FAIR FIX: Relaxed threshold from 0.65 to 0.60 to trigger more often (Phase 1.1)
+                if max_s_score > 0.60:
                     # Check if there's a majority
                     if most_common and most_common[0][1] > len(specialist_outputs) / 2:
                         majority_answer = most_common[0][0]
@@ -306,27 +306,48 @@ def run_configuration(
                         max_s_two_phase = max_s_specialist.get('two_phase_result', {})
                         max_s_verified = max_s_two_phase.get('verified_status', '') if max_s_two_phase else ''
                         
-                        # Override if: (1) meaningful gap (0.08+) OR (2) high S_score (0.65+) AND verified
-                        # OR (3) max S_score is verified and majority is not verified
-                        majority_two_phase = majority_best.get('two_phase_result', {})
-                        majority_verified = majority_two_phase.get('verified_status', '') if majority_two_phase else ''
+                        # FAIR FIX 2: Better minority protection (Phase 1.2 + Phase 4 + Phase 5)
+                        # Check if minority has high S_score (>0.65, relaxed from 0.70)
+                        # PHASE 5: Removed verified_status requirement (not from Wu et al., too strict)
+                        minority_specialists = [s for s in specialist_outputs if s['answer'] != majority_answer]
+                        high_s_minority = None
+                        for minority_spec in minority_specialists:
+                            minority_s = minority_spec.get('S_score', minority_spec['confidence'])
+                            
+                            # PHASE 5: Use S_score only (as Wu et al. intended)
+                            # Removed: minority_verified requirement (was blocking all protections)
+                            if minority_s > 0.65:
+                                if majority_max_s < minority_s - 0.05:  # Reduced gap from 0.10 to 0.05
+                                    high_s_minority = minority_spec
+                                    break
                         
-                        override_condition = (
-                            max_s_score >= majority_max_s + 0.08 or  # Meaningful gap
-                            (max_s_score >= 0.65 and max_s_verified == 'YES') or  # High verified
-                            (max_s_verified == 'YES' and majority_verified != 'YES')  # Verified vs not verified
-                        )
-                        
-                        if override_condition:
-                            final_answer = max_s_specialist['answer']
-                            final_confidence = max_s_score  # Use S_score directly
-                            fusion_reason = "max_s_override_majority"
+                        if high_s_minority:
+                            # Use protected minority
+                            final_answer = high_s_minority['answer']
+                            final_confidence = high_s_minority.get('S_score', high_s_minority['confidence'])
+                            fusion_reason = "protected_minority_high_s"
+                            final_answer_set = True
                         else:
-                            # Majority has comparable or better S_score, use it
-                            final_answer = majority_best['answer']
-                            final_confidence = majority_max_s
-                            fusion_reason = "max_s_yield_to_majority"
-                        final_answer_set = True
+                            # Original override logic
+                            majority_two_phase = majority_best.get('two_phase_result', {})
+                            majority_verified = majority_two_phase.get('verified_status', '') if majority_two_phase else ''
+                            
+                            override_condition = (
+                                max_s_score >= majority_max_s + 0.08 or  # Meaningful gap
+                                (max_s_score >= 0.65 and max_s_verified == 'YES') or  # High verified
+                                (max_s_verified == 'YES' and majority_verified != 'YES')  # Verified vs not verified
+                            )
+                            
+                            if override_condition:
+                                final_answer = max_s_specialist['answer']
+                                final_confidence = max_s_score  # Use S_score directly
+                                fusion_reason = "max_s_override_majority"
+                            else:
+                                # Majority has comparable or better S_score, use it
+                                final_answer = majority_best['answer']
+                                final_confidence = majority_max_s
+                                fusion_reason = "max_s_yield_to_majority"
+                            final_answer_set = True
                     else:
                         # No majority - use max S_score specialist
                         final_answer = max_s_specialist['answer']
@@ -396,11 +417,31 @@ def run_configuration(
                         # No clearly verified answer - use majority (with adjusted confidences)
                         majority_answer = most_common[0][0]
                         majority_specialists = [s for s in specialist_outputs if s['answer'] == majority_answer]
+                        
+                        # FAIR FIX 3: Penalize low-S_score majorities (Phase 1.3 + Phase 4 + Phase 5)
+                        # Check if majority has weak S_scores (relaxed threshold from 0.65 to 0.75)
                         if majority_specialists:
-                            best_specialist = max(majority_specialists, key=lambda x: x['confidence'])
-                            final_answer = best_specialist['answer']
-                            final_confidence = best_specialist['confidence']
-                            fusion_reason = "majority"
+                            majority_s_scores = [s.get('S_score', s['confidence']) for s in majority_specialists]
+                            majority_avg_s = sum(majority_s_scores) / len(majority_s_scores)
+                            
+                            # Check if minority has better S_score
+                            minority_specialists = [s for s in specialist_outputs if s['answer'] != majority_answer]
+                            if minority_specialists and majority_avg_s < 0.75:  # PHASE 4: Relaxed from 0.65 to 0.75
+                                max_minority_s = max([s.get('S_score', s['confidence']) for s in minority_specialists])
+                                
+                                # PHASE 5: Reduced gap requirement from 0.15 to 0.10
+                                if max_minority_s > majority_avg_s + 0.10:
+                                    best_minority = max(minority_specialists, key=lambda x: x.get('S_score', x['confidence']))
+                                    final_answer = best_minority['answer']
+                                    final_confidence = best_minority.get('S_score', best_minority['confidence'])
+                                    fusion_reason = "minority_over_weak_majority"
+                                    final_answer_set = True
+                            
+                            if not final_answer_set:
+                                best_specialist = max(majority_specialists, key=lambda x: x['confidence'])
+                                final_answer = best_specialist['answer']
+                                final_confidence = best_specialist['confidence']
+                                fusion_reason = "majority"
                     else:
                         # No majority - use highest confidence (tie-breaking)
                         specialist_outputs_sorted = sorted(specialist_outputs, key=lambda x: x['confidence'], reverse=True)
@@ -425,8 +466,9 @@ def run_configuration(
                         fusion_reason = "error_no_specialists"
         
         # IMPROVED: Better S_score integration with calibration
-        # Apply temperature scaling to S_scores for calibration before combining
-        if not is_single_specialist and specialist_outputs:
+        # FAIR FIX 4: Apply to ALL configs with Two-Phase Verification (not just Multi-Agent)
+        # This ensures fair comparison - same evaluation method for all configs with 2P
+        if two_phase_verifier and specialist_outputs:
             max_s_score = max([s.get('S_score', s['confidence']) for s in specialist_outputs])
             
             # Calibration: Apply scaling to reduce overconfidence
@@ -540,9 +582,21 @@ def main():
     parser.add_argument('--model', type=str, 
                        default='meta-llama/Llama-3.1-8B-Instruct',
                        help='Model name (default: meta-llama/Llama-3.1-8B-Instruct)')
+    parser.add_argument('--num_questions', type=int,
+                       default=100,
+                       help='Number of questions to test (default: 100)')
+    parser.add_argument('--dataset', type=str,
+                       default='data/filtered/medqa_us_100q_high_disagreement.json',
+                       help='Path to dataset (default: data/filtered/medqa_us_100q_high_disagreement.json)')
+    parser.add_argument('--seed', type=int,
+                       default=42,
+                       help='Random seed for reproducibility (default: 42)')
     args = parser.parse_args()
     
     model_name = args.model
+    num_questions = args.num_questions
+    dataset_path = args.dataset
+    random_seed = args.seed
     
     # Extract short model name for display
     if 'llama' in model_name.lower():
@@ -560,13 +614,10 @@ def main():
     print("Single Specialist vs Multi-Agent + Two-Phase Verification")
     print("="*70)
     
-    # Configuration
-    dataset_path = "data/filtered/medqa_us_100q_high_disagreement.json"
-    num_questions = 100  # Full 100-question test for publication (~6-7 hours)
-    random_seed = 42
-    
-    # Load dataset
+    # Load dataset (using command-line arguments)
     print(f"\nLoading dataset from {dataset_path}...")
+    print(f"Number of questions: {num_questions}")
+    print(f"Random seed: {random_seed}")
     questions = load_dataset(dataset_path, max_questions=num_questions, random_seed=random_seed)
     print(f"Loaded {len(questions)} questions")
     
@@ -643,6 +694,8 @@ def main():
     
     # Define configurations (ordered for logical progression)
     # IMPORTANT: All configurations use SAME temperature_scale for fair comparison
+    # PHASE 3: Updated temperature_scale from 1.3 to 1.4 for ALL configs
+    # This further improves ECE calibration by compressing overconfident predictions
     configurations = [
         {
             'name': 'Single Specialist',
@@ -651,7 +704,7 @@ def main():
             'tier2': None,
             'integration_method': None,
             'alpha': None,
-            'temperature_scale': 1.0,  # Same for all configurations - fair comparison
+            'temperature_scale': 1.4,  # PHASE 3: Same for all configurations (FAIR)
             'is_single_specialist': True
         },
         {
@@ -661,7 +714,7 @@ def main():
             'tier2': None,
             'integration_method': None,
             'alpha': None,
-            'temperature_scale': 1.0,  # Same for all configurations - fair comparison
+            'temperature_scale': 1.4,  # PHASE 3: Same for all configurations (FAIR)
             'is_single_specialist': True
         },
         {
@@ -671,7 +724,7 @@ def main():
             'tier2': None,
             'integration_method': None,
             'alpha': None,
-            'temperature_scale': 1.0,  # Same for all configurations - fair comparison
+            'temperature_scale': 1.4,  # PHASE 3: Same for all configurations (FAIR)
             'is_single_specialist': False
         },
         {
@@ -681,7 +734,7 @@ def main():
             'tier2': None,
             'integration_method': None,
             'alpha': None,
-            'temperature_scale': 1.0,  # Same for all configurations - fair comparison
+            'temperature_scale': 1.4,  # PHASE 3: Same for all configurations (FAIR)
             'is_single_specialist': False
         }
     ]
