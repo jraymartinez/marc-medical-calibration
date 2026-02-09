@@ -1,4 +1,4 @@
-# Paper 1: Hierarchical Verification Framework for Multi-Agent Medical Diagnosis
+# Interpretable Priority-Based Fusion for Multi-Agent Medical Diagnosis with Two-Phase Verification
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
