@@ -219,6 +219,32 @@ anthropic_api_key.txt
 api_config.json
 
 # =============================================================================
+# Stale source files superseded by current pipeline
+# =============================================================================
+src/filtering/respiratory_filter.py
+src/filtering/__init__.py
+src/fusion/integration_methods.py
+src/fusion/hierarchical_integration.py
+scripts/visualize_comparison.py
+
+# =============================================================================
+# Paper source (add back after acceptance to avoid breaking double-blind review)
+# =============================================================================
+main.tex
+main.bib
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.toc
+*.lof
+*.lot
+
+# =============================================================================
 # OS artefacts
 # =============================================================================
 .DS_Store
