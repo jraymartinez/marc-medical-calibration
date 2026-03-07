@@ -213,10 +213,10 @@ Figures are saved to `results/paper1/figures/no_grid/`.
 ## Citation
 
 ```bibtex
-@article{marc2026,
+@article{martinez2026marc,
   title   = {Multi-Agent Reasoning with Consistency Verification Improves
              Uncertainty Calibration in Medical MCQA},
-  author  = {Anonymous},
+  author  = {Martinez, John Ray},
   journal = {Transactions on Machine Learning Research},
   year    = {2026},
   note    = {Under review}
