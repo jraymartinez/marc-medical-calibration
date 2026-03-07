@@ -557,7 +557,7 @@ def main():
     
     # Initialize LLM
     print("Initializing LLM client...")
-    llm_client = LocalLLMClient(model_name=args.model, device="cuda")
+    llm_client = LocalLLMClient(model_name=args.model, use_4bit=False, device="cuda")
     print("LLM client ready\n")
     
     start_time = datetime.now()

@@ -1,3 +1,8 @@
+# License
+
+## Code
+The source code in this repository is licensed under the MIT License.
+
 MIT License
 
 Copyright (c) 2025 John Ray Martinez
@@ -19,3 +24,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Paper
+The associated paper is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+as required by TMLR. Copyright is retained by the author.

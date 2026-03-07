@@ -119,7 +119,7 @@ class LocalLLMClient:
                 model_name,
                 quantization_config=quantization_config,
                 device_map=device_map,
-                torch_dtype=torch_dtype,
+                dtype=torch_dtype,
                 trust_remote_code=True,
                 max_memory=max_memory,
                 token=self.hf_token,
