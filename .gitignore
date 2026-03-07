@@ -98,6 +98,8 @@ results/weighted_voting/
 results/weighted_voting_multiplicative/
 results/analysis/
 results/4_config_comparison/*.txt
+results/4_config_comparison/*.png
+results/filtering_log_*.txt
 # Exclude all result JSONs then re-include only the 4 canonical experiment files
 results/4_config_comparison/*.json
 !results/4_config_comparison/4_config_qwen_100q_20260228_000721.json
@@ -147,6 +149,11 @@ debug/
 docs/*
 !docs/LOCAL_LLM_SETUP.md
 !docs/HARDWARE_CONFIG.md
+
+# =============================================================================
+# Reference PDFs — copyright, do not distribute
+# =============================================================================
+paper1/references/
 
 # =============================================================================
 # Root-level session notes, scratch files, and paper drafts
