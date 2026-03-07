@@ -80,8 +80,8 @@ See `docs/HARDWARE_CONFIG.md` for details.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/[anonymised]/paper1-hierarchical-verification.git
-cd paper1-hierarchical-verification
+git clone https://github.com/jraymartinez/marc-medical-calibration.git
+cd marc-medical-calibration
 ```
 
 ### 2. Install dependencies

@@ -232,6 +232,7 @@ scripts/visualize_comparison.py
 # =============================================================================
 main.tex
 main.bib
+arxiv/
 *.aux
 *.log
 *.out
