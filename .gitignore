@@ -1,4 +1,6 @@
-﻿# Python
+# =============================================================================
+# Python
+# =============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -23,7 +25,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual Environment
+# =============================================================================
+# Virtual Environments
+# =============================================================================
 venv/
 env/
 ENV/
@@ -31,7 +35,9 @@ ENV/
 env.bak/
 venv.bak/
 
-# IDEs
+# =============================================================================
+# IDEs and Editor Files
+# =============================================================================
 .vscode/
 .idea/
 *.swp
@@ -42,39 +48,147 @@ venv.bak/
 .cursorrules
 *.code-profile
 
-# Data files - CRITICAL: Don't commit large datasets
+# =============================================================================
+# Raw Datasets  (large files — download instructions in README)
+# =============================================================================
 data/raw/**/*.json
 data/raw/**/*.jsonl
 data/raw/**/*.csv
-#data/filtered/*.json
-#data/filtered/*.jsonl
 !data/raw/README.md
-!data/filtered/README.md
 
-# Model files
+# =============================================================================
+# Intermediate / legacy filtered files  (only the 4 evaluation sets are kept)
+# =============================================================================
+data/filtered/respiratory_cases_all.json
+data/filtered/respiratory_cases_all_MIXED_FORMAT.json
+data/filtered/respiratory_cases_all_MIXED_LANG.json
+data/filtered/medqa_usmle_filtered.json
+data/filtered/medqa_twmle_filtered.json
+data/filtered/medqa_mcmle_filtered.json
+data/filtered/medmcqa_filtered.json
+data/filtered/medqa_us_train_filtered.json
+data/filtered/medqa_us_test_filtered.json
+data/filtered/medqa_us_train_balanced.json
+data/filtered/medqa_us_train_balanced_4specialty.json
+data/filtered/medqa_us_100q_4specialty.json
+data/filtered/medqa_us_100q_high_disagreement.json
+data/filtered/multi_specialty_cases_all.json
+data/filtered/curated_agreement_medmcqa.json
+data/filtered/curated_disagreement_medmcqa.json
+data/filtered/curated_disagreement_train_test.json
+
+# =============================================================================
+# Model Weights
+# =============================================================================
 *.bin
 *.pt
 *.pth
 *.ckpt
 *.safetensors
+*.pkl
+*.h5
+*.hdf5
 models/
 
-# Results - Experiment outputs
-#results/**/*
-results/**/*.json
-results/**/*.csv
-results/paper1/*.md
-results/paper1/*.txt
-!results/README.md
-!results/.gitkeep
+# =============================================================================
+# Results — keep only final paper figures and the 4 canonical result JSONs
+# =============================================================================
+results/agreement_fusion/
+results/weighted_voting/
+results/weighted_voting_multiplicative/
+results/analysis/
+results/4_config_comparison/*.txt
+# Exclude all result JSONs then re-include only the 4 canonical experiment files
+results/4_config_comparison/*.json
+!results/4_config_comparison/4_config_qwen_100q_20260228_000721.json
+!results/4_config_comparison/4_config_qwen_250q_20260301_162510.json
+!results/4_config_comparison/4_config_qwen_100q_medmcqa_20260303_175634.json
+!results/4_config_comparison/4_config_qwen_250q_medmcqa_20260304_173609.json
 
-# Jupyter Notebooks
+results/paper1/*.json
+results/paper1/*.log
+results/paper1/*.txt
+results/paper1/*.md
+results/paper1/figures/combined/
+results/paper1/figures/medmcqa250/
+results/paper1/figures/*.png
+results/paper1/figures/*.tex
+
+# Keep no_grid figures (the ones used in the paper) and the tex table
+!results/paper1/figures/no_grid/
+!results/paper1/figures/no_grid/**
+!results/README.md
+
+# =============================================================================
+# Scripts — keep only the canonical experiment runners and figure generators
+# =============================================================================
+scripts/*
+!scripts/run_4_configs.py
+!scripts/create_curated_disagreement_medmcqa.py
+!scripts/create_medmcqa_100q_high_disagreement.py
+!scripts/create_medmcqa_250q_high_disagreement.py
+!scripts/create_100q_high_disagreement_dataset.py
+!scripts/create_250q_high_disagreement_dataset.py
+!scripts/generate_paper_figures_qwen250.py
+!scripts/generate_paper_figures_medmcqa250.py
+!scripts/generate_combined_figures.py
+!scripts/generate_calibration_grid.py
+!scripts/compare_100q_vs_250q.py
+!scripts/README.md
+
+# =============================================================================
+# Debug directory — entirely private
+# =============================================================================
+debug/
+
+# =============================================================================
+# Docs — keep only the ones relevant to reproducibility
+# =============================================================================
+docs/*
+!docs/LOCAL_LLM_SETUP.md
+!docs/HARDWARE_CONFIG.md
+
+# =============================================================================
+# Root-level session notes, scratch files, and paper drafts
+# =============================================================================
+/*.md
+/*.py
+/*.txt
+/*.tex
+!README.md
+!requirements.txt
+!LICENSE.md
+!main.tex
+!main.bib
+
+# =============================================================================
+# Backup and scratch files within src/
+# =============================================================================
+src/**/*_backup.py
+src/**/*_original.py
+
+# =============================================================================
+# Logs and temporary files
+# =============================================================================
+*.log
+logs/
+*.log.*
+*.tmp
+*.temp
+*.bak
+*~
+
+# =============================================================================
+# Jupyter
+# =============================================================================
 .ipynb_checkpoints/
 *.ipynb_checkpoints
-profile_default/
+profile_output/
 ipython_config.py
 
-# Testing
+# =============================================================================
+# Testing artefacts
+# =============================================================================
 .pytest_cache/
 .coverage
 htmlcov/
@@ -83,12 +197,9 @@ htmlcov/
 .hypothesis/
 pytest_debug.log
 
-# Logs
-*.log
-logs/
-*.log.*
-
-# Environment variables and secrets - CRITICAL FOR SECURITY
+# =============================================================================
+# Secrets and API keys — NEVER commit these
+# =============================================================================
 .env
 .env.local
 .env.*.local
@@ -96,13 +207,13 @@ logs/
 *.pem
 config/secrets.yaml
 config/api_keys.json
-
-# API Keys - VERY IMPORTANT
 openai_api_key.txt
 anthropic_api_key.txt
 api_config.json
 
-# OS
+# =============================================================================
+# OS artefacts
+# =============================================================================
 .DS_Store
 .DS_Store?
 ._*
@@ -111,49 +222,3 @@ api_config.json
 ehthumbs.db
 Thumbs.db
 desktop.ini
-
-# Paper artifacts (until ready to share)
-paper/manuscript/*.pdf
-paper/manuscript/*.aux
-paper/manuscript/*.bbl
-paper/manuscript/*.blg
-paper/manuscript/*.log
-paper/manuscript/*.out
-!paper/manuscript/README.md
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.swp
-*~
-
-# Large model files
-*.pkl
-*.h5
-*.hdf5
-*.ckpt
-*.pt
-*.pth
-models/checkpoints/*
-!models/checkpoints/.gitkeep
-
-# Exclude root-level work-in-progress files
-/*.md
-/*.py
-/*.txt
-/*.tex
-!requirements.txt
-!README.md
-!LICENSE.md
-
-# Exclude scripts directory (work in progress)
-# Exclude scripts directory contents but keep the folder
-scripts/*
-!scripts/README.md
-!scripts/.gitkeep
-!scripts/run_final_comparison.py
-!scripts/visualize_comparison.py
-
-# Exclude debug directory contents but keep the folder
-debug/*

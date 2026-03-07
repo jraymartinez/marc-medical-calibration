@@ -69,7 +69,7 @@ STEP 5: Make your decision
   * Strength of evidence
   * Certainty in your reasoning
 
-IMPORTANT: For ANSWER, provide ONLY the exact text of your selected option (not the letter, not a description).
+IMPORTANT: For ANSWER, provide ONLY the option LETTER (A, B, C, D, or E). Do NOT provide the full text, just the letter.
 
 Format your response as:
 STEP_1_ANALYSIS: [Your analysis of the clinical scenario]
@@ -77,7 +77,7 @@ STEP_2_DIFFERENTIAL: [Differential diagnoses from your specialty]
 STEP_3_OPTION_EVALUATION: [Evaluation of each option]
 STEP_4_COMPARISON: [Comparison of options]
 STEP_5_DECISION: [Your final decision reasoning]
-ANSWER: [Exact text of the selected option]
+ANSWER: [Single letter: A, B, C, D, or E]
 CONFIDENCE: [0.0-1.0]
 REASONING: [Your detailed explanation summarizing all steps]
 """
@@ -275,11 +275,11 @@ CRITICAL FORMAT REQUIREMENT FOR GP:
         options_text = "\n".join([f"{k}. {v}" for k, v in options.items()])
     else:
         options_text = "\n".join([f"{chr(65+i)}. {opt}" for i, opt in enumerate(options)])
-    
+
     user_prompt = SPECIALIST_QUESTION_PROMPT.format(
         question=question,
         options=options_text,
-        specialty=specialty
+        specialty=specialty,
     )
     
     return {

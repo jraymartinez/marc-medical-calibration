@@ -38,7 +38,7 @@ class Tier1Verifier:
         llm_client: Optional[LocalLLMClient] = None,
         temperature: float = 0.2,  # Default (for backward compatibility)
         consistency_weight: float = 0.65,  # Favor initial confidence more (was 0.5)
-        s_score_formula: str = "weighted_average",  # "weighted_average", "multiplicative", or "hybrid"
+        s_score_formula: str = "pure_verification",  # "pure_verification", "weighted_average", "multiplicative", or "hybrid"
         independent_temp: float = 0.4,  # Temperature for independent answers (higher for diversity)
         reference_temp: float = 0.2,  # Temperature for reference answers (lower for consistency)
         question_temp: float = 0.3  # Temperature for verification question formulation
@@ -170,26 +170,34 @@ class Tier1Verifier:
             verified_status = "NO"  # High inconsistency (contradictory)
         
         # S_score formula selection
-        if self.s_score_formula == "multiplicative":
+        if self.s_score_formula == "pure_verification":
+            # Pure Wu et al. approach: S = verification_confidence = 1 - inconsistency
+            # NO initial confidence involved - purely based on internal consistency
+            # This is the simplest interpretation of Wu et al.'s Uncertainty Level (UL)
+            S_score = verification_confidence
+            print(f"DEBUG pure_verification: inconsistency={inconsistency_score:.3f}, verification_conf={verification_confidence:.3f}, S_score={S_score:.3f}", flush=True)
+        elif self.s_score_formula == "multiplicative":
             # Formula 2: S = initial * (1 - inconsistency)
-            # Directly uses inconsistency as uncertainty measure (closest to Wu et al.)
+            # Combines initial confidence with inconsistency penalty
             S_score = initial_confidence * (1.0 - inconsistency_score)
+            print(f"DEBUG multiplicative: initial={initial_confidence:.3f}, inconsistency={inconsistency_score:.3f}, S_score={S_score:.3f}", flush=True)
         elif self.s_score_formula == "hybrid":
             # Hybrid formula - weighted average with quadratic inconsistency penalty
             # S = 0.7 * initial + 0.3 * verification * (1 - inconsistency)^2
             verification_confidence_penalized = verification_confidence * ((1.0 - inconsistency_score) ** 2)
             S_score = 0.7 * initial_confidence + 0.3 * verification_confidence_penalized
         else:
-            # Formula 1 (default): S = weighted_average of initial and verification confidence
+            # Formula 1: S = weighted_average of initial and verification confidence
             # Uses consistency_weight parameter (default 0.65, favoring initial confidence)
             S_score = (
                 self.consistency_weight * initial_confidence +
                 (1 - self.consistency_weight) * verification_confidence
             )
+            print(f"DEBUG weighted_average: initial={initial_confidence:.3f}, verification={verification_confidence:.3f}, S_score={S_score:.3f}", flush=True)
         
-        # Clamp to [0, 1] with minimum floor to preserve calibration
-        # Minimum floor prevents too-low scores that hurt ECE
-        S_score = max(0.05, min(1.0, S_score))  # Floor at 0.05 instead of 0.0
+        # Clamp to [0, 1] - NO FLOOR for pure Wu et al. approach
+        # Let S_score = 0.0 when inconsistency = 1.0 (completely contradictory)
+        S_score = max(0.0, min(1.0, S_score))  # Pure: no artificial floor
         
         return {
             "tier": 1,
@@ -225,17 +233,20 @@ Question: {question}
 Proposed Answer: {answer}
 Explanation: {reasoning}
 
-Based on the explanation above, formulate 2-4 specific verification questions that check the factual claims made in the explanation. These questions should:
+Based on the explanation above, formulate exactly 4 specific verification questions that check the factual claims made in the explanation. These questions should:
 1. Target specific medical facts or claims mentioned in the explanation
 2. Be answerable independently (without reference to the explanation)
 3. Help verify the correctness of the reasoning
+4. Cover the key factual claims in the explanation
+
+IMPORTANT: Generate exactly 4 questions, no more, no less.
 
 Format your response as:
 VERIFICATION_QUESTIONS:
 1. [First question]
 2. [Second question]
 3. [Third question]
-...
+4. [Fourth question]
 """
         
         # Set deterministic seed for reproducible sampling
@@ -284,7 +295,20 @@ VERIFICATION_QUESTIONS:
                         if line:
                             questions.append(line)
         
-        return questions[:4]  # Limit to 4 questions max
+        # Ensure exactly 4 questions for consistent inconsistency scoring
+        # This is critical because inconsistency_score = inconsistencies / total_questions
+        if len(questions) < 4:
+            # Pad with generic verification questions if we got fewer than 4
+            generic_questions = [
+                "What is the primary mechanism involved in this condition?",
+                "What are the key diagnostic features mentioned?",
+                "What is the expected clinical presentation?",
+                "What are the relevant pathophysiological changes?"
+            ]
+            while len(questions) < 4:
+                questions.append(generic_questions[len(questions)])
+        
+        return questions[:4]  # Return exactly 4 questions
     
     def _answer_verification_questions_independently(
         self,

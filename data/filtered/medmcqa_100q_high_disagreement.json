@@ -1,0 +1,2176 @@
+[
+  {
+    "question": "Routine examination of a 17 years old asymptomatic boy reveals sho PR interval, and delta wave on ECG. The least effective measure for the boy would be:",
+    "exp": "Ans.b. Tredmill stress testThis is a case of WPW syndrome. There is no use all treadmill test in these cases as results are often misleading.Holter monitoring would be indicated to detect the development of any arrythmias. Beta-blockers have also been used in asymptomatic cases only as a preventive therapy against the development of PSVT.",
+    "cop": 2,
+    "opa": "Hotter monitoring",
+    "opb": "Treadmill stress test",
+    "opc": "Beta blocker",
+    "opd": "Reassurance",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "e7173db8-8f12-46b3-a2e8-86eaa2574855",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "stress test",
+        "ECG"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "All of the following about Xanthogranulomatous pyelonephritis is true Except",
+    "exp": "Xanthogranulomatous pyelonephritis It is an unusual and rare form of chronic pyelonephritis associated with Proteus infections. MORPHOLOGY Gross: Cut surface shows large, yellowish-orange nodules, which may be confused with renal cell carcinoma. Microscopy: Interstitium shows foamy macrophages, plasma cells, and lymphocytes Clinical Features Chronic pyelonephritis associated with reflux may be a silent onset. Usual symptoms are back-pain, fever, pyuria, and bacteriuria Ref: RAM DAS NAYAK EXAM PREPARATORY MANUAL FOR UNDERGRADUATES 2nd ed. pg no: 619",
+    "cop": 2,
+    "opa": "On cut section yellowish nodules are seen",
+    "opb": "Associated with tuberculosis",
+    "opc": "Foam cells are seen",
+    "opd": "Giant cells are seen",
+    "subject_name": "Pathology",
+    "topic_name": "Urinary tract",
+    "id": "69aa0a18-10e9-4dee-82f8-2739cda854ff",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "tuberculosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A child had repeated vomiting and developed metabolic alkalosis. The treatment given is –",
+    "exp": "Treatment of metabolic alkalosis due to vomiting or nasogastric suction.\n\nMost children with metabolic alkalosis have one of the chloride responsive etiology (e.g., vomiting).\nIn these situations, administration of suffieeint sodium chloride and potassium chloride to correct volume deficit is necessary to correct metabolic alkalosis.\nAdequate replacement of gastric losses of sodium and potassium in a child with vomiting can minimize or prevent the development of metabolic alkalosis.\nWith adequate intravascular volume and a normal serum potassium concentration, the kidney is able to excrete the excess bicarbonate within a couple of days.",
+    "cop": 2,
+    "opa": "Ringer lactate",
+    "opb": "I.V. normal saline and potassium",
+    "opc": "ORS",
+    "opd": "I.V. Normal saline",
+    "subject_name": "Pediatrics",
+    "topic_name": null,
+    "id": "e9d9c003-7fb0-404f-aa20-bea77c101f75",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "vomiting"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Lithium is not used in the treatment of which of the following?",
+    "exp": null,
+    "cop": 4,
+    "opa": "Major depression",
+    "opb": "Vascular headache",
+    "opc": "Neutropenia",
+    "opd": "Generalized anxiety disorder",
+    "subject_name": "Psychiatry",
+    "topic_name": null,
+    "id": "168e64b4-cad9-497c-8123-8bf5ea05fe96",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "headache"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following lobe of lung contain lingula?",
+    "exp": "The left lung has only two lobes (superior and inferior), which are divided by an oblique fissure along the sixth rib. Instead of having a middle lobe, the left lung has a space occupied by the hea. Therefore, the left lung has a cardiac notch as well as the lingula in the left costomediastinal recess.",
+    "cop": 2,
+    "opa": "Left upper lobe",
+    "opb": "Left lower lobe",
+    "opc": "Right upper lobe",
+    "opd": "Right middle lobe",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "e91bec56-4d35-4edf-aef9-b65bc1006cef",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "lung"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Couinaud Segment IX of liver belongs to:",
+    "exp": "Left surgical lobe * Couinaud Segment IX is a pa of caudate lobe (I) of the left surgical liver. * Left surgical liver contains segment number I, II, III & IV. * Left Anatomical lobe lies to the left of falciform ligament and contains only segment number III & IV. * Right surgical (functional) lobe contains segment no V, VI, VII & VIII.",
+    "cop": 2,
+    "opa": "Left anatomical lobe",
+    "opb": "Left surgical lobe",
+    "opc": "Right surgical lobe",
+    "opd": "Right functional lobe",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "7237c7cf-0939-4c11-82b5-7a534ba1086d",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "liver"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Alveoli will not collapse during expiration in normal individuals. The stability of alveoli is maintained by the following factor:",
+    "exp": "The low surface tension when the alveoli are small is due to the presence of surfactant in the fluid lining the alveoli. Surfactant is a mixture of dipalmitoylphosphatidylcholine (DPPC), other lipids, and proteins. If the surface tension is not kept low when the alveoli become smaller during expiration, they collapse in accordance with the law of Laplace. Ref: Barrett K.E., Barman S.M., Boitano S., Brooks H.L. (2012). Chapter 34. Introduction to Pulmonary Structure and Mechanics. In K.E. Barrett, S.M. Barman, S. Boitano, H.L. Brooks (Eds), Ganong's Review of Medical Physiology, 24e.",
+    "cop": 4,
+    "opa": "Compliance of the lungs",
+    "opb": "Residual air in alveoli",
+    "opc": "Negative intrapleural pressure",
+    "opd": "Reduced surface tension by surfactant",
+    "subject_name": "Physiology",
+    "topic_name": null,
+    "id": "c409a75a-b1b1-4cb9-a90e-e35e1694380f",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "alveoli"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A businessman who presented with substernal heaburn is diagnosed having gastroesophageal reflux disease (GERD). BEST test to diagnose GERD and quantify acid output is:",
+    "exp": "The most sensitive test for diagnosis of GERD is 24-h ambulatory pH monitoring. Endoscopy is indicated in patients with reflux symptoms refractory to antisecretory therapy; in those with alarming symptoms such as dysphagia, weight loss, or gastrointestinal bleeding; and in those with recurrent dyspepsia after treatment that is not clearly due to reflux on clinical grounds alone. Ref: Wong-Kee-Song L.M., Topazian M. (2012). Chapter 291. Gastrointestinal Endoscopy. In D.L. Longo, A.S. Fauci, D.L. Kasper, S.L. Hauser, J.L. Jameson, J. Loscalzo (Eds), Harrison's Principles of Internal Medicine, 18e.",
+    "cop": 4,
+    "opa": "Esophagogram",
+    "opb": "Endoscopy",
+    "opc": "Manometry",
+    "opd": "24 hour pH monitoring",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "b2d5be3c-2603-4d7b-8a3d-9b60d8d22121",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "GERD",
+        "gastroesophageal reflux disease",
+        "endoscopy"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "If life style factor is causing infeility in a young male is identified. Which of the following life style modification will have no effect on feility:",
+    "exp": "Obesity increases peripheral conversion of androgen to oestrogen and affects feility. Hence life style modification to reduce obesity will help in the treatment of infeility. Vegetarian diet is not impoant in the management. Reference: Shaw's Textbook of Gynaecology 16th edition page no 241.",
+    "cop": 3,
+    "opa": "more exercise",
+    "opb": "meditation",
+    "opc": "Vegetarian diet",
+    "opd": "Weight loss",
+    "subject_name": "Gynaecology & Obstetrics",
+    "topic_name": "Infertility",
+    "id": "d9644739-717b-4853-8e82-eb6e7e1dca55",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "weight loss"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "In NREM stage 4, the EEG waves are",
+    "exp": "(A) 5 # There are two different kinds of sleep: rapid eye movement (REM) sleep and non-REM (NREM), or slow-wave sleep.> NREM sleep is divided into four stages. A person falling asleep first enters Stage 1, which is characterized by low-amplitude, high-frequency EEG activity. Stage 2 is marked by the appearance of sleep spindles. These are bursts of alpha-like, 10-14 Hz, 50 uV waves. In stage 3, the pattern is one of lower frequency and increased amplitude of the EEG waves. Maximum slowing with large waves is seen in Stage 4. Thus, the characteristic of deep sleep is a pattern of rhythmic slow waves, indicating marked synchronization.",
+    "cop": 1,
+    "opa": "d",
+    "opb": "b",
+    "opc": "K-spindles",
+    "opd": "a",
+    "subject_name": "Physiology",
+    "topic_name": "Nervous System",
+    "id": "bb5de9cb-e0b3-4efb-9983-b6b2f0ac95ba",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "EEG"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A 24-year-old man, occasional drinker, has got a change in his behaviour. He has become suspicious that people are trying to conspire against him though his father states that there is no reason for his fears. He is getting hallucinations of voices commenting on his actions. What is the most probable diagnosis?",
+    "exp": "The symptoms of the patient: Change in behaviour Delusion of persecution Third person hallucination (Auditory) Marked change in personality They all point towards the diagnosis of schizophrenia. Alcoholic psychosis or Korsakoff's psychosis presents with Amnesia and Confabulation, pt. is not having both the symptoms. Delirium tremens is an alcoholic withdrawal syndrome seen in chronic alcoholics with clinical findings of confusion, disorientation & hallucination. The pt. does not give any history of Alcohol withdrawal & he is an occasional Alcoholic. In Delusion hallucinations are not prominent. There is no behavior change.",
+    "cop": 1,
+    "opa": "Schizophrenia",
+    "opb": "Delirium tremens",
+    "opc": "Delusional disorder",
+    "opd": "Alcohol induced psychosis",
+    "subject_name": "Psychiatry",
+    "topic_name": "Schizophrenia Spectrum and Other Psychotic Disorders",
+    "id": "a55e24c9-4a51-4688-a779-6e16b0e36799",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "delirium"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "NNK, NNN and polonium 210 are carcinogens specific for -",
+    "exp": "Nitrosamines such as 4-(methylnitrosamino)-1-(3-pyridyl)-1-butanone (NNK) and N'-nitrosonornicotine (NNN), are carcinogenic to humans . NNK and NNN induce carcinogenesis by causing DNA adductions and mutations as well as promoting tumor growth through receptor-mediated effects .Exposure and consumption of tobacco products are causally associated with various types of cancers . Nicotine and nitrosamines form a devastating and fatal alliance. Nicotine activates the brain's reward system, eliciting cravings for continued tobacco consumption, and it often is accompanied by carcinogens inducing tumor initiation and progression Ref Harrison 20th edition pg 567",
+    "cop": 1,
+    "opa": "Tobacco related oral cancer",
+    "opb": "Tobaco related bronchogenic carcinoma",
+    "opc": "Prostatic carcinoma",
+    "opd": "Hepatocellular carcinoma",
+    "subject_name": "Medicine",
+    "topic_name": "Oncology",
+    "id": "7e3ab122-a702-420c-816b-571c980c15a6",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatocellular carcinoma"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "With respect to fetal breathing movements, which of the following is not true?",
+    "exp": "Ans. a. May cause respiratory distress syndrome (Ref: www.ncbi.nlm.nih.gov/pubmed/7395937)Breathing movements are inversely proportional to risk of respiratory distress. It doesn't cause respiratory distress.Fetal Breathing Movements:Aspiration of amniotic fluid is higher with breathingBreathing movements increase towards term, become more regularHelp in conditioning of respiratory musclesAspiration of amniotic fluid is higher with breathingBreathing movements increase towards term, become more regularDecreases just before onset of labour or at 39 weeks or during labor or in prematurityHelp in conditioning of respiratory musclesBreathing movements are inversely proportional to risk of respiratory distress",
+    "cop": 1,
+    "opa": "May cause respiratory distress syndrome",
+    "opb": "Causes aspiration of amniotic fluid",
+    "opc": "Increase towards term",
+    "opd": "Help in conditioning of respiratory muscles",
+    "subject_name": "Gynaecology & Obstetrics",
+    "topic_name": "Diagnosis in Obstetrics",
+    "id": "3bf0587f-bf5f-4a50-a614-cd9090ce8a9c",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "respiratory distress"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Non-parenteral hepatitis is -",
+    "exp": "Hepatitis E transmitted enterically through fecal population of drinking water REF:ANANTHANARAYANAN TEXT BOOK OF MICROBIOLOGY 9EDITION PGNO.550",
+    "cop": 1,
+    "opa": "Hepatitis E",
+    "opb": "Hepatitis B",
+    "opc": "Hepatitis C",
+    "opd": "Hepatitis D",
+    "subject_name": "Microbiology",
+    "topic_name": "Virology",
+    "id": "84720510-82f3-413e-bbbb-350947c0a18b",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "hepatitis C",
+        "hepatitis B"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Amplifier host in Japanese encephalitis is:",
+    "exp": "Japanese encephalitis: Cause: Group-B Arbovirus. Vector : Culex triteniorhynchus. Birds are natural hosts: pond herons, cattle egrets, poultry & duck. Pigs are 'Amplifier hosts': pigs themselves do not manifest ove symptoms but circulate the virus. Cattle & buffaloes are 'mosquito attractants': infected but not the natural hosts of JE virus. Horses are only domestic animals which show signs of encephalitis. Man is an 'Incidental dead end host'. Man to man transmission is not seen 85% cases occur in children <15 years of age. I.P - 5-15 Days. Vaccines - Live strain : SA-14-14-2 ; Killed strain : Nakayama, Beijing P3 .",
+    "cop": 3,
+    "opa": "Main",
+    "opb": "Culex mosquito",
+    "opc": "Pig",
+    "opd": "Horse",
+    "subject_name": "Social & Preventive Medicine",
+    "topic_name": "VBDs, Arboviral & Viral Infections, Surface Infections",
+    "id": "6db961d3-512b-40d6-af62-4ad8c7eebc64",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "encephalitis"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "The regulator proteins are",
+    "exp": "Both troponin and tropomyosine are the regulator proteins for muscle contraction Ref:Guyton and Hall textbook of medical physiology 12th edition ,pag number:86,87",
+    "cop": 3,
+    "opa": "Troponin",
+    "opb": "Tropomyosine",
+    "opc": "Both",
+    "opd": "None",
+    "subject_name": "Anatomy",
+    "topic_name": "General anatomy",
+    "id": "aac1cd49-6247-4acf-b191-d54dd445b349",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "troponin"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A 12-year-old boy is rushed to the emergency room in a coma after falling from an upper story window of his home. MRI shows a subdural hematoma over the left hemisphere. What is the most likely source of intracranial bleeding in this patient?",
+    "exp": "Subdural hematoma reflects torn bridging veins in the subdural space. Unlike the epidural space, the subdural space can expand. Because bleeding in this situation is from veins, it usually stops spontaneously after an accumulation of 25 to 50 mL because of a local tamponade effect. However, this effect also can compress severed bridging veins and cause thrombosis. Because the brain is symmetric and a force applied in the sagittal plane similarly affects both cerebral hemispheres, it is not surprising that subdural hematomas are frequently bilateral. Tearing of the middle meningeal artery (choice D) causes epidural hemorrhage.Diagnosis: Subdural hematoma",
+    "cop": 1,
+    "opa": "Bridging veins",
+    "opb": "Charcot-Bouchard aneurysm",
+    "opc": "Internal carotid artery",
+    "opd": "Middle meningeal artery",
+    "subject_name": "Pathology",
+    "topic_name": "Central Nervous System",
+    "id": "fba44734-4243-4fef-9f60-bc28fcabb678",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "coma"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A 32-year-old woman comes to the physician because of a 2-day history of \"poor vision\" and \"flashing lights\" in her left eye. She is unusually tall, with long limbs and slender fingers. Physical examination is remarkable for pectus excavatum, kyphoscoliosis, a midsystolic click, and a pansystolic murmur. Ophthalmologic examination reveals a retinal detachment and dislocation of the lens. This patient is at greatest risk for which of the following conditions?",
+    "exp": "This patient most likely has Marfan syndrome, which is typically inherited in an autosomal dominant fashion, and consists of a mutation of the fibrillin gene that increases her risk of an aoic aneurysm at the base of the aoa. The classic features of Marfan syndrome are long, thin extremities, with skeletal changes such as pectus excavatum and kyphoscoliosis, ocular changes such as dislocation of the lens, myopia, and retinal detachment, and cardiovascular changes such as mitral valve prolapse (midsystolic click) and mitral regurgitation (pansystolic murmur). The life-threatening complications include aoic aneurysm, aoic dissection, and aoic rupture. Deafness is associated with Alpo syndrome, which is typically an X-linked inherited mutation of type IV collagen, that is characterized by hematuria, conical deformation of the lens, and sensorineural deafness. Gout can be associated with Type I glycogen storage disease (von Gierke disease), which an inherited autosomal recessive disorder that leads to hypoglycemia, hyperuricemia, lactic acidosis, and hyperlipidemia. These individuals have sho stature, fat cheeks, a protuberant abdomen, thin extremities, and \"doll-like faces.\" Complications, other than gout, include pancreatitis, hepatic adenomas, renal disease, pulmonary hypeension, and osteoporosis. Large intestine rupture and uterine rupture are complications of Ehlers-Danlos syndrome type IV, which is a caused by a mutation in type III procollagen. The clinical features are thin, translucent skin, easy bruisability, and death due to uterine, aerial, or large bowel rupture. Other types of Ehlers-Danlos syndrome are associated with hyperelasticity of the skin, hypermobile joints, scoliosis, mitral valve prolapse, ocular fragility, cone-shaped deformities of the cornea, and hernias.",
+    "cop": 3,
+    "opa": "Deafness",
+    "opb": "Gout",
+    "opc": "Proximal aoic aneurysm",
+    "opd": "Large intestine rupture",
+    "subject_name": "Pathology",
+    "topic_name": null,
+    "id": "998970cc-4070-40f4-acc8-fc8eb5a7d90f",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "large intestine"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A man comes to emergency with stab injury to left flank. He has stable vitals. What would be the next step in management?",
+    "exp": "Ans. is 'a'. i.e. CECT The main decision in an abdominal injury is to decide whether an exploratory laparotomy is necessary or not. Physical examination though may help sometimes, has significant limitations and may be unreliable.The diagnostic approach to penetrating (Gunshot and Stab wounds) and blunt abdominal trauma differs substantially.Gunshot abdominal wounds: Chances of internal injury is very high in gunshot wounds thus little preoperative evaluation is required and laparotomy is mandatory.Stab wounds to abdomen:In contrast to GSWs, SWs are less likely to injure intra-abdominal organs.Patients with isolated penetrating abdominal wound if hypotensive, or in shock or showing peritoneal signs go for exploratory laparotomy.Management of stable patients is debatable and controversial. Various methods are used to determine whether laparotomy is necessary or not.* Anterior stab wound- In ant. stab wounds local wound exploration can be performed to determine if there is any penetration of the peritoneal cavity. If the tract terminates without entering the peritoneum, the injury can be managed as a deep laceration and laparotomy is not needed. Otherwise, penetration of the peritoneum is assumed, and significant injury must be excluded by further diagnostic evaluations. Options include diagnostic peritoneal lavage, laparoscopy, CT, FAST, and admission with observation.* Flank and back wounds- There is more debate over the management of stab wounds to the flank and back. These injuries are special because of the risks associated with retroperitoneal organ injury-colon, kidneys and ureter. Triple contrast CT (i.e. oral, IV, and rectal contrast) is advised to detect colon and retroperitoneal injuries and the need for laparotomy. Other methods like DPL, laparoscopy are also advised.* Blunt abdominal injury:Hemodynamically stable patients sustaining blunt trauma are adequately evaluated by abdominal ultrasound or CT (CT in selected cases to refine the diagnosis) unless other severe injuries take priority and the patient needs to go to the operating room before the objective abdominal evaluation. In such instances, DPL or focused abdominal sonography for trauma (FAST) is usually performed in the operating room to rule out intra-abdominal bleeding requiring immediate exploratory laparotomy. US has largely replaced DPL.Management of hemodynamically unstable pt: a hemodynamically unstable pt is evaluated by FAST and if intra-abdominal fluid detected, undergoes laparotomy.",
+    "cop": 1,
+    "opa": "CECT",
+    "opb": "Diagnostic peritoneal lavage",
+    "opc": "Laprotomy",
+    "opd": "Laproscopy",
+    "subject_name": "Surgery",
+    "topic_name": "Abdominal Injury",
+    "id": "9a2a0a21-5fef-4ea8-a921-b21f14dca4cc",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "peritoneal"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Dark ground microscopy is used for diagnosis of",
+    "exp": "Ans. a (Spirochete). (Ref. Harrison, Principles of Medicine, 18th/Chapter 169. Syphilis)# Dark ground microscopic examination is useful but negative results does not exclude diagnosis of syphilis.# Diagnosis by microscopy is applicable in primary and secondary stages and congenital syphilis.# Wet film prepared with exudates is seen under dark ground microscope.# T.pallidum show slow movement with slender spiral structure.# However, serology remains the best diagnostic test for syphilis.Educational point:# In blood transfusion and in congenital syphilis, no chancre occurs.",
+    "cop": 1,
+    "opa": "Spirochaete",
+    "opb": "Myco-tuberculosis",
+    "opc": "Myco-leprae",
+    "opd": "Mycoplasma",
+    "subject_name": "Microbiology",
+    "topic_name": "Spirochetes",
+    "id": "255d3407-4603-4e55-89ec-3846448b72e4",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "tuberculosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A symmetric high-voltage, triphasic slow wave pattern is seen on EEG in the following -",
+    "exp": "Hepatic encephalopathy is a neuropsychiatric syndrome caused by liver disease. As it progresses, delirium is followed by coma. Simple delirium needs to be differentiated from delirium tremens and Wernicke's encephalopathy, and coma from subdural haematoma, which can occur in alcoholics after a fall . Features include changes of intellect, personality, emotions and consciousness, with or without neurological signs. The degree of encephalopathy can be graded from 1 to 4, depending on these features, and this is useful in assessing response to therapy . When an episode develops acutely, a precipitating factor may be found . The earliest features are very Some degree of liver failure is a key factor, as poosystemic shunting of blood alone hardly ever causes encephalopathy. The 'neurotoxins' causing encephalopathy are unknown but are thought to be mainly nitrogenous substances produced in the gut, at least in pa by bacterial action. These substances are normally metabolised by the healthy liver and excluded from the systemic circulation. Ammonia has traditionally been considered an impoant factor. Recent interest has focused on g-aminobutyric acid (GABA) as a mediator, along with octopamine, amino acids, mercaptans and fatty acids that can act as neurotransmitters. The brain in cirrhosis may also be sensitised to other factors, such as drugs that can precipitate hepatic encephalopathy . Disruption of the function of the blood-brain barrier is a feature of acute hepatic failure and may lead to cerebral oedema. Ref Davidson edition23rd pg 865",
+    "cop": 1,
+    "opa": "Hepatic encephalopathy",
+    "opb": "Uremic encephalopathy",
+    "opc": "Hypoxic encephalopathy",
+    "opd": "Hypercarbic encephalopathy",
+    "subject_name": "Medicine",
+    "topic_name": "G.I.T",
+    "id": "09325150-5121-4b1b-8271-056bc568b801",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatic",
+        "hepatic encephalopathy",
+        "EEG"
+      ],
+      "specialty": "gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Preanesthetic medication is used for A/E –",
+    "exp": "Premedications are not used to decrease BP. They are used to the relief of anxiety, to decrease the dose of anaesthesia, to prevent aspiration, to decrease secretion & vagal stimulation, to produce perioperative amnesia, and to prevent post-operative nausea & vomiting.",
+    "cop": 2,
+    "opa": "Decrease of anesthetic dose",
+    "opb": "Decrease BP",
+    "opc": "Prevent aspiration",
+    "opd": "Produce amnesia for peri-operative events",
+    "subject_name": "Anaesthesia",
+    "topic_name": null,
+    "id": "6554b204-a3dc-44ae-8e46-c5d6c9695323",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "BP"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Ataxia telangiectasia is associated with all of the following except",
+    "exp": "Although B lymphocytic development is normal most patients are deficient in serum IgA and IgEAtaxia telangiectasia:An autosomal recessive genetic disorderMutation of AT gene located on chromosome 11(11q 22-33)A defect in DNA repair, increased number of chromosomal breaksAlfa-fetoprotein and carcinoembryonic antigen levels are increasedManifestations are:AtaxiaOculocutaneous telangiectasiasMalignanciesHodgkin's lymphomaAcute leukemiaImmunodeficiency Endocrinal Ref: Harrison; 18/e; p3344",
+    "cop": 3,
+    "opa": "Recurrent sinopulmonary infections",
+    "opb": "Lymphatic reticular malignancies",
+    "opc": "Increased fraction of IgA immunoglobulins",
+    "opd": "Insulin resistance",
+    "subject_name": "Medicine",
+    "topic_name": "All India exam",
+    "id": "3d4b8926-4005-483d-8d61-9e0b0816e645",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "ataxia"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "A 25-year-old woman presents to the emergency department with symptoms of nausea and vomiting of 2 days duration. She is not on any medications and was previously well until now. The physical examination is normal except for a postural drop in her blood pressure from 110/80 mm Hg supine to 90/80 mm Hg standing. Her serum electrolytes are sodium 130 mEq/L, potassium 3 mEq/L, chloride 90 mEq/L, bicarbonate 30 mEq/L, urea 50 mg/dL, and creatinine 0.8 mg/dL. Which of the following electrolytes is most likely to be filtered through the glomerulus but unaffected by tubular secretion?",
+    "exp": "Urea is filtered at the glomerulus, and thereafter, any movement in or out of tubules is a passive process depending on gradients, not secretion. Reabsorption of urea in the distal tubule and collecting duct, when urine flow is reduced, results in the disproportionate elevation of urea nitrogen over creatinine in prerenal azotemia.",
+    "cop": 4,
+    "opa": "potassium",
+    "opb": "sodium",
+    "opc": "bicarbonate",
+    "opd": "urea",
+    "subject_name": "Medicine",
+    "topic_name": "Oncology",
+    "id": "bf6fabc7-a2e1-40e3-a651-560dd4db2b6a",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "nausea",
+        "blood pressure",
+        "vomiting"
+      ],
+      "specialty": "cardiology, gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Gradcnigo's syndrome is characterized by a/e",
+    "exp": "Ans. a (Conductive deafness). (Ref. PL Dhingra, ENT, 2nd ed., 78)GRADENIGO'S SYNDROME# Petrositis, a complication of otitis media classically presents with a triad of symptoms, known as Gradenigo's syndrome characterized by:- Abducent nerve (lateral rectus) palsy.- Deep seated ear or retro-orbital pain (Vth nerve involvement)- Persistent ear discharge# However, fever, headache, vomiting & sometimes neck stiffness occurs.# Towne's & Stenver's (StockholmC) view for petrous apex and internal auditory meatus point towards diagnosis whileHRCT of temporal bone is confirmatory & gives greater anatomical details. CTT1 MRIT2MRICEMRIAcute petrous apecitis with osteomyelitis (Gradenigo syndrome)Opacified air cells with bony breakdown; nonexpansileLowHighrim enhancement or enhancement of adjacent meninges# Rx these days is antibiotic therapy alone, but sometimes mastoidectomy may be required.",
+    "cop": 1,
+    "opa": "Conductive deafness",
+    "opb": "Retroorbital pain",
+    "opc": "Ear discharge",
+    "opd": "Diplopia",
+    "subject_name": "ENT",
+    "topic_name": "CSOM and its Complications",
+    "id": "3128be43-d75f-499a-8f21-b9f6988ffc27",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "diplopia"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A symmetric high-voltage, triphasic slow wave pattern is seen on EEG in the following :",
+    "exp": "Answer is A (Hepatic encephalopathy) `Symmetric, high voltage, triphasic slow wave (2 - 5 /second) pattern on Electroencephalogram (EEG) is characteristic (but non specific) of Hepatic encephalopathy' The diagnosis of hepatic encephalopathy should be considered when four major factors are present Acute or chronic hepatocellular disease and / or extensive poal systemic collateral shunts. Disturbance of awareness and mentation which may progress from forgetfulness and confusion to stupor and finally coma. Shifting combinations of neurological signs including asterixis, rigidity, hyperreflexia, extensor plantar signs and rarely seizures. A characteristic but (nonspecific), symmetric, high voltage, triphasic slow wave (2 to 5 /second) pattern on electroencephalogram.",
+    "cop": 1,
+    "opa": "Hepatic encephalopathy",
+    "opb": "Uremic encephalopathy",
+    "opc": "Hypoxic encephalopathy",
+    "opd": "Hypercarbic encephalopathy",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "fda62466-61b7-41bc-8aef-4e396e760e20",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatic",
+        "hepatic encephalopathy",
+        "EEG"
+      ],
+      "specialty": "gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following is the most common cause of late neurological detrioration in case of cerebrovascular accident?",
+    "exp": "Vasospasm: Narrowing of the aeries at the base of the brain following SAH occurs regularly This vasospasm causes symptomatic ischemia and infarction in approximately 30% patients and is the major cause of delayed morbidity or death Signs of ischemia appear 4-14 days after the hemorrhage, most frequently at about 7 days. Ref: Harrisons 19th edition Pgno: 1785",
+    "cop": 2,
+    "opa": "Rebleeding",
+    "opb": "Vasospasm",
+    "opc": "Embolism",
+    "opd": "Hydrocephalus",
+    "subject_name": "Surgery",
+    "topic_name": "Head and neck",
+    "id": "d6e27ed9-803d-4d93-8e2f-4aa365e2e569",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cerebrovascular accident"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which area is out of the blood brain barrier",
+    "exp": "Ans. is 'd' i.e. Area Postrema There are four areas which lie outside the blood brain barrier : these areArea postremaOrganum vasculosum of the lamina terminalis (OVLT)Subfornical organ (SFO)The posterior pituitary (neurohypophysis) and the adjacent ventral part of the median eminence of the hypothalamus.These areas are also called as circumventricular organs.",
+    "cop": 4,
+    "opa": "Thalmus",
+    "opb": "Cerebral cortex",
+    "opc": "IV ventricle",
+    "opd": "Area postrema",
+    "subject_name": "Anatomy",
+    "topic_name": "Meninges & Blood Vessels of the Brain",
+    "id": "c5703543-c181-4ece-87b6-0926c5c4d602",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cerebral",
+        "brain",
+        "cortex"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A girl complaints of acute abdominal pain on and off with tingling sensation of limbs. She had a history of eating paint from the wall of newly built house. Which of the following enzyme deficiency will be the cause of her condition?",
+    "exp": "Answer- A. ALA dehydrataseALA dehydratase is a zinc-containing enzyme and is sensitive to inhibition by lead (present in the paints). High levels of lead can affect heme metabolism by combining with SH groups in enzymes such as ferrochelatase and ALA dehydratase.The most common presentation of lead poisoning is an encephalopathy.Laboratory investigation can reveal a microcytic hypochromic anemia with basophilic stippling of erythrocytes, an elevated serum lead level, and an elevated serum coproporplryrin level. A 24-h urine collection demonstrates elevated levels of lead excretion.The neuropathy is characterized by an insidious and progressive onset of weakness usually beginning in the arms, in paicular involving the wrist and finger extensors.",
+    "cop": 1,
+    "opa": "ALA dehydratase",
+    "opb": "ALA synthase",
+    "opc": "Coproporphyrinogen synthase",
+    "opd": "Heme synthase",
+    "subject_name": "Biochemistry",
+    "topic_name": null,
+    "id": "67face05-23f1-43cc-8acc-61af6d1e6285",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "abdominal pain"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following does not stimulate peripheral chemoreceptors?",
+    "exp": "Hypercapnia is a stimulus not hypocapnia.  \nLow perfusion produces hypoxia and hypercapnia at the level of chemoreceptors; thus stimulating them.  \n\nPeripheral arterial chemoreceptors in the carotid and aortic bodies have very high rates of blood flow. These receptors are primarily activated by a reduction in partial pressure of oxygen (PaO2), but they also respond to an increase in the partial pressure of carbon dioxide (PaCO2) and pH. \nReference: Ganong’s Review of Medical Physiology T W E N T Y - F I F T H   E D I T I O N page no 593",
+    "cop": 2,
+    "opa": "Hypoxia",
+    "opb": "Hypocapnia",
+    "opc": "Acidosis",
+    "opd": "Low perfusion pressure",
+    "subject_name": "Physiology",
+    "topic_name": null,
+    "id": "f25463c6-23b8-48e4-b015-fdbf6582e8d1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hypoxia"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "The following is a marker of acute hepatitis B infection-",
+    "exp": "HBV-DNA can be measured by PCR in the blood. Viral loads are usually in excess of 105 copies/mL in the presence of active viral replication, as indicated by the presence of e antigen. In contrast, in individuals with low viral replication, who are HBsAg- and anti-HBe-positive, viral loads are less than 105 copies/mL. The exception is in patients who have a mutation in the pre-core protein, which means they cannot secrete e antigen into serum . Such individuals will be anti-HBe-positive but have a high viral load and often evidence of chronic hepatitis. These mutations are common in the Far East, and those patients affected are classified as having e antigen-negative chronic hepatitis. They respond differently to antiviral drugs from those with classical e antigen-positive chronic hepatitis. Measurement of viral load is impoant in monitoring antiviral therapy and identifying patients with pre-core mutants. Specific HBV genotypes (A-H) can also be identified using PCR. In some settings, these may be useful in guiding therapy, as genotype A tends to respond better to pegylated interferon-alfa compared to genotypes C and D. Ref Davidson edition23rd pg 875",
+    "cop": 1,
+    "opa": "DNA polymerase",
+    "opb": "Hepatitis core antigen",
+    "opc": "Anti HBs",
+    "opd": "IgG to core antigen",
+    "subject_name": "Medicine",
+    "topic_name": "G.I.T",
+    "id": "baecb9cc-1a82-4b24-b4bf-039591c233b1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "hepatitis B"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "All of the following conditions are associated with clubbing except: March 2012",
+    "exp": "Ans: B i.e. Chronic bronchitis Causes of clubbing Respiratory causes of digital clubbing includes bronchogenic carcinoma, asbestosis (especially with mesothelioma), suppurative lung disease (empyema, Bronchiectasis, cystic fibrosis), fibrosing alvelolitis etc. Finger clubbing is not a feature of COPD and should trigger fuher investigation for lung cancer, Bronchiectasis or fibrosis",
+    "cop": 2,
+    "opa": "Bronchogenic carcinoma",
+    "opb": "Chronic bronchitis",
+    "opc": "Empyema",
+    "opd": "Bronchiectasis",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "647bcee0-c85d-4a69-a132-16bc2b9d8ef8",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "bronchiectasis",
+        "bronchitis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Pulsatile otorrhoea is seen in:",
+    "exp": "Ans. C ASOMASOM -In stage of suppuration-pulsatile otorrhea is present .Light house sign: Seen in ASOM when pulsatile otorrhea reflects light intermittently on-otoscopy",
+    "cop": 3,
+    "opa": "Glomus tumour",
+    "opb": "CSF otorrhea",
+    "opc": "ASOM",
+    "opd": "Fistula",
+    "subject_name": "ENT",
+    "topic_name": null,
+    "id": "69ea125c-d03f-4b6c-8b91-563b4276bd62",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "CSF"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "True about juvenile myoclonic epilepsy –a) Focal seizureb) Generalised seizurec) Myoclonusd) Response to sodium valproatee) Spike and waves in EEG",
+    "exp": "Juvenile myoclonic epilepsy is characterized by bilateral inyoclonus.                                                                     \nIt may be associated with generalized tonic clonic seizures.\nIt responds well to anticonvulsant medications and the treatment of choice is valproate.\nEEG shows irregular spikes.",
+    "cop": 4,
+    "opa": "abc",
+    "opb": "acd",
+    "opc": "ac",
+    "opd": "bcd",
+    "subject_name": "Pediatrics",
+    "topic_name": null,
+    "id": "328070ff-5cb0-4db1-86a9-b35941468a51",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "epilepsy",
+        "EEG"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "In the Forrest classiflcation for bleeding peptic ulcer with a visible vessel or pigmented protuberance is classified as -",
+    "exp": "Clinical features of Peptic ulcers Peptic ulcer disease is a chronic condition with spontaneous relapses and remissions lasting for decades, if not for life. The most common presentation is with recurrent abdominal pain that has three notable characteristics: localisation to the epigastrium, relationship to food and episodic occurrence. Occasional vomiting occurs in about 40% of ulcer subjects; persistent daily vomiting suggests gastric outlet obstruction. In one-third, the history is less characteristic, especially in elderly people or those taking NSAIDs. In this situation, pain may be absent or so slight that it is experienced only as a vague sense of epigastric unease. Occasionally, the only symptoms are anorexia and nausea, or early satiety after meals. In some patients, the ulcer is completely 'silent', presenting for the first time with anaemia from chronic undetected blood loss, as abrupt haematemesis or as acute perforation; in others, there is recurrent acute bleeding without ulcer pain. The diagnostic value of individual symptoms for peptic ulcer disease is poor; the history is therefore a poor predictor of the presence of an ulcer. Ref Davidson edition23rd pg 799",
+    "cop": 1,
+    "opa": "FI",
+    "opb": "FIIa",
+    "opc": "FIIb",
+    "opd": "FIIc",
+    "subject_name": "Medicine",
+    "topic_name": "G.I.T",
+    "id": "dd0157b2-47cf-40f9-9892-bddacf5a3cb1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "peptic ulcer"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Most common site of ectopic pancreatic tissue is-",
+    "exp": null,
+    "cop": 1,
+    "opa": "Stomach",
+    "opb": "Jejunum",
+    "opc": "Appendix",
+    "opd": "Hilum of spleen",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "563c75e0-5665-4f39-98bb-6cf979c642c4",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "spleen",
+        "stomach",
+        "pancreatic",
+        "jejunum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Carcinoid syndrome produces valvular disease primarily involving-",
+    "exp": "The carcinoid syndrome : results from bioactive compounds such as serotonin released by carcinoid tumors . systemic manifestations include flushing, diarrhea, dermatitis, and bronchoconstriction. Carcinoid hea disease refers to the cardiac manifestation caused by the bioactive compounds and occurs in half of the patients in whom the systemic syndrome develops. The serotonin secreted by carcinoid tumors can produce fibrous plaques in the endocardium and right-sided cardiac valves, occasionally affecting left-sided valves, as well. Valvular lesions may be stenotic or regurgitant. ref : Robbins Basic pathology,9th edition,pg no.395 ref : harrisons book of internal medicine 20th ed",
+    "cop": 2,
+    "opa": "Pulmonary valves",
+    "opb": "Tricuspid valves",
+    "opc": "Mitral valve",
+    "opd": "Aoic valve",
+    "subject_name": "Medicine",
+    "topic_name": "C.V.S",
+    "id": "2069a971-f1b6-4f93-afdc-083a7d762d89",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary",
+        "mitral",
+        "tricuspid"
+      ],
+      "specialty": "cardiology, respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following statements about Hepatitis C is TRUE?",
+    "exp": "Progression to cirrhosis or hepatocellular carcinoma is a major cause of morbidity and the most frequent indication of liver transplantation in adults in united states. Ref: Kliegman, Behrman, Jenson, Stanton (2008), \"Nelson Textbook of Pediatrics\", Chapter 355, \"Viral Hepatitis\", Volume 2, Page 1687; Harrison's Principles of Internal Medicine, 17th Edition, Pages 1939, 1963, 1984; Current Gastroenterology, 2nd Edition, Page 556",
+    "cop": 2,
+    "opa": "DNA virus",
+    "opb": "Most common indication for Liver transplantation",
+    "opc": "Does not cause Liver cancer",
+    "opd": "Does not cause co infection with hepatitis B",
+    "subject_name": "Microbiology",
+    "topic_name": null,
+    "id": "bb9ed3df-7db1-4068-b796-da16377f1d18",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "hepatitis C",
+        "hepatitis B",
+        "liver"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Gene therapy is most commonly targeted against:",
+    "exp": "a. SCID(Ref: Nelson's 20/e p 584-586)FDA-approved gene therapy is used for ADA-SCID, Leber's congenital amaurosis, multiple myeloma & Adrenoleukodystrophy",
+    "cop": 1,
+    "opa": "SCID",
+    "opb": "cancer",
+    "opc": "cystic fibrosis",
+    "opd": "Leukemia",
+    "subject_name": "Pediatrics",
+    "topic_name": "Genetics And Genetic Disorders",
+    "id": "4aca470c-b6a9-4d98-9ad6-6cd87ed322ec",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cystic fibrosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Stage IV of ANUG according to Hornig and Cohen is characterized by",
+    "exp": null,
+    "cop": 2,
+    "opa": "Necrosis of the tip of interdental papilla",
+    "opb": "Necrosis extending to the attached gingiva",
+    "opc": "Necrosis exposing alveolar bone",
+    "opd": "Necrosis perforating skin of cheek",
+    "subject_name": "Dental",
+    "topic_name": null,
+    "id": "1fe7a725-4691-40f1-8e43-548e96d7f01f",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "alveolar"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "The triad of &;diarrhea, dementia, and dermatitis&; is characteristically seen in the deficiency of vitamin _______________",
+    "exp": "Niacin deficiency results in pellagra.The early symptoms are vague. Anorexia, lassitude, weakness, burning sensations numbness and dizziness may be prodromal symptoms, After a long period of deficiency, the classic triad of dermatitis, diarrhea and dementia appears. Ref: Page 182; Nelson textbook of pediatrics; 17th edition",
+    "cop": 2,
+    "opa": "Riboflavin",
+    "opb": "Niacin",
+    "opc": "Thiamine",
+    "opd": "Pyridoxine",
+    "subject_name": "Pediatrics",
+    "topic_name": "Nutrition",
+    "id": "92525c43-347a-460f-99ad-a610246fac45",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "diarrhea",
+        "dementia"
+      ],
+      "specialty": "gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Infections transmitted to the baby at delivery:",
+    "exp": "The risk of transmission increases with the period of gestation,but the risk of teratogenecity decreases. Refer page no 294,295 of Text book of obsteics,sheila balakrishnan,2nd edition.",
+    "cop": 1,
+    "opa": "Toxoplasmosis",
+    "opb": "Gonococcus",
+    "opc": "Herpes simplex type II",
+    "opd": "Hepatitis-B",
+    "subject_name": "Gynaecology & Obstetrics",
+    "topic_name": "Medical, surgical and gynaecological illness complicating pregnancy",
+    "id": "ebe096ba-7739-4932-b967-1c887e3d079d",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Brunner's glands are seen in -",
+    "exp": "The presence of mucous duodenal (Brunner’s) glands in the submucosa is indicative of upper duodenum. These submucosal glands are absent in the jejunum, ileum and the entire large intestine.",
+    "cop": 2,
+    "opa": "Jejunum",
+    "opb": "Upper duodenum",
+    "opc": "Lower duodenum",
+    "opd": "Appendix",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "85c50675-b971-457a-b2f4-e15e3a5383b1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "duodenum",
+        "jejunum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A true diabetic cataract is also known as:",
+    "exp": "Ans. Snow-storm cataract",
+    "cop": 3,
+    "opa": "Sunflower cataract",
+    "opb": "Rosette-shaped cataract",
+    "opc": "Snow-storm cataract",
+    "opd": "Coronary cataract",
+    "subject_name": "Ophthalmology",
+    "topic_name": null,
+    "id": "02b1fad4-d190-414a-b316-bce20b1ee93c",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "coronary"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "TRUE/FALSE statements about achalasia cardia among following is/are: 1. Dysphagia is a presenting problem 2. The cause is absence of Auerbach's plexus 3. Esophagectomy is the treatment 4. Motility improving agents are used in the treatment 5. Barium swallow shows irregular filling defect in lower esophagus",
+    "exp": "Achalasia cardia is motor disorder of the esophageal smooth muscle in which the LES does not relax normally with swallowing, and esophageal body undergoes nonspecific contractions. (peristalsis is absent or reduced). The pathogenesis of achalasia is poorly understood. It involves: Neurologic degeneration either idiopathic or due to infection. The degenerative changes are either intrinsic (degeneration of ganglion cells of auerbach's myenteric plexus) or extrinsic (extraesophageal vagus nerve or the dorsal motor nucleus of vagus nerve) Pharmacological studies suggest dysfunction of inhibitory neurons containing nitric oxide and vasoactive intestinal polypeptide in the distal esophagus. The cholinergic innervation of the LES is intact or affected only in advance disease. As a result of the abnormality, the LES fails to relax, primary peristalsis is absent in esophagus which dilates. As the disease progresses the esophagus becomes massively dilated and touous. Clinical Presentation: Both sexes are equally affected. It may develop at any age but peak years are from 30 to 60 years of age. Classical clinical symptom is progressive dysphagia for both solids and liquids. Dysphagia is worsened by emotional stress and hurried eating. Diagnosis: Chest X-ray shows absence of gastric air bubbles, an air fluid level in the mediastinum in the upright position representing retained food in the esophagus. Barium swallow shows a dilated esophagus with tapering narrowing in the terminal end of esophagus, described as 'BIRD BEAK' appearance. Fluoroscopy shows loss of normal peristalsis in the lower third of the esophagus. Treatment includes heller's cardiomyotomy, forceful dilation by pneumatic balloon, repeated injection botulinum toxins and drugs improving motility of esophagus. Esophagectomy is not a treatment modality for achalasia cardia. Irregular filling defect is a feature of carcinoma esophagus not of achalasia cardia. Ref: CSDT 13/e, Page 428 ; Schwaz 9/e, Page 850 ; Maingot's 10/e, Page 846 ; Manipal manual of Surgery by K. Raj Gopal Shenoy 2/e, Page 312-14",
+    "cop": 2,
+    "opa": "1,2,3 true & 4,5 false",
+    "opb": "1,2,4 true & 3,5 false",
+    "opc": "1,2,3,4 true & 5 false",
+    "opd": "1,2,4,5 true & 3 false",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "5cd91802-1113-435e-8b6c-816d910c48f8",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "esophagus",
+        "dysphagia",
+        "achalasia"
+      ],
+      "specialty": "gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following is not commonly seen in Hepatocellular carcinoma?",
+    "exp": "Among the common presenting symptoms of patients with HCC, jaundice is not commonly seen. It is seen only when there is mechanical obstruction of the bile duct. Most of the patients presents with abdominal pain or are completely asymptomatic and are detected on routine laboratory investigation. Hepatomegaly is the most common physical sign. AFP levels are elevated in more than half of the cases. Reference: Harrison's Principles of Internal Medicine 18e chapter 92.",
+    "cop": 4,
+    "opa": "Raised AFP",
+    "opb": "Raised ALP",
+    "opc": "Hepatomegaly",
+    "opd": "Jaundice",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "fedbc834-b078-4707-9cd1-e4b98da0e803",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "jaundice",
+        "hepatocellular carcinoma",
+        "ALP"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which is not given at the time of birth ?",
+    "exp": null,
+    "cop": 4,
+    "opa": "OPV",
+    "opb": "BCC",
+    "opc": "Hepatitis B",
+    "opd": "HiB",
+    "subject_name": "Pediatrics",
+    "topic_name": null,
+    "id": "16a772d9-cfdb-48e2-aa0c-f0a27fe69ec6",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "hepatitis B"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "In aortic dissection, blood enters in -",
+    "exp": "Aortic dissection \n\nAortic dissection is a catastrophic illness characterized by dissection of blood between and along the laminar planes of aortic media.\nBlood enters inside the arterial wall (in the media layer) and leads to the formation of blood-filled channels within the aortic wall, which often ruptures outward causing massive haemorrhage.\nThe most frequent pre-existing histologically detectable lesion is cystic medial degeneration.\nIn aortic dissection, there is an intimial tear through which the blood enters into the media.\nUsually, the tear is within 10 cms of the aortic valve.\nThe dissecting hematoma spreads characteristically along the laminar planes of the aorta, usually between the middle and outer third.\nSome times, blood ruptures into the lumen distally, i.e. there is the second tear distally. So that a complete new vascular channel is formed inside the media of aortic wall. Blood enters from proximal tear into the media and comes out into the lumen from the distal tear.\nThis is called double - barrel aorta with a false-channel in the media.\nLater on, this false channel becomes endothelized → chronic dissection.\n\n  Classification of Aortic dissection\n\nThe risk and nature of serious complications of dissection depend strongly on the level of aorta affected, with the most serious complications occurring from the aortic valve to the arch.\nThus aortic dissections are generally classified into two types -\n\n1. Proximal lesion (Type A)\n\nMore common and more dangerous.\nInvolve either the ascending portion only or both ascending and the descending portion of aorta.\n\n2.   Distal lesion (Type B)\n\nInvolve only descending part distal to the subclavian artery.",
+    "cop": 2,
+    "opa": "Intima",
+    "opb": "Media",
+    "opc": "Adventitia",
+    "opd": "Any of the above layer",
+    "subject_name": "Pathology",
+    "topic_name": null,
+    "id": "6489f9c1-4e72-4fb5-bc77-af2a4ae88dc8",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "aortic"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Lowest concentration of anesthetic agent in aveoli needed to produce immobility in response to painful stimulus in 50% of individual is termed as",
+    "exp": "A i.e. Minimum alveolar concentration",
+    "cop": 1,
+    "opa": "Minimum alveolar concentration",
+    "opb": "Minimal analgesic concentration",
+    "opc": "Minimal analgesic concentration",
+    "opd": "Maximum alveolar concentration",
+    "subject_name": "Anaesthesia",
+    "topic_name": null,
+    "id": "78b0a79c-b2d9-4c5f-a7f6-93529238f70f",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "alveolar"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "CSF glucose level is -",
+    "exp": null,
+    "cop": 2,
+    "opa": "Half the plasma glucose",
+    "opb": "2/3 of plasma glucose",
+    "opc": "1/3 of plasma glucose",
+    "opd": "Same as plasma glucose",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "f46ef2fc-db7c-48c8-b477-2ce21f2b0ec1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "CSF"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Web constriction is seen in which pa of esophagus, in Plummer-Vinson syndrome",
+    "exp": "Predominantly, it affects females past 40 years. Barium swallow shows a web in the postcricoid region and the same can be seen on oesophagoscopy. (Ref: Textbook of diseases of ENT, PL Dhingra, 7th edition, pg no. 388)",
+    "cop": 3,
+    "opa": "Thoracic",
+    "opb": "Abdominal",
+    "opc": "Cervical",
+    "opd": "Any of the above",
+    "subject_name": "ENT",
+    "topic_name": "Oral cavity & Oesophagus",
+    "id": "8bdcb749-c1ed-4d25-b996-20c70919c5c9",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "esophagus"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which does not pass from the superior cerebellar peduncle?",
+    "exp": "Posterior spinocerebellar tract does not pass through superior cerebellar peduncle Ref: guyton and hall textbook of medical physiology 12 edition page number:780,781,782",
+    "cop": 3,
+    "opa": "Dentatorubral tract",
+    "opb": "Anterior spinocerebellar tract",
+    "opc": "Posterior spinocerebellar tract",
+    "opd": "Tectocerebellar tract",
+    "subject_name": "Physiology",
+    "topic_name": "Nervous system",
+    "id": "2d713451-323b-46c7-8d6f-4af2cb5f63d5",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cerebellar"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "In adults, the spinal cord normal ends at:",
+    "exp": null,
+    "cop": 1,
+    "opa": "Lower border of L1",
+    "opb": "Lower border of L3",
+    "opc": "Lower border of S1",
+    "opd": "Lower border of L5",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "8ed9ee59-df24-4219-a6fa-bfb58e825019",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "spinal cord"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Persistant vomiting most likely causes-",
+    "exp": "Metabolic alkalosis occurs as a result of loss of nonvolatile acid HCl while vomiting( from the extracellular fluid. ",
+    "cop": 2,
+    "opa": "Hyperkalemia",
+    "opb": "Acidic urine excretion",
+    "opc": "Hypochloraemia",
+    "opd": "Hyperventilation.",
+    "subject_name": "Medicine",
+    "topic_name": "Fluid and electrolytes",
+    "id": "91d4bc94-b0b1-4908-81da-3e6575e884a1",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "vomiting"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Which of the following is true about tuberculin test?",
+    "exp": null,
+    "cop": 3,
+    "opa": "It gives the immune status of patient",
+    "opb": "It tells about prior exposure to Mycobacterium tuberculosis only",
+    "opc": "It may be negative in dissociated tuberculosis",
+    "opd": "It is highly positive in a post measles case",
+    "subject_name": "Social & Preventive Medicine",
+    "topic_name": null,
+    "id": "de7b064a-f8dd-4cbf-9c8b-336481318955",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "tuberculosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A 60-year-old woman is having symptoms of muscle weakness and fatigue. On examination, her blood pressure is 110/80 mm Hg, pulse 100/min, JVP 1 cm, heart sounds normal, and lungs clear. Her serum potassium level is 2.5 mEq/L, bicarbonate 15 mEq/L, and anion gap is normal. The urine potassium is 10 mEq/L.For the above patient with hypokalemia, select the most likely diagnosis.",
+    "exp": "In lower GI loss (diarrhea), the blood pressure is normal, the urine potassium is low (< 25 mmol/F), and the bicarbonate is either normal or low.",
+    "cop": 1,
+    "opa": "lower gastrointestinal (GI) losses",
+    "opb": "prior use of diuretics",
+    "opc": "RTA",
+    "opd": "current use of diuretics",
+    "subject_name": "Medicine",
+    "topic_name": "Oncology",
+    "id": "d6ad0e24-1bdd-444c-897d-83498d15fbd9",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "gastrointestinal",
+        "pulse",
+        "fatigue",
+        "blood pressure",
+        "heart"
+      ],
+      "specialty": "cardiology, gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "All of the following are ultrasonographic fetal growth parameters except:",
+    "exp": "Ans. B. Trans cerebellar diametera. Ultrasound imaging: Standard morphometric measurements are as under: Fetal crown-rump length (in first trimester); Biparietal diameter; Head circumference.b. Abdominal circumference; Femur length; and Total intrauterine volume.",
+    "cop": 2,
+    "opa": "Head circumference",
+    "opb": "Trans cerebellar diameter",
+    "opc": "Femur length",
+    "opd": "Biparietal diameter",
+    "subject_name": "Gynaecology & Obstetrics",
+    "topic_name": "Antenatal Screening",
+    "id": "fafff2e1-9697-4324-81da-a3ff9dd2f827",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cerebellar"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Ratio of AST/ALT > I present in -",
+    "exp": "<p>Davidson&;s principles and practice of medicine 22nd edition *ALT and SAT are located in the cytoplasm of hepatocytes. Increase in its level indicate hepatocellular damage </p>",
+    "cop": 4,
+    "opa": "Non alcoholic steatohcpatitis",
+    "opb": "Alcoholic hepatitis",
+    "opc": "Wilson's disease",
+    "opd": "All of the above",
+    "subject_name": "Medicine",
+    "topic_name": "G.I.T",
+    "id": "9b8e4e39-9903-4ca7-8ef7-a23fb7b4c010",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "AST",
+        "ALT"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "For which of the following is PPV-23 is most beneficial:",
+    "exp": "Repeated microinfarction can destroy tissues having micro vascular beds prone to sickling. Thus splenic function is frequently lost within 18-36 months of life causing susceptibility to infection paicularly by pneumococci. So ( PPV-23) polysaccharide pneumococcal vaccine is beneficial in sickle cell anemia.",
+    "cop": 2,
+    "opa": "Cystic fibrosis patient",
+    "opb": "Sickle cell anemia patient",
+    "opc": "Patient with recurrent rhinitis and sinusitis",
+    "opd": "Child less than 2 years",
+    "subject_name": "Microbiology",
+    "topic_name": "AIIMS 2019",
+    "id": "1bb2cc45-79b6-45f8-add8-e6832e5090f0",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cystic fibrosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Sequestration of lung is seen in:",
+    "exp": "Posterior pa of left lung",
+    "cop": 4,
+    "opa": "Right upper lobe",
+    "opb": "Right lower lobe",
+    "opc": "Lateral basal",
+    "opd": "Posterior pa of left lung",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "b9b9fb44-3235-42d3-bec0-1d1e995f3e7c",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "lung"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Fatty acids used by all except -",
+    "exp": "Ans. is 'c' i.e., Brain o Fatty acids do not serve as fuel for the brain, because they are bound to albumin in plasma; hence cannot cross blood-brain barrier.",
+    "cop": 3,
+    "opa": "Liver",
+    "opb": "Muscle",
+    "opc": "Brain",
+    "opd": "Kidney",
+    "subject_name": "Biochemistry",
+    "topic_name": "Biosynthesis of Fatty Acids and Eicosanoids",
+    "id": "567cf571-4537-42a1-9b78-659a2b4f6819",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "brain",
+        "liver"
+      ],
+      "specialty": "gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "V/Q ratio is maximum in which part of lung -",
+    "exp": "Ans. is 'a' i.e., Apex Ventilation perfusion ratio (V/Q)o Considering that cardiac output is 5.0 L/min and alveolar ventilation is about 4.2 L/min, the overall ventilation : perfusion ratio is 0.8. Idealy, therefore, each alveolus should have a V/Q ratio of 0.8. However, that is not so even in normal lungs.o Due to gravity, the apical alveoli are both underventilated and underperfused while the basal alveoli are both overventilated and overperfused. However, gravity affects perfusion much more than it affects ventilation. Hence, apical alveoli are more underperfused than underventilated while the basal alveoli are more overperfused than overventilated. Therefore, V/Q is maximun at apex (about 3 0) and least at base (about 0-6).o Since ventilation is far in excess of perfusion at apex, comparatively little oxygen is transferred from the alveoli to the blood, and CO2 transferred to the alveoli is also less. Hence the gas tension at the apices are quiet close to those of inspired air, i.e., High PaO2and low PaCO2. On the other hand, at the base of lung perfusion is better than ventilation; Hence PaO2 and PaCO2 of basal alveoli are quiet close to those ofpulmonary artery, i.e., low PaO2 and high PaCO2 In simple words, ventilation-perfusion mismatch is responsible for high PO2 with low PCO2 at apex and Low PO2 with high PCO2 at base.",
+    "cop": 1,
+    "opa": "Apex",
+    "opb": "Base",
+    "opc": "Middle",
+    "opd": "Same at all places",
+    "subject_name": "Physiology",
+    "topic_name": "Functional Anatomy - Respiratory System",
+    "id": "5a439540-2b0e-486a-a1d7-26f10c2be66e",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "lung"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "All of the following drains into coronary sinus EXCEPT:",
+    "exp": "ANSWER: (B) Anterior cardiac veinREF: Keith L. Moore, 4th edition, page 96, 97Repeat from December 2009 VENOUS DRAINAGE OF HEART:The heart is drained mainly by veins that empty into the coronary sinus and partly by small veins that empty directly into the chambers of the heart. The coronary sinus, the main vein of the heart, is a wide venous channel that runs from left to right in the posterior part of the coronary groove. The coronary sinus receives the great cardiac vein at its left end and the middle and small cardiac veins at its right end. The left posterior ventricular vein and left marginal vein also open into the coronary sinus.The small anterior cardiac veins empty directly into the right atrium and the smallest cardiac veins (L. venae cordisminimae) are minute vessels that begin in the capillary beds of the myocardium and open directly into the chambers of the heart, chiefly the atria. Although called veins, they are valve less communications with the capillary beds of the myocardium and may carry blood from the heart chambers to the myocardium.",
+    "cop": 2,
+    "opa": "Great cardiac vein",
+    "opb": "Anterior cardiac vein",
+    "opc": "Middle cardiac vein",
+    "opd": "Left posterior ventricular vein",
+    "subject_name": "Anatomy",
+    "topic_name": "Pericardium & Heart",
+    "id": "2745704e-5ebb-4573-944c-ec73c6197142",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "coronary",
+        "ventricular",
+        "cardiac"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which of the following prevent extrusion and lateral tooth movement",
+    "exp": null,
+    "cop": 1,
+    "opa": "Alveolar crest group",
+    "opb": "Horizontal group",
+    "opc": "Oblique group",
+    "opd": "Apical group",
+    "subject_name": "Dental",
+    "topic_name": null,
+    "id": "c343068d-658f-44b2-8e9a-28f0e0a4005d",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "alveolar"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Serological testing of patient shows HBsAg, IgM anti-HBc and HBeAg positive. The patient has -",
+    "exp": "Markers elevated in Acute hepatitis B with high infectivity- HBsAg, IgM anti-HBc and HBeAg",
+    "cop": 2,
+    "opa": "Chronic hepatitis B with low infectivity",
+    "opb": "Acute hepatitis B with high infectivity",
+    "opc": "Chronic hepatitis with high infectivity",
+    "opd": "Acute on chronic hepatitis",
+    "subject_name": "Microbiology",
+    "topic_name": null,
+    "id": "7075c9f4-9854-4b90-9f31-048983b4c9e4",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "hepatitis B"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "What is the blood supply of the cervical esophagus-",
+    "exp": "Arterial supply of esophagus\n Cervical part - Inferior thyroid artery\nThoracic part - esophageal branches of descending thoracic aorta, bronchial arteries.\nAbdominal part - left inferior phrenic artery, left gastric artery.",
+    "cop": 1,
+    "opa": "Inferior thyroid artery",
+    "opb": "Superior thyroid artery",
+    "opc": "Bronchial artery",
+    "opd": "External carotid artery",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "7c9127fe-e43f-471c-b363-9594539d0d09",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "esophagus",
+        "bronchial"
+      ],
+      "specialty": "gastroenterology, respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Most common complication of measles in children",
+    "exp": null,
+    "cop": 3,
+    "opa": "SSPE",
+    "opb": "Pulmonary Hypertension",
+    "opc": "Otitis media",
+    "opd": "Oophoritis",
+    "subject_name": "Social & Preventive Medicine",
+    "topic_name": null,
+    "id": "f104d3fe-4433-47d2-94ff-c6d72084171a",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hypertension",
+        "pulmonary"
+      ],
+      "specialty": "cardiology, respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which structures passes though foramen of langer?",
+    "exp": "Ans. B Tail of SpenceRef: Kulkarni Clinical Anatomy, 2nd ed. pg. 182* The axillary tail of spence of breast pierces the deep fascia through the foramen of langer and comes to lie in the axilla.",
+    "cop": 2,
+    "opa": "Inguinal canal",
+    "opb": "Tail of spence",
+    "opc": "CN V3",
+    "opd": "CN VII",
+    "subject_name": "Anatomy",
+    "topic_name": "Thorax",
+    "id": "21583f97-862d-4f9b-bf42-9b9793141937",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "CN"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Through which of the following means of transpo is folic acid absorbed in proximal jejunum?",
+    "exp": "Folic acid is absorbed in the proximal jejunum through both active and passive transpo. First step in the absorption of folate involves hydrolysis of pteroyl polyglutamates into pteroyl monoglutamate by conjugase enzyme located in the intestinal mucosa. Next step involves absorption of pteroyl monoglutamate through active carrier mediated transpo. Besides this, pharmacologic doses of folate are also absorbed passively by facilitated diffusion. After absorption from the lumen into the enterocyte intracellular enzymes reduce and methylate the monoglutamate to produce metabolically active form of folic acid. This form is then absorbed into circulation by simple diffusion. Most of the vitamins are absorbed passively. Cyanocobalamin is the only vitamin that that depends on active transpo for its absorption. Folic acid and thiamine are the only other vitamins for which active mechanism of absorption is known. Ref: Understanding Medical Physiology: A Textbook for Medical Students By R.L. Bijlani, M.D., 4th edn, page 340",
+    "cop": 4,
+    "opa": "Facilitated diffusion",
+    "opb": "Active transpo",
+    "opc": "Passive transpo",
+    "opd": "Both active and passive transpo",
+    "subject_name": "Physiology",
+    "topic_name": null,
+    "id": "e6592fb6-7575-44a6-8f9a-2b466a3ee03d",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "jejunum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Arial supply of the duodenum is by",
+    "exp": "The superior and inferior pancreaticoduodenal aeries (from the gastroduodenal aery and SMA respectively) form an anastomotic loop between the celiac trunk and the SMA; so there is potential for collateral circulation here. The venous drainage of the duodenum follows the aeries. <img src=\" /> Ref - BDC 6e vol2 pg 263",
+    "cop": 4,
+    "opa": "Superior mesenteric aery",
+    "opb": "Celiac aery",
+    "opc": "Inferior mesenteric aery",
+    "opd": "Both superior mesenteric and celiac aeries",
+    "subject_name": "Anatomy",
+    "topic_name": "Abdomen and pelvis",
+    "id": "eea8abb7-2d5f-4512-b364-67b8400a86d6",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "duodenum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Touton Giant cells are seen in -",
+    "exp": "Ans. is 'c' i.e., Xanthoma Tauton giant cells These cells have a ring of nuclei that separates a peripheral clear cytoplasm from an eosinophilic central cytoplasm. These cells are seen in juvenile xanthogranuloma in skin or iris and in Xanthoma disseminatum.",
+    "cop": 3,
+    "opa": "Cat scatch disease",
+    "opb": "Sarcoidosis",
+    "opc": "Xanthomas",
+    "opd": "Neurofibroma",
+    "subject_name": "Pathology",
+    "topic_name": null,
+    "id": "069a3b36-3fc3-409b-98a3-e9a6c14559ba",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "sarcoidosis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "This segment of jejunum shows a nodular lesion located in the submucosa. Upon histological examination, the tumor was composed of uniform round cells arranged in trabeculae, with a \"salt-and-pepper\" chromatin pattern. Electron microscopic studies revealed secretory granules, and immunohistochemical stains were positive for serotonin. Which of the following parameters correlates best with the metastatic potential of this tumor?",
+    "exp": "The tumor in the picture is a carcinoid. This neoplasm derives from the neuroendocrine cells of the intestinal epithelium and often retains the capacity to produce hormonal substances, such as serotonin, gastrin, somatostatin, etc. The architectural arrangement is variable, although trabecular and insular patterns are the most common. Carcinoid tumors may be found throughout the intestinal canal, as well as in the bronchial tree and other organs. Location and size are the most impoant predictor of their metastatic potential. Carcinoids of the appendix and cecum (the most frequent) only rarely metastasize to the liver. Carcinoids of the stomach, ileum and colon have a high metastatic propensity, especially if they are larger than 2 cm in main diameter. Neither architectural pattern nor cell pleomorphism is a good predictor of the malignant potential of carcinoid tumors. In general, this rule applies to most of endocrine tumors, in which histologic features and biologic behavior do not often correlate with one another. In other words, a tumor that shows relatively bland cells may undergo metastatic spread, while tumors with more anaplastic features may behave in a benign fashion. Hormonal production is common in carcinoids, but does not often lead to a clinical syndrome nor does it correlate with metastatic potential.",
+    "cop": 4,
+    "opa": "Architectural pattern",
+    "opb": "Cell pleomorphism",
+    "opc": "Hormonal production",
+    "opd": "Site and size",
+    "subject_name": "Pathology",
+    "topic_name": null,
+    "id": "ee776b0c-5211-425b-8a8d-add3cbf35b8e",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "jejunum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A 45-years-old man who works in textile company visited hospital for routine health check-up. He prepares dyes in company from last 18 years. Which of the following investigation would you recommend for this patient?",
+    "exp": "Dye stuffs & dyeing industries, rubber, gas & electric cable industries are associated with carcinoma of bladder (transitional cell carcinoma). Bladder cancer is caused by aromatic amines, which are metabolized in the body & excreted in the urine. Possible bladder carcinogens are: Beta-naphthylamines, benzidine, para-amino-diphenyl, auramine & magenta. In this case pt. is exposed to dyes for long duration and is at risk for developing bladder cancer. So, urine tests should be done to see if there is any hematuria, which is the mc symptom of bladder cancer.",
+    "cop": 3,
+    "opa": "Pulmonary function tests",
+    "opb": "Liver function tests",
+    "opc": "Urine examination",
+    "opd": "Complete blood count.",
+    "subject_name": "Social & Preventive Medicine",
+    "topic_name": "Environment",
+    "id": "3103abb3-c4af-44b5-b618-40a0a935fa52",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary",
+        "liver"
+      ],
+      "specialty": "gastroenterology, respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Fasting hyperglycemia is almost always seen in",
+    "exp": "fasting glucose levels greater than or equal to 7.0 mmol/l, is frequently present in patients with phaeochromocytoma (24% in the present study) and the diabetes is reversed by removal of the tumour(pheochromocytoma). Ref - Harrison20th edition pg 99",
+    "cop": 2,
+    "opa": "Gastric carcinoma",
+    "opb": "Pheochromocytoma",
+    "opc": "Adrenal tumour",
+    "opd": "Carcinoid tumour",
+    "subject_name": "Medicine",
+    "topic_name": "Nutrition",
+    "id": "c1f0d348-f411-407e-84fc-786e10809637",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "gastric"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Most common complication of extra capsular fracture of neck of femur is:",
+    "exp": "Extra-capsular (inter-trochanteric) fracture is more common than intra-capsular. Most common complication of Extra-capsular fracture of neck of femur of neck is mal-union. In Intra-capsular (neck of femur fracture), the most common complication is avascular necrosis > non-union.",
+    "cop": 3,
+    "opa": "Non union",
+    "opb": "Ischemic necrosis",
+    "opc": "Malunion",
+    "opd": "Pulmonary complications",
+    "subject_name": "Orthopaedics",
+    "topic_name": "FMGE 2018",
+    "id": "30fbae39-a8f0-4dea-a411-391443e775b5",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Seizures are seen in all EXCEPT:",
+    "exp": "ANSWER: (D) AmoebiasisREF: CMDT 2009 chapter 24. Nervous System Disorders, Epilepsy A to Z: a glossary of epilepsy terminology by Peter W. Kaplan, Pierre Loiseau Page 207Infectious diseases causing seizuresInfectious diseases must be considered in all age groups as potentially reversible causes of seizures. Seizures may occur with an acute infective or inflammatory illness, such asBacterial meningitisHerpes encephalitisPlasmodium falciparumAcanthamoebaNeurosyphilis or cerebral CysticercosisToxoplasmosisCryptococcal meningitisCytomegalovirus",
+    "cop": 4,
+    "opa": "Cryptococcus meningitis",
+    "opb": "Toxoplasmosis",
+    "opc": "CMV",
+    "opd": "Amoebiasis",
+    "subject_name": "Medicine",
+    "topic_name": "Seizures and Epilepsy",
+    "id": "8cde5324-8e90-49fc-b2df-d3a5d1a4dd54",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "meningitis"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Pulmonary edema associated with normal pulmonary capillary wedge pressure (PCWP) is seen in all, except:",
+    "exp": "Pulmonary edema associated with normal PCWP is seen in Non-cardiogenic pulmonary edema. Bilateral renal aery stenosis is not associated with normal PCWP instead it leads to systemic hypeension, accelerated target organ injury, left ventricular hyperophy and renal fibrosis. Ref: Harrison's Internal Medicine, 18th Edition, Pages 280-281, 2232, 2375",
+    "cop": 2,
+    "opa": "High-altitude pulmonary edema",
+    "opb": "Bilateral renal aery stenosis",
+    "opc": "Cocaine overdose",
+    "opd": "Post cardiopulmonary bypass",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "8ba40708-5066-45df-a450-97f8522dadb7",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary edema",
+        "pulmonary"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Raised JVP and not fall back of JVP is a feature of?",
+    "exp": "In Atrial fibrillation there is a disorganized, rapid, and irregular atrial activity with the loss of atrial contraction. This insufficient atrial contraction results in accumulation of blood in the atrium, which results in increase in JVP which does not fall back. In ventricular tachycardia, atria empty completely and leads to fall in JVP. In ventricular fibrillation, JVP raises at one time and falls at other time.",
+    "cop": 1,
+    "opa": "Atrial fibrillation",
+    "opb": "Atrial flutter",
+    "opc": "Ventricular tachycardia",
+    "opd": "Ventricular fibrillation",
+    "subject_name": "Anatomy",
+    "topic_name": "FMGE 2019",
+    "id": "44ebcc80-4b27-44ef-81e6-bb885c0ba50a",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "atrial",
+        "atrial flutter",
+        "atrial fibrillation",
+        "ventricular fibrillation",
+        "ventricular tachycardia",
+        "ventricular",
+        "tachycardia"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "NOT a content of middle mediastinum:",
+    "exp": "The esophagus is considered to be located in the superior and posterior mediastinum.",
+    "cop": 2,
+    "opa": "Ascending aoa",
+    "opb": "Oesophagus",
+    "opc": "Pulmonary trunk",
+    "opd": "Phrenic nerve",
+    "subject_name": "Anatomy",
+    "topic_name": null,
+    "id": "1a720239-736e-4eb5-934a-ca2b0d6b43e7",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "The following are signs of left heart failure except:",
+    "exp": "Signs of left heart failure:-  \ni. Dyspnea on exertion \nii. Orthopnea \niii. Paroxysmal Nocturnal Dyspnea \niv. Bilateral lung base crepitations (suggestive of pulmonary edema) \nv. S3 gallop \nvi. Pulsus paradoxus   \nvii. N-terminal Brain Natriuretic peptide levels are increased \nSigns of Right ventricular failure are:-\ni. Elevated JVP \nii. Pedal edema \niii. Tender hepatomegaly \niv. Ascites",
+    "cop": 2,
+    "opa": "S3 gallop",
+    "opb": "Pedal edema",
+    "opc": "Bilateral lung base crepitations",
+    "opd": "Orthopnea",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "c1b7c3f5-bb8d-4ea3-9a45-10bf1ede994b",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "orthopnea",
+        "lung",
+        "heart",
+        "heart failure"
+      ],
+      "specialty": "cardiology, respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A patient Pushpa comes to you in the medicine emergency and you diagnose her to be suffering from severe CHF. You choose a drug 'Z' which is a short term ionotropic agent having selective adrenergic agonistic activity but lacking dopaminergic agonistic activity. What can be 'Z' ?",
+    "exp": null,
+    "cop": 2,
+    "opa": "Dopamine",
+    "opb": "Dobutamine",
+    "opc": "Amrinone",
+    "opd": "Salmeterol",
+    "subject_name": "Pharmacology",
+    "topic_name": null,
+    "id": "e3eccff6-6424-4558-9ee4-f6cea0a76196",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "CHF"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Consider following statements - During an acute attack of asthma:",
+    "exp": "In an acute severe asthma,examination of the patient usually shows increased ventilation,hyperinflation,and tachycardia Pulses paradoxus may be present when FEV1 is less than 25% of the predicted value.There is marked fall in spirometric values and PEF.Aerial blood gases on air show hypoxaemia and Pco2 is usually low with increased pH due to hyperventilation.A normal or rising Pco2 is an indication of impending respiratory failure and requires immediate monitoring & therapy. Reference:Harrison's medicine-18th edition,page no:2113.",
+    "cop": 4,
+    "opa": "Pulsus paradoxus develops when the FEV1 is less than 25% of the predicted value",
+    "opb": "A normal to increased PaCO2 signals a sever airway obstruction and impending respiratory failure",
+    "opc": "The aerial PaCO2 decreases and the aerial pH increases",
+    "opd": "All",
+    "subject_name": "Medicine",
+    "topic_name": "Respiratory system",
+    "id": "a98e268a-9bdc-4630-a04b-5efd0185e1b5",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "asthma",
+        "respiratory failure",
+        "fev1"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Otolith organs are concerned with function of:",
+    "exp": "Otolith organs (present in maculae) are concerned with linear acceleration, gravity and head tilt movements and they also help to maintain static equilibrium.",
+    "cop": 3,
+    "opa": "Hearing",
+    "opb": "Rotatory nystagmus",
+    "opc": "Linear acceleration",
+    "opd": "Angular acceleration",
+    "subject_name": "ENT",
+    "topic_name": null,
+    "id": "7a674cdc-3484-41d6-8028-bf5c64667149",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "nystagmus"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Reid's Index is?",
+    "exp": "ANSWER: (A) Increased in Chronic BronchitisREF: Robbins 7th edition page 722, http://en.udkipedia.org/wiki/Reid_indexThe Reid Index is a mathematical relationship that exists in a human bronchus section observedunder the microscope. It is defined as ratio between the thickness of the submucosal mucussecreting glands and the thickness between the epithelium and cartilage that covers the bronchi.A normal Reid Index should be smaller than 0.4, the thickness of the wall always more than double the thickness of the glands it contains. Hyperplasia and hypertrophy of mucous glands as in chronic bronchitis causes them to be present at deeper levels in the bronchial wall and thicker in size, thus increasing the Reid Index beyond the normal value usually in proportion to severity and duration of disease.",
+    "cop": 1,
+    "opa": "Increased in Chronic Bronchitis",
+    "opb": "Decreased in Chronic Bronchitis",
+    "opc": "Increased in Bronchial Asthma",
+    "opd": "Decreased in Bronchial Asthma",
+    "subject_name": "Pathology",
+    "topic_name": "Obstructive Lung Diseases",
+    "id": "de416602-27f9-495c-b0e2-7040800dd83d",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "asthma",
+        "bronchitis",
+        "bronchial"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Which is not a derivative of midgut:",
+    "exp": "Ans. D Descending colonRef: Langman's Medical Embryology, 9th ed. pg. 298* \"Descending colon is a derivative of Hindgut\"Part Part in adultGives rise toArterial supplyForegutEsophagus to first 2 sections of the duodenumEsophagus, stomach, duodenum (1st and 2nd parts), liver, gallbladder, pancreas, spleen, superior portion of pancreasCeliac trunkMidgutLower duodenum, to the first two-thirds of the transverse colonLower duodenum, jejunum, ileum, cecum, appendix, ascending colon, and first 2/3rd of the transverse colonBranches of the superior mesenteric arteryHindgutLast third of the transverse colon, to the upper part of the anal canalLast third of the transverse colon, descending colon, rectum, and upper part of the anal canalBranches of the inferior mesenteric artery",
+    "cop": 4,
+    "opa": "Appendix",
+    "opb": "Jejunum",
+    "opc": "Ascending colon",
+    "opd": "Descending colon",
+    "subject_name": "Anatomy",
+    "topic_name": "Gram-Positive Infections - Corynebacterial Infections",
+    "id": "51df448b-d9cb-4574-aed9-730feba1ccc0",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "descending colon",
+        "colon",
+        "ascending colon",
+        "jejunum"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "The characteristics feature of a frontal lobe tumor is:",
+    "exp": "Frontal lobe tumors Personality changes are common symptom of frontal lobe tumor. Frontal lobe controls behavior and judgment. Patients may be socially disinhibited, display antisocial behavior, shows severe impairment of judgment, insight and foresight. Witzelsucht syndrome: Self amusement from poor jokes and puns, also known as pathological joking, is seen in frontal lobe tumors.",
+    "cop": 4,
+    "opa": "Abnormal gait",
+    "opb": "Aphasia",
+    "opc": "Distractibility",
+    "opd": "Antisocial behavior",
+    "subject_name": "Surgery",
+    "topic_name": "CNS Tumors",
+    "id": "20d95f1c-5171-4aff-958e-47fdf70b143d",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "aphasia"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A patient presents with lower gastrointestinal bleed. Sigmoidoscopy shows ulcers in the sigmoid. Biopsy from this area shows flask-shaped ulcers. Which of the following is the most appropriate treatment -",
+    "exp": "• MC site of amebic colitis: Cecum and ascending colon.\n• Flask shaped ulcers on colonoscopy confirms the diagnosis of amebic colitis.\n• Asymptomatic carrier: Luminal agents (Iodoquinol, paromomycin).\n• Acute colitis: Metronidazole and luminal agents.\n• Amebic liver abscess: Metronidazole, tinidazole and luminal agents.",
+    "cop": 2,
+    "opa": "Intravenous ceftriaxone",
+    "opb": "Intravenous metronidazole",
+    "opc": "Intravenous steroids and sulphasalazine",
+    "opd": "Hydrocortisone enemas",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "747c4ab7-f7b7-4455-a16b-d2fa485e7fd7",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "sigmoidoscopy",
+        "gastrointestinal"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "The commonest cause for mortality in Iver levis operations -",
+    "exp": "Ivor Lewis operation - is subtotal esophagectomy done for Ca esophagus in the lower third of esophagus. Part of stomach and esophagus are resected and remnants of both anastomosed.\nAnastomotic leak is the most logical answer.\nI have also confirmed it from Senior residents of surgery.",
+    "cop": 2,
+    "opa": "Pulmonary atelectasis",
+    "opb": "Anastomotic leak",
+    "opc": "Thoracic duct fistula",
+    "opd": "Subdiaphragmatic collection",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "c8066365-99c8-4ac4-8454-db2ae1330ed5",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pulmonary"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Level of trachea bifurcation in pediatic patient is ?",
+    "exp": "Ans. is 'b' i.e., T3 Bifurcation of trachea in children is at T3 level while in adult at T4 - Ts level. In adult if may reach upto T6 level during deep inspiration. Trachea extend from lower border of cricoid cailage (level of C6) to upper border of T5 veebra (adult). Tracheal diameter in mm corresponds to age in year (pediatric) eg. 4mm in 4 year old child. Narrower airway exe greater resistance in children so develop distress in respiratory tract infection.",
+    "cop": 2,
+    "opa": "T2",
+    "opb": "T3",
+    "opc": "Tq",
+    "opd": "T5",
+    "subject_name": "Pediatrics",
+    "topic_name": null,
+    "id": "38449163-146b-4ff7-90c2-0ce5f01577d8",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "trachea"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Hepatitis A virus is best diagnosed by",
+    "exp": "Ans. is 'a' i.e., IgM antibodies in serum Lab diagnosis of HAV . \"Detection of IgM - specific anti-HAV in the blood of an acutely infected patient confirms the diagnosis of hepatitis A\" . IgM appears in acute phase, peaking about 2 weeks after elevation of liver enzymes and becomes undetectable within 3-6 months. . ELISA is the method of choice for measuring antibodies. Diagnosis can also be established by detection of virus in the stool from about 2 weeks prior to the onset of jaundice up to 2 weeks after. \"But these tests for detection of HAV, are not widely available or useful in practice\".",
+    "cop": 1,
+    "opa": "IgM antibodies in serum",
+    "opb": "Isolation from stool",
+    "opc": "Culture from blood",
+    "opd": "Isolation from bile",
+    "subject_name": "Microbiology",
+    "topic_name": null,
+    "id": "dbde95ec-663d-4ed0-8cd4-b70c122c69dc",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hepatitis",
+        "stool culture",
+        "hepatitis A"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A 67 yr male with history of chronic smoking hemoptysis with cough. Bronchoscopic biopsy from centrally located mass shows undifferentiated tumor histopathologically. Most useful I.H.C. (immunohistochemical) marker to make a proper diagnosis would be:",
+    "exp": "The presence of chronic smoking, cough and hemoptysis in old man is a pointer towards a diagnosis of bronchogenic cancer. The central location suggests the possibility of a squamous cell cancer. Histologically, this tumor is characterized by the presence of keratinization and/or intercellular bridges. HMB (melanoma), Hep par1 (liver cancer) and parvalbumin (schizophrenia).",
+    "cop": 1,
+    "opa": "Cytokeratin",
+    "opb": "Parvalbumin",
+    "opc": "HMB-45",
+    "opd": "Hep-par1",
+    "subject_name": "Pathology",
+    "topic_name": "Lung Tumor",
+    "id": "76ee4517-2f17-4c9a-90bf-901f14682d41",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "hemoptysis"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "After exploration of common bile duct, the T-tube is removed on which of the following days",
+    "exp": "Cholecystectomy with choledochotomy and CBD exploration T-tube is left in place for cholangiography and removal of any retained stone T-tube cholangiogram is done on 7th - 10th day Post-operatively Remove T-tube if cholangiogram is normal If residual stone is discovered on the postoperative cholangiogram, T-tube should be left in place for 4-6 weeks for the tract to mature The stones are removed percutaneously through the matured tract by Burhenne's technique Ref: Sabiston 20th edition Pgno : 1511",
+    "cop": 3,
+    "opa": "3rd postoperative day",
+    "opb": "4th postoperative day",
+    "opc": "12th postoperative day",
+    "opd": "6th postoperative day",
+    "subject_name": "Anatomy",
+    "topic_name": "G.I.T",
+    "id": "dbdd80dc-e55d-4dd1-b26b-c67084c0929f",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "bile duct"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "All are true foe annular pancreas except",
+    "exp": "upper GI series is not the investigation of choice.They are plain X-ray abdomen,ERCP and Radioscopic study , Barium meal. SRB,5th,712",
+    "cop": 1,
+    "opa": "Upper GI series is IOC",
+    "opb": "Duodenal obstruction present",
+    "opc": "ERCP is done",
+    "opd": "Non - rotation of gut",
+    "subject_name": "Surgery",
+    "topic_name": "G.I.T",
+    "id": "68933803-90b4-4008-9097-ed8a15b02fc5",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "pancreas",
+        "ERCP",
+        "duodenal"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Gall blader stone formation in influenced by A/E ?",
+    "exp": "Ans is 'd' i.e., Hypercholesterolemia Hyperalimentation - decreases gall bladder motility, promotes stasis Primary biliary cirrhosis - decreases bile salt secretion into bile Clofibrate therapy - increases biliary cholesterol - thus these factors predispose to cholesterol stone formation. Predisposing factors for cholesterol gall stone formation are 1. Demographic/genetic factors Prevalence highest in Noh American Indians, Chilean Indians and Chilean Hispanics, greater in Nohern Europe and Noh America than in Asia, lowest in Japan; familial disposition; hereditary aspects. 2. Obesity a. Normal bile acid pool and secretion but increased biliary secretion of cholesterol 3. Weight loss a. Mobilization of tissue cholesterol leads to increased biliary cholesterol secretion while enterohepatic circulation of bile acid is increased 4. Female sex hormones a. Estrogens stimulate hepatic lipoprotein receptors, increases uptake of dietary cholesterol, and increase biliary cholesterol secretion b. Natural estrogens, other estrogens, and oral contraceptives lead to decreased bile salt secretion and decreased conversion of cholesterol to cholesteryl esters. 5. Increasing age a. Increased biliary secretion of cholesterol, decreased size of bile acid pool, decreased secretion of bile salts. 6. Gallbladder hypomotility leading to stasis and formation of sludge Prolonged parenteral nutrition Fasting Pregnancy Drugs such as octreotide 7. Clofibrate therapy a. Increased biliary secretion of cholesterol 8. Decreased bile acid secretion Primary biliary cirrhosis Genetic defect of the CYP7A1 gene 9. Decreased phospholipid secretion a. Genetic defect of the MDR3 gene 10. Miscellaneous High-calorie, high fat diet Spinal cord injury",
+    "cop": 4,
+    "opa": "Clofibrate therapy",
+    "opb": "Hyperalimentation",
+    "opc": "Primary biliary cirrhosis",
+    "opd": "Hypercholesterolemia",
+    "subject_name": "Surgery",
+    "topic_name": null,
+    "id": "65141c6a-e579-4edb-9845-329be41f383f",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "biliary",
+        "cirrhosis"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": false
+  },
+  {
+    "question": "Clamping of the carotid aeries below (proximal) the carotid sinus is likely to produce",
+    "exp": "Ans. a. Increased HR & BPDue to increased vasomotor center activity.",
+    "cop": 1,
+    "opa": "Increase in blood pressure and increase in hea rate",
+    "opb": "Decrease in blood pressure and decrease in hea rate",
+    "opc": "Increase in blood pressure and decrease in hea rate",
+    "opd": "Decrease in blood pressure and increase in hea rate",
+    "subject_name": "Physiology",
+    "topic_name": null,
+    "id": "72d4a279-7d3b-404d-8f97-2cca3b0e6532",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "blood pressure"
+      ],
+      "specialty": "cardiology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Muscle weakness may be a feature of all of the following EXCEPT: March 2013",
+    "exp": "Ans. D i.e. Physostigmine therapyNeuromuscular junction can be stimulated by some drugs like neostigmine, physostigmine and di-iso-propyl-fluoro-phosphate.",
+    "cop": 4,
+    "opa": "Progressive degeneration of muscle fibres",
+    "opb": "Magnesium deficiency",
+    "opc": "Myasthenia gravis",
+    "opd": "Physostigmine therapy",
+    "subject_name": "Physiology",
+    "topic_name": null,
+    "id": "5d49f992-7ec9-4628-9466-861f6738634b",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "myasthenia gravis"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Sugarcane induced lung disease?",
+    "exp": "Ans. b (Bagassosis). (Ref. Harrison, Principles of Medicine, 18th/Ch.261) LUNG DISEASEORGANISMCAUSE1BagassosisThermophilic actinomycetesSugarcane2Compost lungAspergillusCompost3Farmer's lungThermophilic actinomycetesMouldy hay4Maltworker's lungAspergillus fumigatus/clavatusMaple bark5Byssinosis--Cotton6Stannosis--iron",
+    "cop": 2,
+    "opa": "Byssinosis",
+    "opb": "Bagassosis",
+    "opc": "Pneumoconiosis",
+    "opd": "Asbestosis",
+    "subject_name": "Medicine",
+    "topic_name": "Respiratory",
+    "id": "c728a574-9f71-4f31-82d7-00863b66c6bb",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "lung"
+      ],
+      "specialty": "respiratory",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Tributary of the cavernous sinus includes all of the following, except",
+    "exp": "FROM THE ORBIT Superior ophthalmic vein Branch of inferior ophthalmic vein Central vein of retina may either drain either into the superior ophthalmic vein or into the cavernous sinus FROM THE BRAIN *superficial middle cerebral vein *inferior cerebral veins FROM THE MENINGES Sphenoparietal sinus Frontal trunk of the middle meningeal vein may drain either into the pterygoid plexus through the foramen ovale or to sphenoparietal or cavernous sinus. Ref:BDC vol 3 page no:194",
+    "cop": 4,
+    "opa": "Superior petrosal sinus",
+    "opb": "Inferior petrosal sinus",
+    "opc": "Superficial middle cerebral vein",
+    "opd": "Deep middle cerebral vein",
+    "subject_name": "Anatomy",
+    "topic_name": "Head and neck",
+    "id": "f6b42c2c-cd4f-4cda-ba48-7368d7643f57",
+    "choice_type": "multi",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "cerebral"
+      ],
+      "specialty": "neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "Mcknow's operation is done for which carcinoma?",
+    "exp": "Ans. a (Carcinoma esophagus). (Ref. LB, 4th ed., 1032)Carcinoma of esophagus# Squamous cell carcinoma of esophagus usually affects upper 2/3rd, while adenocarcinoma (and Barret's esophagus) usually involve lower third of esophagus.# Incidence of adenocarcinoma is increasing these days and is most common type in western world while world wide squamous cell carcinoma is most common with middle third of esophagus being the most common site.# Staging CT is essential; EUS, esophagoscopy and laproscopy may be useful. However EUS is the best method for preoperative staging of primary lesion and regional lymphnodes.Treatment# Gastrostomy should never be the part of treatment for carcinoma of oesophagus.# Radical esophagectomy gives best chance of cure.# Adjuvant chemotherapy may be helpful.# Radiotherapy alone may be curable in some selected cases especially with squamous cell carcinoma. Useful palliation in advanced cancer can be achieved with RT, LASER and/or stenting.# Two stage or Ivory Lewis operation (abdomen and thorax open together) and Mckeown or three stage operation (a third incision in neck made to complete anastomosis) are useful operations.",
+    "cop": 1,
+    "opa": "Ca. oesophagus",
+    "opb": "Ca. stomach",
+    "opc": "Bronchogenic carcinoma",
+    "opd": "Ca. colon",
+    "subject_name": "Surgery",
+    "topic_name": "Oesophagus",
+    "id": "dd118da1-d673-444f-a97b-06ba04eca26e",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "stomach",
+        "colon"
+      ],
+      "specialty": "gastroenterology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  },
+  {
+    "question": "A person with mitral regurgitation and atrial fibrillation presents with syncope. On examination the personhas a hea rate of 55. What is the most probable cause?",
+    "exp": "Bradycardia (hea rate of 55) with atrial fibrillation suggests the probable diagnosis of a complete hea block. This patient is most likely to be on digitalis for hea failure due to mitral regurgitation. Digitalis intoxication is a common cause of complete hea block. Ref: Harrison's Internal Medicine 16th Edition, Page 1345, 1375, 1394; Essentials of Medical Pharmacology, KD Tripathi, 5th Edition, Chapter 35, Page 462 &463.",
+    "cop": 1,
+    "opa": "Digitalis toxicity",
+    "opb": "Incomplete hea block",
+    "opc": "Stroke",
+    "opd": "Subarachnoid Haemorrhage",
+    "subject_name": "Medicine",
+    "topic_name": null,
+    "id": "9182a623-f86c-422a-b832-eb74209f98b5",
+    "choice_type": "single",
+    "multi_specialty_metadata": {
+      "matched_keywords": [
+        "atrial",
+        "stroke",
+        "atrial fibrillation",
+        "syncope",
+        "regurgitation",
+        "mitral",
+        "mitral regurgitation"
+      ],
+      "specialty": "cardiology, gastroenterology, neurology",
+      "match_type": "keywords"
+    },
+    "disagreement": true
+  }
+]

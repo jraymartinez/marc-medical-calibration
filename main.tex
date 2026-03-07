@@ -1,0 +1,1020 @@
+\documentclass[10pt]{article}
+\usepackage{tmlr}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{Multi-Agent Reasoning with Consistency Verification Improves Uncertainty Calibration in Medical MCQA}
+
+\author{\name John Ray Martinez \email jmartinez2@my.harrisburgu.edu \\
+      \addr Department of Data Science and Analytics\\
+      Harrisburg University of Science and Technology}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\def\month{MM}
+\def\year{YYYY}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}}
+
+\begin{document}
+
+\maketitle
+
+% ============================================================================
+\begin{abstract}
+Miscalibrated confidence scores are a practical obstacle to deploying AI
+in clinical settings: a model that is always overconfident offers no useful
+signal for deferral.  We present a multi-agent framework that combines
+domain-specific specialist agents with Two-Phase Verification
+\citep{wu2024uncertainty} and S-Score Weighted Fusion to improve both
+calibration and discrimination in medical multiple-choice question answering.
+Four specialist agents (respiratory, cardiology, neurology, gastroenterology)
+generate independent diagnoses using Qwen2.5-7B-Instruct; each
+diagnosis is then subjected to a two-phase self-verification process that
+measures internal consistency and produces a Specialist Confidence Score
+(S-score).  The S-scores drive a weighted fusion strategy that selects the
+final answer and calibrates the reported confidence.  We evaluate across four
+experimental settings: 100-question and 250-question high-disagreement subsets
+of MedQA-USMLE, and 100-question and 250-question high-disagreement subsets of
+MedMCQA.  On MedQA-250, our full system (Config~4) achieves 59.2\% accuracy,
+ECE~$= 0.091$ (74.4\% reduction over the single-specialist baseline), and
+AUROC~$= 0.630$~(+0.056).  Calibration improvements are consistent across all
+four settings, including the harder MedMCQA benchmark where ECE reductions of
+49--63\% are achieved even when absolute accuracy is constrained by
+knowledge-intensive recall demands.  Ablation analysis across all datasets
+reveals that Two-Phase Verification drives calibration improvement while
+multi-agent reasoning drives accuracy gains.  Our results
+establish that combining multi-agent reasoning with consistency-based
+verification provides more reliable uncertainty estimates across diverse medical
+question types, which is essential for safety-critical clinical AI applications.
+\end{abstract}
+
+% ============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Confidence scores from medical AI systems carry real consequences: an
+overconfident wrong answer may go unchallenged, while a system that hedges on
+every prediction becomes clinically useless.  Yet current large language models
+(LLMs) are systematically miscalibrated, producing confidence scores that
+poorly track actual correctness \citep{guo2017calibration, kadavath2022language}.
+On specialised, knowledge-intensive medical benchmarks this miscalibration is
+especially pronounced \citep{pal2022medmcqa, jin2021disease}.
+
+Existing recalibration methods range from post-hoc temperature scaling
+\citep{guo2017calibration} and deep ensembles \citep{lakshminarayanan2017simple}
+to Bayesian dropout \citep{gal2016uncertainty}, but each requires either
+labelled calibration data or multiple model copies.  \citet{wu2024uncertainty}
+proposed a label-free alternative: Two-Phase Verification decomposes a model's
+reasoning into factual claims, answers them independently and then with
+reference, and uses cross-condition inconsistency as an uncertainty signal.
+Because it operates purely at inference time on the model's own outputs, it
+is well-suited to deployment settings where labelled data are scarce.
+
+Separately, multi-agent LLM systems have shown accuracy gains by pooling
+diverse specialist perspectives \citep{wang2024mixture, li2024camel}, yet
+how aggregation affects confidence calibration has not been studied.
+Our work brings these two threads together.  We propose \textbf{MARC}
+(\textbf{M}ulti-\textbf{A}gent \textbf{R}easoning with \textbf{C}onsistency
+Verification), a three-component framework that combines:
+\begin{enumerate}
+    \item \textbf{Domain-specific specialist agents} providing diverse
+          perspectives on medical questions;
+    \item \textbf{Two-Phase Consistency Verification} \citep{wu2024uncertainty}
+          converting per-specialist internal consistency into a Specialist
+          Confidence Score (S-score);
+    \item \textbf{S-Score Weighted Fusion} aggregating specialist opinions
+          weighted by verified confidence to produce the final answer and
+          calibrated confidence estimate.
+\end{enumerate}
+
+Our key contributions are:
+\begin{itemize}
+    \item \textbf{MARC}, a multi-agent architecture that systematically improves
+          both calibration (ECE) and discrimination (AUROC) over single-agent
+          baselines by using consistency-derived S-scores as the fusion weight,
+          replacing heuristic aggregation with an uncertainty-aware signal.
+    \item A rigorous four-configuration ablation study across \emph{four}
+          distinct experimental settings (MedQA-100, MedQA-250, MedMCQA-100,
+          MedMCQA-250), demonstrating that Two-Phase Verification is the
+          primary calibration driver while multi-agent reasoning is the
+          primary accuracy driver, consistently across question types and
+          dataset sizes.
+    \item An empirical characterisation of the knowledge-recall versus
+          clinical-reasoning difficulty divide between MedMCQA and MedQA,
+          and its implications for the limits of verification-based
+          calibration in small LLMs.
+\end{itemize}
+
+% ============================================================================
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Uncertainty Quantification in Medical AI}
+
+Uncertainty quantification (UQ) is essential in clinical AI for safe
+deployment and appropriate deferral to human experts
+\citep{kompa2021second, begoli2019need}.  Ensemble methods
+\citep{lakshminarayanan2017simple} and Monte Carlo dropout
+\citep{gal2016uncertainty} provide well-studied UQ baselines but require
+multiple forward passes or model modifications.  Temperature scaling
+\citep{guo2017calibration} is a simple post-hoc recalibration technique that
+rescales model logits, achieving good calibration at low cost but without
+improving discrimination.  Conformal prediction \citep{angelopoulos2021gentle}
+offers distribution-free coverage guarantees but focuses on set-valued
+predictions rather than scalar confidence scores.
+
+\subsection{LLM Self-Evaluation and Verification}
+
+LLMs can assess their own outputs through self-consistency sampling
+\citep{wang2023selfconsistency}, chain-of-thought verification
+\citep{wei2022chain}, and explicit self-critique \citep{madaan2023selfrefine}.
+\citet{wu2024uncertainty} introduced Two-Phase Verification specifically for
+medical QA: reasoning is decomposed into factual claims, which are then
+answered independently and with reference; the cross-condition inconsistency
+measures epistemic uncertainty without requiring gold labels.  We adopt this
+method as our per-specialist UQ mechanism.
+
+\subsection{Multi-Agent Systems for Medical QA}
+
+Multi-agent LLM systems have demonstrated accuracy improvements on complex
+reasoning tasks by combining diverse agent perspectives
+\citep{wang2024mixture, li2024camel, liang2023encouraging}.  In the medical
+domain, \citet{wang2024multi} showed that an LLM-based multi-specialist
+consultation framework improves automatic diagnosis accuracy over
+single-agent baselines.  \citet{du2023improving}
+demonstrated that multiple agents debating their answers can reduce reasoning
+errors.  However, these works focus almost exclusively on accuracy; calibration
+properties of multi-agent aggregation are not systematically studied.
+
+\subsection{Medical QA Benchmarks}
+
+MedQA-USMLE \citep{jin2021disease} contains $\sim$12{,}700 US Medical
+Licensing Examination-style questions with clinical vignettes averaging 109
+words, testing integrated clinical reasoning across 4 options.  MedMCQA
+\citep{pal2022medmcqa} contains over 194{,}000 questions from Indian
+postgraduate medical entrance examinations (AIIMS/NEET-PG) with short stems
+averaging 12.8 tokens across 21 specialties.  GPT-4 clears the USMLE passing threshold by a wide margin
+\citep{nori2023capabilities} and recent frontier models exceed 90\% on
+MedQA, but scores are markedly lower on MedMCQA, where specialised factual recall dominates
+\citep{pal2022medmcqa, singh2025neet}.  Recent work highlights that
+smaller 7B-class models exhibit pronounced accuracy drops on knowledge-intensive
+recall questions, independent of reasoning capability
+\citep{singh2025neet, wei2022emergent}.
+
+% ============================================================================
+\section{Methodology}
+\label{sec:method}
+
+\subsection{System Architecture}
+\label{sec:arch}
+
+Given a medical multiple-choice question with options, four specialist agents
+generate independent diagnoses.  Each diagnosis undergoes Two-Phase
+Verification to produce an S-score.  Finally, S-Score Weighted Fusion selects
+the answer and reports a calibrated confidence.
+Figure~\ref{fig:marc_architecture} illustrates the full MARC pipeline.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    every node/.style={align=center},
+    io/.style={
+        rectangle, rounded corners=3pt, draw, thick,
+        fill=gray!15, text width=22em, minimum height=2.2em, inner sep=6pt
+    },
+    agent/.style={
+        rectangle, rounded corners=3pt, draw, thick,
+        fill=blue!10, text width=7.8em, minimum height=2em, inner sep=5pt
+    },
+    compbox/.style={
+        rectangle, rounded corners=4pt, draw, thick,
+        text width=22em, inner sep=10pt
+    },
+    sidelabel/.style={
+        font=\footnotesize\itshape, text=gray, anchor=north west,
+        align=left, text width=6.5em
+    }
+]
+
+%% ── INPUT ────────────────────────────────────────────────────────────────────
+\node[io] (input) {Medical Question + Answer Options};
+
+%% ── COMPONENT 1: agents in a 2×2 grid inside a compbox ──────────────────────
+\node[compbox, fill=blue!5, below=1.6em of input] (agentbox) {%
+    \begin{tikzpicture}[every node/.style={align=center}, baseline]
+        \node[agent] (resp) {Respiratory};
+        \node[agent, right=1.2em of resp] (card) {Cardiology};
+        \node[agent, below=0.5em of resp] (neur) {Neurology};
+        \node[agent, right=1.2em of neur] (gast) {Gastroenterology};
+    \end{tikzpicture}
+};
+
+\node[sidelabel, right=0.8em of agentbox.north east]
+    {\textbf{Component 1}\\[2pt]Specialist\\Agent Team};
+
+\draw[->] (input.south) -- (agentbox.north);
+
+%% ── COMPONENT 2: Two-Phase Verification ─────────────────────────────────────
+\node[compbox, fill=orange!10, below=1.6em of agentbox] (verif) {%
+    \begin{tabular}{@{}l@{}}
+        \textit{Phase 1:} specialist produces answer $a_k$, \\
+        \quad reasoning $r_k$, initial confidence $C_k^{(0)}$ \\[5pt]
+        \textit{Phase 2:} extract factual claims from $r_k$; \\
+        \quad answer independently, then with $r_k$ in context; \\
+        \quad measure cross-condition inconsistency $I_k$ \\[5pt]
+        \quad $S_k \;=\; C_k^{(0)} \cdot (1 - I_k)$
+    \end{tabular}
+};
+
+\node[sidelabel, right=0.8em of verif.north east]
+    {\textbf{Component 2}\\[2pt]Two-Phase\\Consistency\\Verification};
+
+\draw[->] (agentbox.south) -- (verif.north)
+    node[midway, right=0.5em, font=\footnotesize\itshape, text=gray]
+    {$(a_k,\,r_k,\,C_k^{(0)})$};
+
+%% ── COMPONENT 3: S-Score Weighted Fusion ────────────────────────────────────
+\node[compbox, fill=green!10, below=1.6em of verif] (fusion) {%
+    \begin{tabular}{@{}l@{}}
+        For each candidate $a$: \\
+        \quad $\mathrm{score}(a) = |\{k : a_k\!=\!a\}| \times \bar{S}_a$ \\[5pt]
+        \quad $\hat{a} = \argmax_{a}\;\mathrm{score}(a)$ \\[5pt]
+        $\hat{C}$ blends vote fraction with mean and \\
+        \quad min S-score of supporters
+    \end{tabular}
+};
+
+\node[sidelabel, right=0.8em of fusion.north east]
+    {\textbf{Component 3}\\[2pt]S-Score\\Weighted\\Fusion};
+
+\draw[->] (verif.south) -- (fusion.north)
+    node[midway, right=0.5em, font=\footnotesize\itshape, text=gray]
+    {$(a_k,\;S_k)_{k=1}^{4}$};
+
+%% ── OUTPUT ───────────────────────────────────────────────────────────────────
+\node[io, below=1.6em of fusion] (output)
+    {Final Answer $\hat{a}$ + Calibrated Confidence $\hat{C}$};
+
+\draw[->] (fusion.south) -- (output.north);
+
+\end{tikzpicture}
+\caption{The MARC framework pipeline.  A medical question is distributed to
+four domain-specific specialist agents (Component~1), each producing an
+answer and reasoning chain.  Two-Phase Consistency Verification
+(Component~2; \citealt{wu2024uncertainty}) extracts factual claims, answers
+them independently and with the original reasoning in context, and measures
+cross-condition inconsistency to derive an S-score $S_k$ per specialist.
+S-Score Weighted Fusion (Component~3) selects the final answer by
+vote-count-weighted mean S-score and derives calibrated confidence
+$\hat{C}$ from the vote fraction and S-score distribution.}
+\label{fig:marc_architecture}
+\end{figure}
+
+\subsection{Specialist Agents}
+\label{sec:agents}
+
+We instantiate four domain-specific specialist agents:
+\begin{itemize}
+    \item \textbf{Respiratory} specialist (pulmonologist)
+    \item \textbf{Cardiology} specialist (cardiologist)
+    \item \textbf{Neurology} specialist (neurologist)
+    \item \textbf{Gastroenterology} specialist (gastroenterologist)
+\end{itemize}
+
+Each agent is driven by a Qwen2.5-7B-Instruct model \citep{qwen2025qwen25}
+with a specialty-specific system prompt that instructs the agent to reason
+from their domain expertise using a five-step chain-of-thought (CoT) protocol:
+(1)~clinical scenario analysis, (2)~differential diagnosis, (3)~systematic
+option evaluation, (4)~option comparison, and (5)~final decision with
+confidence score.  Greedy decoding ($T=0$, \texttt{do\_sample=False}) is
+used for all specialist calls; verification sub-calls use temperature
+sampling with deterministic seeds (see Section~\ref{sec:setup}).
+
+\subsection{Two-Phase Verification}
+\label{sec:verification}
+
+Following \citet{wu2024uncertainty}, each specialist first generates answer
+$a_k$ with step-by-step explanation $r_k$ and initial confidence
+$C_k^{(0)} \in [0,1]$ (Phase~1).  Phase~2 then proceeds as follows:
+\begin{enumerate}
+    \item \textbf{Question formulation.} Four verification questions $\{q_j\}_{j=1}^4$
+          are extracted from $r_k$ by prompting the model to identify key
+          factual claims.
+    \item \textbf{Independent answering.} Each $q_j$ is answered without
+          reference to $r_k$, yielding answers $\{a_j^{\text{ind}}\}$.
+    \item \textbf{Reference answering.} Each $q_j$ is answered with $r_k$
+          in context, yielding $\{a_j^{\text{ref}}\}$.
+    \item \textbf{Inconsistency measurement.}  Each pair
+          $(a_j^{\text{ind}}, a_j^{\text{ref}})$ is compared using
+          Jaccard similarity on stop-word-filtered tokens.  A pair is
+          considered consistent if the Jaccard score exceeds $\tau = 0.4$,
+          or if the Jaccard score of content words (length $> 4$) exceeds
+          $0.6$ (a secondary check that handles cases where one answer is
+          more verbose but carries the same key terms).
+          The inconsistency score over the $N_k \leq 4$ successfully
+          parsed question pairs is:
+          \begin{equation}
+          I_k = \frac{1}{N_k}\sum_{j=1}^{N_k}
+                \mathbf{1}\!\left[\text{sim}(a_j^{\text{ind}}, a_j^{\text{ref}}) < \tau\right]
+          \label{eq:inconsistency}
+          \end{equation}
+          where $\mathbf{1}[\cdot]$ is the indicator function (1 if the
+          condition holds, 0 otherwise), and $N_k = 4$ in the typical case
+          when all questions are successfully parsed.
+\end{enumerate}
+
+The Specialist Confidence Score (S-score) is then computed as:
+\begin{equation}
+S_k = C_k^{(0)} \cdot (1 - I_k)
+\label{eq:sscore}
+\end{equation}
+This \emph{multiplicative} formula penalises initial confidence proportionally
+to measured inconsistency: a perfectly consistent specialist ($I_k=0$) retains
+its full confidence, while a fully inconsistent one ($I_k=1$) receives
+$S_k=0$.
+
+\subsection{S-Score Weighted Fusion}
+\label{sec:fusion}
+
+Let $\mathcal{K}$ be the set of specialist agents, each proposing answer
+$a_k \in \{A, B, C, D\}$ with S-score $S_k$.  For each candidate answer
+$a$, we compute an aggregate score:
+\begin{equation}
+\text{score}(a) = |\{k : a_k = a\}| \;\times\; \bar{S}_a
+\label{eq:fusion_score}
+\end{equation}
+where $\bar{S}_a = \frac{1}{|\{k:a_k=a\}|}\sum_{k:a_k=a} S_k$ is the mean
+S-score of specialists supporting answer $a$, and $|\{k : a_k = a\}|$ is
+their vote count.  The winning answer is $\hat{a} = \argmax_a \text{score}(a)$.
+
+Final confidence is calibrated by the degree of consensus.  When all
+specialists agree ($|\{a_k\}|=1$), we use $\hat{C} = \max_k S_k$.  Otherwise:
+\begin{equation}
+\hat{C} = v \cdot \bar{S}_{\hat{a}} + (1-v) \cdot \min_{k:\,a_k=\hat{a}} S_k
+\label{eq:fusion_conf}
+\end{equation}
+where $v = |\{k : a_k = \hat{a}\}| / |\mathcal{K}|$ is the vote fraction and
+$\bar{S}_{\hat{a}}$ is the mean S-score of winning supporters.  This blends
+mean and minimum S-score weighted by majority strength, yielding lower
+confidence for weak majorities and higher confidence for strong consensus.
+
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+\subsubsection{Datasets}
+
+We construct four evaluation sets, all filtered to \emph{high-disagreement}
+questions, specifically cases where our four specialists initially disagree, maximising
+the difficulty and the importance of uncertainty quantification:
+
+\begin{itemize}
+    \item \textbf{MedQA-100}: 100 questions sampled from the high-disagreement
+          subset of MedQA-USMLE \citep{jin2021disease}.  Clinical vignettes,
+          mean stem length 109 words, 4 answer options.
+    \item \textbf{MedQA-250}: 250 questions from the same pool.
+          Serves as the primary large-scale MedQA evaluation.
+    \item \textbf{MedMCQA-100}: 100 questions sampled from the high-disagreement
+          subset of MedMCQA \citep{pal2022medmcqa}, spanning 21 specialties.
+          Mean stem length 15 words, 4 answer options.
+    \item \textbf{MedMCQA-250}: 250 questions from the same MedMCQA pool.
+          Provides a larger-scale evaluation on the knowledge-intensive benchmark.
+\end{itemize}
+
+The same specialist-curation and disagreement-labelling pipeline is applied
+to both benchmarks (see Appendix~\ref{app:data}).
+
+\subsubsection{Model}
+
+All experiments use \textbf{Qwen2.5-7B-Instruct} \citep{qwen2025qwen25} in
+full FP16 precision (no quantisation).  The model is loaded with
+\texttt{local\_files\_only=True} for reproducibility and runs on a single
+\textbf{NVIDIA GeForce RTX~5090 Laptop GPU} (24~GB VRAM).  Greedy decoding ($T=0$,
+\texttt{do\_sample=False}) is used for all specialist calls.  Temperature
+sampling with deterministic seeds is used for verification sub-calls
+($T_{\text{questions}}=0.3$, $T_{\text{independent}}=0.4$,
+$T_{\text{reference}}=0.2$).
+
+\subsubsection{Ablation Configurations}
+
+We compare four configurations in a clean ablation design:
+\begin{enumerate}
+    \item \textbf{Config~1 -- Single Specialist (baseline)}: Respiratory
+          specialist only, no verification.
+    \item \textbf{Config~2 -- Single + Two-Phase}: Respiratory specialist
+          with Two-Phase Verification; isolates the calibration contribution
+          of verification alone.
+    \item \textbf{Config~3 -- Multi + S-Score (No 2P)}: Four specialists
+          fused with S-Score Weighted Fusion but without Two-Phase
+          Verification (S-score $= C^{(0)}$); isolates the accuracy
+          contribution of multi-agent reasoning.
+    \item \textbf{Config~4 -- Multi + Two-Phase + S-Score (Full System)}:
+          Four specialists with full Two-Phase Verification and S-Score
+          Weighted Fusion; our main contribution.
+\end{enumerate}
+
+The progression $1\!\to\!2$ isolates Two-Phase Verification;
+$1\!\to\!3$ isolates multi-agent reasoning;
+$3\!\to\!4$ isolates the effect of adding verification to multi-agent.
+
+\subsubsection{Evaluation Metrics}
+
+\begin{itemize}
+    \item \textbf{Accuracy}: Fraction of correctly answered questions.
+    \item \textbf{ECE} (Expected Calibration Error, \citealt{guo2017calibration}):
+          Measures alignment between predicted confidence and observed accuracy,
+          using 10 equal-width bins.  Lower is better.
+    \item \textbf{AUROC}: Area under the ROC curve for binary correct/incorrect
+          prediction using confidence as the score.  Measures how well
+          confidence discriminates correct from incorrect answers.  Higher
+          is better.
+\end{itemize}
+
+% ============================================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Main Results}
+
+Table~\ref{tab:main} reports performance across all four datasets and four
+configurations.  Figure~\ref{fig:accuracy_ece_auroc} visualises accuracy,
+ECE, and AUROC side-by-side for each dataset.
+
+\begin{table}[ht]
+\caption{Performance comparison across all four datasets and configurations.
+Best value in each column group is \textbf{bold}.
+$\Delta$ columns show change relative to Config~1 baseline.
+Avg Conf = mean predicted confidence score.
+Time = wall-clock inference time in minutes on a single NVIDIA RTX~5090 GPU.}
+\label{tab:main}
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llcccccccc}
+\toprule
+\textbf{Dataset} & \textbf{Configuration} & \textbf{Acc} & $\boldsymbol{\Delta}$\textbf{Acc} & \textbf{ECE} & $\boldsymbol{\Delta}$\textbf{ECE} & \textbf{AUROC} & $\boldsymbol{\Delta}$\textbf{AUROC} & \textbf{Avg Conf} & \textbf{Time (min)} \\
+\midrule
+\multirow{4}{*}{MedQA-100}
+  & C1: Single Specialist      & 52.0\% &  ---   & 0.374 &  ---    & 0.537 &  ---    & 0.886 &  39 \\
+  & C2: Single + Two-Phase     & 52.0\% & +0.0   & 0.185 & $-$51\% & \textbf{0.678} & $+$0.141 & 0.430 &  67 \\
+  & C3: Multi + S-Score (No 2P)& 55.0\% & +3.0pp & 0.356 & $-$5\%  & 0.578 & $+$0.041 & 0.896 & 152 \\
+  & C4: Full System            & \textbf{59.0\%} & +7.0pp & \textbf{0.098} & $-$73\% & 0.645 & $+$0.108 & 0.549 & 249 \\
+\midrule
+\multirow{4}{*}{MedQA-250}
+  & C1: Single Specialist      & 54.4\% &  ---   & 0.355 &  ---    & 0.574 &  ---    & 0.899 & 116 \\
+  & C2: Single + Two-Phase     & 54.4\% & +0.0   & 0.178 & $-$50\% & 0.556 & $-$0.018 & 0.424 & 207 \\
+  & C3: Multi + S-Score (No 2P)& 57.2\% & +2.8pp & 0.336 & $-$5\%  & 0.587 & $+$0.013 & 0.905 & 464 \\
+  & C4: Full System            & \textbf{59.2\%} & +4.8pp & \textbf{0.091} & $-$74\% & \textbf{0.630} & $+$0.056 & 0.569 & 833 \\
+\midrule
+\multirow{4}{*}{MedMCQA-100}
+  & C1: Single Specialist      & 45.0\% &  ---   & 0.469 &  ---    & 0.501 &  ---    & 0.907 &  40 \\
+  & C2: Single + Two-Phase     & 45.0\% & +0.0   & 0.323 & $-$31\% & 0.437 & $-$0.064 & 0.440 &  65 \\
+  & C3: Multi + S-Score (No 2P)& \textbf{52.0\%} & +7.0pp & 0.392 & $-$16\% & \textbf{0.541} & $+$0.040 & 0.902 & 181 \\
+  & C4: Full System            & 50.0\% & +5.0pp & \textbf{0.237} & $-$49\% & 0.518 & $+$0.017 & 0.550 & 288 \\
+\midrule
+\multirow{4}{*}{MedMCQA-250}
+  & C1: Single Specialist      & 42.8\% &  ---   & 0.469 &  ---    & 0.536 &  ---    & 0.897 & 102 \\
+  & C2: Single + Two-Phase     & 42.8\% & +0.0   & 0.271 & $-$42\% & 0.503 & $-$0.033 & 0.460 & 167 \\
+  & C3: Multi + S-Score (No 2P)& \textbf{46.8\%} & +4.0pp & 0.433 & $-$8\%  & 0.562 & $+$0.026 & 0.900 & 409 \\
+  & C4: Full System            & 44.0\% & +1.2pp & \textbf{0.176} & $-$63\% & \textbf{0.594} & $+$0.058 & 0.548 & 712 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\end{table}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{figures/combined/combined_accuracy_ece_auroc.png}
+\end{center}
+\caption{Accuracy (top row), ECE (middle row), and AUROC (bottom row) for each
+of the four datasets and all four configurations.  Green-outlined bars indicate
+the best value in each panel.  Config~4 (Full System, dark blue) achieves the
+best ECE across all four datasets, and the best accuracy on the MedQA subsets.
+On MedMCQA, Config~3 achieves the best accuracy at the cost of calibration,
+illustrating the knowledge-recall challenge for verification-based methods.}
+\label{fig:accuracy_ece_auroc}
+\end{figure}
+
+\subsection{Calibration Analysis}
+
+Two-Phase Verification is the dominant calibration driver.
+Comparing Config~1 to Config~2 (verification only, same single agent), ECE
+drops by 51\% on MedQA-100, 50\% on MedQA-250, 31\% on MedMCQA-100, and
+42\% on MedMCQA-250, with no change in accuracy.  Adding verification to the
+multi-agent system (Config~3$\to$4) yields even larger gains:
+73\% (MedQA-100), 73\% (MedQA-250), 40\% (MedMCQA-100), and 59\% (MedMCQA-250) ECE reduction.  These improvements
+are visualised in Figure~\ref{fig:calibration}.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{figures/combined/combined_calibration_curves.png}
+\end{center}
+\caption{Reliability diagrams for all four datasets.  Each panel shows
+calibration curves for all four configurations against the perfect-calibration
+diagonal.  Across all datasets, Config~4 (solid blue squares) lies closest to
+the diagonal, confirming that Two-Phase Verification is the dominant
+calibration driver regardless of question type or dataset size.}
+\label{fig:calibration}
+\end{figure}
+
+\subsection{Discrimination Analysis}
+
+Figure~\ref{fig:roc} shows ROC curves for all four datasets.  Config~4
+achieves the highest AUROC on MedQA-250 (0.630, +0.056 over baseline) and
+MedMCQA-250 (0.594, +0.058).  On MedQA-100, Config~2 achieves the highest
+AUROC (0.678, +0.141 over baseline), with Config~4 at 0.645 (+0.108).
+On MedMCQA-100, Config~3 achieves the highest AUROC (0.541) while Config~4
+achieves 0.518.  The $\Delta$AUROC column in Table~\ref{tab:main} further
+shows that Two-Phase Verification alone (C2) produces negative AUROC change
+on three of four datasets; we analyse the mechanism behind this pattern in
+Section~\ref{sec:disc_discrimination}.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{figures/combined/combined_roc_curves.png}
+\end{center}
+\caption{ROC curves for all four datasets.  Each panel plots the four
+configuration curves with the random baseline (diagonal).  Config~4 achieves
+the highest AUROC on MedQA-250 and MedMCQA-250.  On MedQA-100, Config~2
+(single specialist with verification) achieves the highest AUROC; on
+MedMCQA-100, Config~3 (multi-agent without verification) is best, illustrating
+that discrimination benefits from multi-agent fusion scale more reliably with
+dataset size and question type.}
+\label{fig:roc}
+\end{figure}
+
+\subsection{Calibration Grid: Baseline vs.\ Full System}
+
+Figure~\ref{fig:calgrid} provides calibration histograms comparing Config~1
+(single specialist baseline) and Config~4 (full system) across all four
+datasets.
+
+\clearpage
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=\linewidth,height=0.92\textheight,keepaspectratio]{figures/combined/combined_calibration_grid.png}
+\end{center}
+\caption{Calibration analysis of Qwen2.5-7B across all four evaluation sets.
+Columns represent configurations C1--C4; each dataset occupies two sub-rows.
+\emph{Top sub-row}: stacked confidence frequency histogram (blue = correct answer,
+red = wrong answer). \emph{Bottom sub-row}: calibration histogram with 5\%-wide
+bins, where bar height represents observed accuracy within that bin; the dashed
+diagonal represents perfect calibration. Config~4 (Full System) consistently
+produces the most evenly spread confidence distributions and aligns most closely
+with the perfect-calibration diagonal across all datasets.}
+\label{fig:calgrid}
+\end{figure}
+\clearpage
+
+\subsection{Component Contribution Summary}
+
+Figure~\ref{fig:component} summarises the marginal contribution of each
+component (Two-Phase Verification, Multi-Agent reasoning, and their combination)
+in terms of ECE reduction and AUROC change across all four datasets.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{figures/combined/combined_component_contribution.png}
+\end{center}
+\caption{(A) ECE reduction percentage and (B) AUROC change for each
+component transition across all four datasets.  Adding the full system
+(C1$\to$C4, dark blue) consistently delivers the largest ECE reduction
+(49--74\%) across all settings.  Multi-agent reasoning (C1$\to$C3, orange)
+drives the largest AUROC gains on MedQA subsets, while verification
+components dominate calibration improvement throughout.}
+\label{fig:component}
+\end{figure}
+
+\subsection{Ablation Summary}
+
+Table~\ref{tab:ablation} summarises the isolated contribution of each
+component on MedQA-250, the most reliable large-scale dataset.
+
+\begin{table}[ht]
+\caption{Ablation summary on MedQA-250 ($n = 250$).  Each row reports the
+\emph{marginal} effect of adding one component.}
+\label{tab:ablation}
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Component Added} & $\boldsymbol{\Delta}$\textbf{Acc} & $\boldsymbol{\Delta}$\textbf{ECE} & $\boldsymbol{\Delta}$\textbf{AUROC} \\
+\midrule
+Two-Phase Verif.\ (C1$\to$C2) & 0.0 pp   & $-$0.177 ($-$49.9\%) & $-$0.018 \\
+Multi-Agent (C1$\to$C3)       & +2.8 pp  & $-$0.019 ($-$5.4\%)  & +0.013   \\
+Two-Phase added to Multi (C3$\to$C4) & +2.0 pp & $-$0.245 ($-$72.9\%) & +0.043 \\
+Full System (C1$\to$C4)       & +4.8 pp  & $-$0.264 ($-$74.4\%) & +0.056   \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Multi-agent reasoning accounts for most of the accuracy gain (+2.8~pp, C1$\to$C3),
+while Two-Phase Verification accounts for most of the calibration gain
+($-$49.9\% ECE, C1$\to$C2; $-$72.9\% ECE, C3$\to$C4).  Together they yield
++4.8~pp accuracy and $-$74.4\% ECE on MedQA-250, with the same qualitative
+pattern across all four datasets (Figure~\ref{fig:component}).
+
+% ============================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Multi-Agent Reasoning and Accuracy}
+
+High-disagreement questions are, by construction, cases where a single
+specialist is likely to err.  Pooling four independently prompted specialists
+increases the chance that at least one agent reasons from the relevant domain,
+and majority voting suppresses idiosyncratic errors.  S-Score Weighted Fusion
+sharpens this further: agents whose verification step reveals internal
+contradictions are down-weighted, so the final answer is steered by the
+specialists whose reasoning is most self-consistent.
+
+\subsection{Two-Phase Verification and Calibration}
+
+The unverified configurations (C1, C3) produce heavily right-skewed
+confidence distributions with means near 0.90 (Figure~\ref{fig:calgrid}),
+well above their actual accuracy of 43--57\%.  Two-Phase Verification brings
+these means down to roughly 0.55 by penalising confidence proportionally to
+measured inconsistency, making the confidence score a more faithful proxy for
+correctness, as confirmed by ECE reductions of 31--74\% across all four
+datasets.  This compression requires no ground-truth labels: the
+signal comes entirely from the model's own reasoning.
+
+\subsection{Calibration vs.\ Discrimination: Why Verification Alone Is Insufficient}
+\label{sec:disc_discrimination}
+
+The $\Delta$AUROC column in Table~\ref{tab:main} shows a consistent pattern:
+Two-Phase Verification alone (C2) produces
+\emph{negative} AUROC change on three of four datasets ($-$0.018 on
+MedQA-250, $-$0.064 on MedMCQA-100, $-$0.033 on MedMCQA-250).  This
+is not a contradiction with the strong ECE improvements reported for
+C2.  It reflects a fundamental difference between what calibration and
+discrimination measure: ECE asks whether confidence scores match observed
+accuracy on average; AUROC asks whether their rank ordering correctly
+separates correct from incorrect predictions.
+
+Two-Phase Verification improves calibration by compressing all confidence
+scores toward the model's actual accuracy level, reducing systematic
+overconfidence.  However, this compression is proportional to measured
+inconsistency, which is an imperfect proxy for incorrectness: a specialist
+that produces a self-consistent but wrong answer receives a high S-score,
+while one that produces an internally inconsistent but correct answer is
+penalised.  The absolute values of confidence improve (lower ECE), but the
+rank ordering does not reliably improve alongside them, leaving AUROC
+unchanged or slightly reduced.
+
+Multi-agent fusion restores and extends discrimination.  When four
+independently prompted specialists vote and their S-scores weight the fusion,
+the correct answer tends to attract specialists with higher S-scores.  This
+is not because verification detects correctness directly, but because a
+correct answer is more likely to elicit self-consistent reasoning across
+multiple diverse agents.  The ensemble effect sharpens the separation between
+confident-correct and confident-incorrect predictions, which is what AUROC
+captures.  The full system (C4) consequently achieves positive AUROC gains on
+all four datasets, with the largest improvements on the 250-question sets
+where the ensemble signal is more stable.  Verification and multi-agent fusion
+are therefore complementary rather than redundant: the former improves
+calibration, the latter improves discrimination, and each is insufficient
+without the other.
+
+\subsection{MedQA vs.\ MedMCQA: Reasoning vs.\ Recall}
+
+The full system achieves 59.2\% on MedQA-250 but only 44.0\% on MedMCQA-250
+($-15.2$~pp), a gap that persists at the 100-question scale (50.0\% vs.\
+52.0\% for Config~4 vs.\ Config~3 on MedMCQA-100).  Both datasets use
+4-option questions with a 25\% random baseline, so the difference cannot be
+attributed to the number of choices.
+
+The structural explanation is the question type.  MedQA clinical vignettes
+average 109 words and present a full patient scenario; the correct answer can
+often be reached by clinical reasoning even without memorising the specific
+fact.  MedMCQA stems average 15 words and test narrow factual recall from
+Indian postgraduate entrance exams (AIIMS/NEET-PG), covering anatomy minutiae,
+rare pharmacology, and pathology specifics across 21 specialties
+\citep{pal2022medmcqa}.  At 7B parameters, the model simply does not retain
+sufficient domain-specific knowledge for many of these questions
+\citep{singh2025neet, kadavath2022language}.
+
+This creates an interaction with our verification mechanism.  On MedMCQA,
+moving from C3 to C4 (adding verification to multi-agent) \emph{reduces}
+accuracy by 2.8~pp (250q) and 2.0~pp (100q) while still cutting ECE by 59\%
+and 39\%.  The issue is that a specialist can produce internally consistent
+reasoning that is nonetheless factually wrong; verification scores such
+reasoning highly and may override a correct majority vote
+\citep{wu2024uncertainty}.  We discuss this limitation further in
+Section~\ref{sec:limitations}.
+
+The calibration picture is more encouraging: ECE is reduced by 49--74\% in
+every configuration that includes Two-Phase Verification, across all four
+datasets.  Even when the model lacks the knowledge to answer correctly, it can
+still be made to express appropriate uncertainty about its answer.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\begin{enumerate}
+    \item \textbf{Consistency $\neq$ correctness.}  Two-Phase Verification
+          measures internal coherence, not factual accuracy.  A specialist
+          that confidently produces a self-consistent but wrong answer
+          receives a high S-score.  This is the fundamental limitation of
+          Wu et al.'s method and is especially problematic on knowledge-recall
+          benchmarks such as MedMCQA.
+
+    \item \textbf{Narrow domain coverage.}  Both evaluation datasets were
+          pre-filtered to questions from four specialties (respiratory,
+          cardiology, neurology, and gastroenterology), so results do not
+          generalise to the full breadth of medical knowledge.  Domains such
+          as anatomy, pharmacology, and surgery remain untested, and
+          performance on those areas may differ substantially.
+
+    \item \textbf{Computational overhead.}  Config~4 requires approximately
+          $16\times$ the LLM calls of Config~1 (4 specialists, each requiring
+          4 calls: 1 for the initial answer and 3 verification sub-calls for
+          question formulation, independent answering, and reference answering).
+          On a single NVIDIA RTX~5090 GPU, MedQA-250 takes 833~minutes for
+          Config~4 vs.\ 116~minutes for Config~1 (7.2$\times$ wall-clock
+          overhead); MedMCQA-250 takes 712~minutes vs.\ 102~minutes
+          (7.0$\times$).  Parallel specialist inference is an obvious optimisation path.
+\end{enumerate}
+
+% ============================================================================
+\section{Future Work}
+\label{sec:future}
+
+The most consequential open problem is the one identified in
+Section~\ref{sec:limitations}: a specialist can produce self-consistent but
+factually wrong reasoning, and the verification step has no way to catch it.
+Retrieval augmentation is the most direct path forward.  Grounding Phase~2
+verification against a medical knowledge base such as PubMed would replace
+pure internal consistency with evidence-anchored consistency, allowing the
+S-score to penalise claims that contradict established medical knowledge
+rather than only claims that contradict the specialist's own reasoning.
+
+Two questions about the current design remain empirically open.  First,
+whether the calibration improvements hold at larger model scales (13B, 70B,
+GPT-4 class): larger models are better calibrated to begin with
+\citep{kadavath2022language}, so the absolute ECE gains may shrink even if
+the relative benefit of verification persists.  Second, whether the
+vote-count fusion can be improved with learned weights: a small specialist
+performance validation set could provide signal for per-specialty reliability
+that the current heuristic ignores.  Both questions are testable with the
+infrastructure already in place.
+
+% ============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We studied whether combining domain-specific specialist agents with
+consistency-based self-verification improves uncertainty calibration in
+medical multiple-choice QA.  Across four evaluation sets drawn from MedQA
+and MedMCQA, the full system (Config~4) reduces ECE by 49--74\% over the
+single-specialist baseline and improves AUROC by up to +0.108.  The
+ablation confirms that multi-agent reasoning drives most of the accuracy
+improvement while Two-Phase Verification drives most of the calibration
+improvement.
+
+The MedMCQA results tell a different story.  Even when absolute accuracy
+stagnates because the 7B model lacks the specialised factual knowledge that
+MedMCQA demands, the calibration mechanism continues to function: the system
+produces lower confidence on the answers it gets wrong.  Accuracy and
+calibration can therefore be improved independently, and consistency-based
+verification remains a practical deferral signal even in knowledge-constrained
+settings.
+
+The central open problem is the confidence penalty the system assigns to
+self-consistent but factually wrong answers.  Grounding the verification step
+in external medical knowledge is the most direct path to resolving it.
+
+% ============================================================================
+\subsubsection*{Broader Impact Statement}
+
+The system studied here is a research prototype and should not be used for
+actual clinical decisions without extensive prospective validation.
+The accuracy levels achieved (44--59\%) are well below what autonomous
+clinical decision support would require.  Better-calibrated confidence scores
+could help clinicians identify cases where AI recommendations warrant
+additional scrutiny, but this benefit depends on the calibration holding
+in deployment settings not covered by our evaluation.  The specialist agents'
+knowledge is bounded by the pretraining data of a 7B model, which may
+reflect geographic, demographic, and linguistic biases in that corpus.
+
+\subsubsection*{Acknowledgments}
+
+This work is part of a doctoral dissertation at Harrisburg University of
+Science and Technology.  The author thanks Dr.~Vaida for guidance and support.
+
+\subsubsection*{Data and Code Availability}
+
+Evaluation datasets (MedQA-USMLE, MedMCQA) are publicly available.
+Experimental code and result files will be released upon publication at
+\url{https://github.com/[anonymised]}.
+
+% ============================================================================
+\bibliography{main}
+\bibliographystyle{tmlr}
+
+% ============================================================================
+\appendix
+
+\section{Appendix}
+
+\subsection{Dataset Construction}
+\label{app:data}
+
+High-disagreement subsets are constructed by the following three-step
+procedure applied identically to both benchmarks:
+
+\begin{enumerate}
+    \item \textbf{Specialist curation.}  A lightweight curation pass runs all
+          four specialist agents on the full source datasets (MedQA training
+          split: $\sim$10{,}000 questions; MedMCQA training split:
+          $\sim$49{,}000 questions).  Each agent is prompted to respond with
+          only the option letter (A/B/C/D) and no explanation
+          (\texttt{max\_new\_tokens=8}); only the letter is needed to detect
+          disagreement, so this imposes no quality loss relative to the main
+          experiments.  Early stopping halts after collecting 220
+          high-disagreement and 60 agreement candidates.
+    \item \textbf{Disagreement labelling.}  A question is labelled
+          high-disagreement if at least two of the four specialists propose
+          different answers.
+    \item \textbf{Subset construction.}  From the curated pool, 100-question
+          and 250-question subsets are drawn by taking the top-ranked
+          high-disagreement questions (sorted by number of differing specialist
+          answers) and a random sample of agreement questions (fixed seed for
+          reproducibility), retaining only questions with valid ground-truth
+          labels (\texttt{cop} $\in \{1,2,3,4\}$ for MedMCQA;
+          \texttt{answer\_idx} present for MedQA).  The combined set is
+          shuffled before evaluation.
+\end{enumerate}
+
+\subsection{Prompt Templates}
+\label{app:prompts}
+
+\subsubsection*{Specialist Agent — System Prompt}
+
+\begin{verbatim}
+You are an expert medical specialist in {specialty}.
+You have deep knowledge in this specific domain and are
+consulting on a medical case.
+
+{knowledge_context}
+
+Your task is to:
+1. Analyze the question from your specialty's perspective
+2. Provide your expert opinion on the correct answer
+3. Explain your reasoning clearly
+4. Include relevant medical knowledge from your specialty
+
+Be precise, evidence-based, and focus on your area of expertise.
+\end{verbatim}
+
+\subsubsection*{Specialist Agent — User Prompt}
+
+\begin{verbatim}
+Question: {question}
+
+Options:
+{options}
+
+As a {specialty} specialist, please use CHAIN-OF-THOUGHT reasoning:
+
+STEP 1: Understand the clinical scenario
+- What are the key symptoms, signs, or findings?
+- What is the patient's presentation?
+- What is the clinical context?
+
+STEP 2: Consider differential diagnoses from your specialty
+- What conditions in your specialty could explain this?
+- What are the diagnostic criteria for each?
+- What are the distinguishing features?
+
+STEP 3: Evaluate each option systematically
+- For EACH option, evaluate:
+  * Is this medically correct?
+  * Does this fit the clinical scenario?
+  * What evidence supports or refutes this?
+
+STEP 4: Compare options
+- Which option best fits the clinical scenario?
+- Which option has the strongest evidence?
+
+STEP 5: Make your decision
+- Select the most appropriate answer
+- Provide confidence score (0-1)
+
+IMPORTANT: For ANSWER, provide ONLY the option LETTER
+(A, B, C, or D). Do NOT provide the full text.
+
+Format your response as:
+STEP_1_ANALYSIS: [clinical scenario analysis]
+STEP_2_DIFFERENTIAL: [differential diagnoses]
+STEP_3_OPTION_EVALUATION: [evaluation of each option]
+STEP_4_COMPARISON: [comparison of options]
+STEP_5_DECISION: [final decision reasoning]
+ANSWER: [Single letter: A, B, C, or D]
+CONFIDENCE: [0.0-1.0]
+REASONING: [detailed explanation]
+\end{verbatim}
+
+\subsubsection*{Two-Phase Verification — Question Formulation Prompt}
+
+\begin{verbatim}
+You are a medical verification expert. Your task is to
+formulate verification questions based on the explanation.
+
+Question: {question}
+Proposed Answer: {answer}
+Explanation: {reasoning}
+
+Based on the explanation above, formulate exactly 4 specific
+verification questions that check the factual claims made in
+the explanation. These questions should:
+1. Target specific medical facts or claims in the explanation
+2. Be answerable independently (without the explanation)
+3. Help verify the correctness of the reasoning
+4. Cover the key factual claims in the explanation
+
+Format your response as:
+VERIFICATION_QUESTIONS:
+1. [First question]
+2. [Second question]
+3. [Third question]
+4. [Fourth question]
+\end{verbatim}
+
+\subsubsection*{Two-Phase Verification — Independent Answering Prompt}
+
+\begin{verbatim}
+You are a medical expert. Answer the following verification
+questions based on your medical knowledge.
+
+Original Question Context: {question}
+
+Verification Questions:
+{verification_questions}
+
+IMPORTANT: Answer these questions based on your medical
+knowledge ONLY. Do NOT reference any specific explanation
+or reasoning from the original question.
+
+Format your response as:
+ANSWERS:
+1. [Answer to first question]
+2. [Answer to second question]
+3. [Answer to third question]
+4. [Answer to fourth question]
+\end{verbatim}
+
+\subsubsection*{Two-Phase Verification — Reference Answering Prompt}
+
+\begin{verbatim}
+You are a medical expert. Answer the following verification
+questions while referencing the provided explanation.
+
+Original Question Context: {question}
+
+Original Explanation:
+{reasoning}
+
+Verification Questions:
+{verification_questions}
+
+IMPORTANT: Answer these questions while referencing the
+explanation above. Use the explanation to guide your answers.
+
+Format your response as:
+ANSWERS:
+1. [Answer to first question]
+2. [Answer to second question]
+3. [Answer to third question]
+4. [Answer to fourth question]
+\end{verbatim}
+
+\subsection{S-Score Formula Variants}
+\label{app:sscore}
+
+Three S-score formula variants were considered:
+\begin{align}
+S^{\text{mult}} &= C^{(0)} \cdot (1 - I) \label{eq:mult} \\
+S^{\text{wavg}} &= \alpha \, C^{(0)} + (1-\alpha)(1-I),\quad \alpha=0.65 \label{eq:wavg}\\
+S^{\text{pure}} &= 1 - I \label{eq:pure}
+\end{align}
+The multiplicative formula (Eq.~\ref{eq:mult}) was selected because it
+preserves the sign relationship between initial confidence and the final
+S-score: a high-confidence specialist is penalised more in absolute terms
+than a low-confidence one for the same level of inconsistency.  The weighted
+average (Eq.~\ref{eq:wavg}) decouples the two signals additively and requires
+tuning $\alpha$; the pure consistency formula (Eq.~\ref{eq:pure}) discards
+initial confidence entirely, which performed poorly on questions where
+the initial confidence was already well-calibrated.
+
+\end{document}

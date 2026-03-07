@@ -45,7 +45,8 @@ class SpecialistAgent:
         self,
         question: str,
         options: List[str],
-        return_raw: bool = False
+        return_raw: bool = False,
+        max_new_tokens: int = 1500,
     ) -> Dict[str, Any]:
         """
         Analyze a medical question and provide expert opinion.
@@ -88,7 +89,7 @@ class SpecialistAgent:
                 user_prompt=prompts["user"],
                 temperature=0.0,  # Ignored but kept for clarity
                 do_sample=False,  # Greedy decoding
-                max_new_tokens=1500
+                max_new_tokens=max_new_tokens,
             )
         else:
             # Sampling mode (non-deterministic)
@@ -97,7 +98,7 @@ class SpecialistAgent:
                 user_prompt=prompts["user"],
                 temperature=self.temperature,
                 do_sample=True,
-                max_new_tokens=1500
+                max_new_tokens=max_new_tokens,
             )
         
         if return_raw:

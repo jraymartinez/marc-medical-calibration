@@ -87,12 +87,13 @@ class LocalLLMClient:
                 logger.warning("4-bit quantization not supported on CPU. Using full precision.")
                 use_4bit = False
         
-        # Load tokenizer
+        # Load tokenizer — local_files_only avoids HF hub API calls when model is cached
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_name,
             trust_remote_code=True,
             padding_side='left',  # Important for batch generation
-            token=self.hf_token  # Add authentication token
+            token=self.hf_token,
+            local_files_only=True,
         )
         
         # Set pad token if not exists
@@ -121,8 +122,9 @@ class LocalLLMClient:
                 torch_dtype=torch_dtype,
                 trust_remote_code=True,
                 max_memory=max_memory,
-                token=self.hf_token,  # Add authentication token
-                low_cpu_mem_usage=True  # Optimize CPU memory usage
+                token=self.hf_token,
+                low_cpu_mem_usage=True,
+                local_files_only=True,  # avoid slow HF hub API calls when model is cached
             )
             
             # Move to CPU explicitly if needed

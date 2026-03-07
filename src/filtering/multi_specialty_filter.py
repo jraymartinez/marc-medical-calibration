@@ -1,17 +1,18 @@
 """
 Multi-Specialty Filtering Pipeline
-Filters medical question datasets for Respiratory, Cardiology, and Neurology questions
+Filters medical question datasets for Respiratory, Cardiology, Neurology, and Gastroenterology questions
 using keyword-based matching.
 
 Specialties:
 - Respiratory (lung, pulmonary, breathing, etc.)
 - Cardiology (cardiac, heart, myocardial, etc.)
 - Neurology (neurological, brain, stroke, etc.)
+- Gastroenterology (GI, digestive, liver, etc.)
 
 Methodology:
-  Keyword-based filtering across all three specialties
+  Keyword-based filtering across all four specialties
   - Diseases, symptoms, diagnostic procedures, anatomical terms
-  - Questions matching ANY of the three specialties are included
+  - Questions matching ANY of the four specialties are included
 """
 
 import json
@@ -22,7 +23,7 @@ from pathlib import Path
 
 class MultiSpecialtyFilter:
     """
-    Filters medical datasets for Respiratory, Cardiology, or Neurology questions.
+    Filters medical datasets for Respiratory, Cardiology, Neurology, or Gastroenterology questions.
     """
     
     # Respiratory keywords
@@ -129,12 +130,63 @@ class MultiSpecialtyFilter:
         'basal ganglia', 'thalamus', 'hypothalamus', 'brainstem'
     }
     
+    # Gastroenterology keywords
+    GASTROENTEROLOGY_KEYWORDS = {
+        # Diseases
+        'gastroesophageal reflux disease', 'GERD', 'peptic ulcer', 'gastric ulcer',
+        'duodenal ulcer', 'gastritis', 'inflammatory bowel disease', 'IBD',
+        'Crohn disease', "Crohn's disease", 'ulcerative colitis', 'UC',
+        'irritable bowel syndrome', 'IBS', 'celiac disease', 'celiac sprue',
+        'hepatitis', 'hepatitis A', 'hepatitis B', 'hepatitis C',
+        'cirrhosis', 'liver cirrhosis', 'portal hypertension',
+        'pancreatitis', 'acute pancreatitis', 'chronic pancreatitis',
+        'cholecystitis', 'cholelithiasis', 'gallstones', 'cholangitis',
+        'diverticulitis', 'diverticulosis', 'appendicitis',
+        'bowel obstruction', 'intestinal obstruction', 'ileus',
+        'gastrointestinal bleeding', 'GI bleed', 'upper GI bleed', 'lower GI bleed',
+        'esophageal varices', 'Mallory-Weiss tear',
+        'colorectal cancer', 'colon cancer', 'gastric cancer', 'esophageal cancer',
+        'hepatocellular carcinoma', 'HCC', 'pancreatic cancer',
+        'achalasia', 'esophageal dysmotility', 'gastroparesis',
+        'lactose intolerance', 'malabsorption', 'short bowel syndrome',
+        'hepatic encephalopathy', 'ascites', 'spontaneous bacterial peritonitis', 'SBP',
+        
+        # Symptoms
+        'abdominal pain', 'epigastric pain', 'right upper quadrant pain', 'RUQ pain',
+        'left lower quadrant pain', 'LLQ pain', 'right lower quadrant pain', 'RLQ pain',
+        'nausea', 'vomiting', 'hematemesis', 'coffee ground emesis',
+        'diarrhea', 'constipation', 'hematochezia', 'melena', 'bloody stool',
+        'jaundice', 'icterus', 'dyspepsia', 'heartburn', 'regurgitation',
+        'dysphagia', 'odynophagia', 'bloating', 'distension', 'abdominal distension',
+        'weight loss', 'anorexia', 'early satiety',
+        
+        # Diagnostic
+        'endoscopy', 'upper endoscopy', 'EGD', 'esophagogastroduodenoscopy',
+        'colonoscopy', 'sigmoidoscopy', 'ERCP', 'endoscopic retrograde cholangiopancreatography',
+        'abdominal ultrasound', 'abdominal CT', 'CT abdomen', 'abdominal MRI',
+        'HIDA scan', 'hepatobiliary scan', 'liver function test', 'LFT',
+        'AST', 'ALT', 'alkaline phosphatase', 'ALP', 'bilirubin',
+        'amylase', 'lipase', 'stool culture', 'fecal occult blood', 'FOBT',
+        'H. pylori test', 'Helicobacter pylori', 'liver biopsy',
+        
+        # Anatomical
+        'esophagus', 'esophageal', 'stomach', 'gastric', 'duodenum', 'duodenal',
+        'small intestine', 'small bowel', 'jejunum', 'ileum',
+        'large intestine', 'colon', 'cecum', 'ascending colon', 'transverse colon',
+        'descending colon', 'sigmoid colon', 'rectum', 'anus',
+        'liver', 'hepatic', 'gallbladder', 'bile duct', 'biliary',
+        'pancreas', 'pancreatic', 'spleen', 'splenic',
+        'peritoneum', 'peritoneal', 'mesentery', 'omentum',
+        'gastrointestinal', 'GI tract', 'digestive system', 'alimentary canal'
+    }
+    
     def __init__(self):
         """Initialize the filter with combined keyword sets."""
         self.all_keywords = (
             self.RESPIRATORY_KEYWORDS |
             self.CARDIOLOGY_KEYWORDS |
-            self.NEUROLOGY_KEYWORDS
+            self.NEUROLOGY_KEYWORDS |
+            self.GASTROENTEROLOGY_KEYWORDS
         )
     
     def _normalize_text(self, text: str) -> str:
@@ -145,7 +197,7 @@ class MultiSpecialtyFilter:
     
     def matches_specialty(self, question_data: Dict) -> Tuple[bool, Set[str], str]:
         """
-        Check if question matches any of the three specialties.
+        Check if question matches any of the four specialties.
         
         Args:
             question_data: Question dictionary
@@ -195,6 +247,13 @@ class MultiSpecialtyFilter:
                 matched_keywords.add(keyword)
                 matched_specialties.add('neurology')
         
+        # Check gastroenterology
+        for keyword in self.GASTROENTEROLOGY_KEYWORDS:
+            pattern = r'\b' + re.escape(keyword) + r'\b'
+            if re.search(pattern, combined_text, re.IGNORECASE):
+                matched_keywords.add(keyword)
+                matched_specialties.add('gastroenterology')
+        
         matches = len(matched_specialties) > 0
         specialty = ', '.join(sorted(matched_specialties)) if matched_specialties else 'none'
         
@@ -239,6 +298,7 @@ class MultiSpecialtyFilter:
                 'respiratory': 0,
                 'cardiology': 0,
                 'neurology': 0,
+                'gastroenterology': 0,
                 'multiple': 0
             }
         }
@@ -253,7 +313,9 @@ class MultiSpecialtyFilter:
                 
                 # Count by specialty
                 specialty = metadata['specialty']
-                if 'respiratory' in specialty and 'cardiology' in specialty:
+                specialty_count = specialty.count(',') + 1 if specialty != 'none' else 0
+                
+                if specialty_count > 1:
                     stats['by_specialty']['multiple'] += 1
                 elif 'respiratory' in specialty:
                     stats['by_specialty']['respiratory'] += 1
@@ -261,6 +323,8 @@ class MultiSpecialtyFilter:
                     stats['by_specialty']['cardiology'] += 1
                 elif 'neurology' in specialty:
                     stats['by_specialty']['neurology'] += 1
+                elif 'gastroenterology' in specialty:
+                    stats['by_specialty']['gastroenterology'] += 1
         
         return filtered, stats
 
@@ -298,7 +362,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     
     print("="*70)
-    print("MULTI-SPECIALTY FILTERING (Respiratory, Cardiology, Neurology)")
+    print("MULTI-SPECIALTY FILTERING (Respiratory, Cardiology, Neurology, Gastroenterology)")
     print("="*70)
     
     filter_obj = MultiSpecialtyFilter()
@@ -375,7 +439,7 @@ def main():
         'filtered_questions': all_filtered,
         'num_questions': len(all_filtered),
         'filter_stats': all_stats,
-        'specialties': ['respiratory', 'cardiology', 'neurology']
+        'specialties': ['respiratory', 'cardiology', 'neurology', 'gastroenterology']
     }
     
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -388,7 +452,7 @@ def main():
     print(f"Saved to: {output_file}")
     
     # Print summary by specialty
-    total_by_specialty = {'respiratory': 0, 'cardiology': 0, 'neurology': 0, 'multiple': 0}
+    total_by_specialty = {'respiratory': 0, 'cardiology': 0, 'neurology': 0, 'gastroenterology': 0, 'multiple': 0}
     for stats in all_stats.values():
         for specialty, count in stats['by_specialty'].items():
             total_by_specialty[specialty] += count
