@@ -107,18 +107,7 @@ results/4_config_comparison/*.json
 !results/4_config_comparison/4_config_qwen_100q_medmcqa_20260303_175634.json
 !results/4_config_comparison/4_config_qwen_250q_medmcqa_20260304_173609.json
 
-results/paper1/*.json
-results/paper1/*.log
-results/paper1/*.txt
-results/paper1/*.md
-results/paper1/figures/combined/
-results/paper1/figures/medmcqa250/
-results/paper1/figures/*.png
-results/paper1/figures/*.tex
-
-# Keep no_grid figures (the ones used in the paper) and the tex table
-!results/paper1/figures/no_grid/
-!results/paper1/figures/no_grid/**
+results/paper1/
 !results/README.md
 
 # =============================================================================
@@ -225,6 +214,8 @@ src/filtering/respiratory_filter.py
 src/filtering/__init__.py
 src/fusion/integration_methods.py
 src/fusion/hierarchical_integration.py
+src/fusion/weighted_voting_fusion.py
+src/verification/tier2_validation.py
 scripts/visualize_comparison.py
 
 # =============================================================================

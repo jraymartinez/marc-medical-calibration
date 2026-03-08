@@ -22,7 +22,7 @@
 |---|---|
 | `generate_paper_figures_qwen250.py` | Accuracy/ECE/AUROC figures for MedQA-250 |
 | `generate_paper_figures_medmcqa250.py` | Accuracy/ECE/AUROC figures for MedMCQA-250 |
-| `generate_combined_figures.py` | Combined 4-dataset figures (Figures 2?6 in the paper) |
+| `generate_combined_figures.py` | Combined 4-dataset figures (Figures 2–6 in the paper) |
 | `generate_calibration_grid.py` | Calibration grid figure |
 | `compare_100q_vs_250q.py` | Consistency check between 100q and 250q results |
 
@@ -31,7 +31,10 @@
 All scripts should be run from the repository root:
 
 ```bash
-python scripts/run_4_configs.py --dataset data/filtered/medqa_us_250q_high_disagreement.json --dataset_type medqa
+python scripts/run_4_configs.py \
+    --model models/Qwen2.5-7B-Instruct \
+    --dataset data/filtered/medqa_us_250q_high_disagreement.json \
+    --num_questions 250
 ```
 
 See `README.md` at the repository root for the full reproduction workflow.

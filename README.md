@@ -34,6 +34,8 @@ MARC combines four domain-specific specialist agents with Two-Phase Verification
 │   │   └── tier1_verification.py    # Two-Phase Verification + S-score
 │   ├── fusion/
 │   │   └── agreement_based_fusion.py # S-Score Weighted Fusion
+│   ├── utils/
+│   │   └── dataset_adapter.py       # Dataset format normalisation
 │   └── evaluation/
 │       └── metrics.py               # ECE, AUROC, accuracy
 ├── scripts/
@@ -51,18 +53,19 @@ MARC combines four domain-specific specialist agents with Two-Phase Verification
 ├── data/
 │   ├── raw/                         # Not tracked — download instructions below
 │   └── filtered/                    # The 4 evaluation sets used in the paper
-│       ├── medqa_us_100q_high_disagreement.json    # MedQA-100
-│       ├── medqa_us_250q_high_disagreement.json    # MedQA-250
-│       ├── medmcqa_100q_high_disagreement.json     # MedMCQA-100
-│       └── medmcqa_250q_high_disagreement.json     # MedMCQA-250
+│       ├── medqa_us_100q_high_disagreement.json        # MedQA-100
+│       ├── medqa_us_250q_high_disagreement.json        # MedQA-250
+│       ├── medmcqa_100q_high_disagreement.json         # MedMCQA-100
+│       ├── medmcqa_250q_high_disagreement.json         # MedMCQA-250
+│       ├── curated_agreement_4specialty_medqa.json     # MedQA agreement pool
+│       └── curated_disagreement_4specialty_medqa.json  # MedQA disagreement pool
 ├── results/
 │   └── 4_config_comparison/         # Raw result JSONs for all 4 datasets
 ├── docs/
 │   ├── LOCAL_LLM_SETUP.md           # Model download and setup
 │   └── HARDWARE_CONFIG.md           # Hardware requirements
 ├── tests/                           # Unit tests
-├── requirements.txt
-└── main.tex / main.bib              # Paper source
+└── requirements.txt
 ```
 
 ---
@@ -132,27 +135,27 @@ The 4 evaluation sets are already in `data/filtered/`. Run all 4 configurations 
 ```bash
 # MedQA-100
 python scripts/run_4_configs.py \
+    --model models/Qwen2.5-7B-Instruct \
     --dataset data/filtered/medqa_us_100q_high_disagreement.json \
-    --dataset_type medqa \
-    --output_dir results/4_config_comparison
+    --num_questions 100
 
 # MedQA-250
 python scripts/run_4_configs.py \
+    --model models/Qwen2.5-7B-Instruct \
     --dataset data/filtered/medqa_us_250q_high_disagreement.json \
-    --dataset_type medqa \
-    --output_dir results/4_config_comparison
+    --num_questions 250
 
 # MedMCQA-100
 python scripts/run_4_configs.py \
+    --model models/Qwen2.5-7B-Instruct \
     --dataset data/filtered/medmcqa_100q_high_disagreement.json \
-    --dataset_type medmcqa \
-    --output_dir results/4_config_comparison
+    --num_questions 100
 
 # MedMCQA-250
 python scripts/run_4_configs.py \
+    --model models/Qwen2.5-7B-Instruct \
     --dataset data/filtered/medmcqa_250q_high_disagreement.json \
-    --dataset_type medmcqa \
-    --output_dir results/4_config_comparison
+    --num_questions 250
 ```
 
 Expected wall-clock time on a single RTX 5090 (Config 4, full system):

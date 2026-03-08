@@ -29,7 +29,11 @@ snapshot_download(
 The model is approximately 15 GB in FP16. Set a custom cache location if needed:
 
 ```bash
+# Linux / macOS
 export HF_HOME=/path/to/large/disk
+
+# Windows (PowerShell)
+$env:HF_HOME = "D:\path\to\large\disk"
 ```
 
 ## 3. Verify GPU access
@@ -48,7 +52,7 @@ The code loads the model with `local_files_only=True` to avoid network calls at 
 ```python
 from src.agents.llm_client import LocalLLMClient
 
-llm = LocalLLMClient(model_path="./models/Qwen2.5-7B-Instruct")
+llm = LocalLLMClient(model_name="./models/Qwen2.5-7B-Instruct", use_4bit=False, device="cuda")
 ```
 
 ## Decoding settings used in the paper
@@ -62,6 +66,6 @@ llm = LocalLLMClient(model_path="./models/Qwen2.5-7B-Instruct")
 
 ## Troubleshooting
 
-**CUDA out of memory:** Qwen2.5-7B-Instruct in FP16 requires ~15 GB VRAM. If you have less, enable 4-bit quantization by passing `load_in_4bit=True` to the client. Note that paper results were produced in full FP16 precision.
+**CUDA out of memory:** Qwen2.5-7B-Instruct in FP16 requires ~15 GB VRAM. If you have less, enable 4-bit quantization by passing `use_4bit=True` to the client (requires `bitsandbytes` — uncomment it in `requirements.txt`). Note that paper results were produced in full FP16 precision.
 
 **Slow generation:** Verification sub-calls use temperature sampling which is slightly slower than greedy. This is expected; see Table 1 in the paper for wall-clock times per configuration.
