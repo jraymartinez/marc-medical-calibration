@@ -222,6 +222,7 @@ scripts/visualize_comparison.py
 # Paper source (add back after acceptance to avoid breaking double-blind review)
 # =============================================================================
 main.tex
+main_no_bootstrap.tex
 main.bib
 arxiv/
 *.aux

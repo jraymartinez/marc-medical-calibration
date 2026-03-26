@@ -3,8 +3,8 @@
 Code and evaluation datasets for the paper:
 
 > **Multi-Agent Reasoning with Consistency Verification Improves Uncertainty Calibration in Medical MCQA**  
-> John Ray Martinez — Harrisburg University of Science and Technology  
-> arXiv: https://arxiv.org/abs/PLACEHOLDER — replace with arXiv ID when live  
+> John Ray B. Martinez — Harrisburg University of Science and Technology  
+> arXiv: https://arxiv.org/abs/2603.24481  
 > Under review at TMLR.
 
 ---
@@ -219,12 +219,11 @@ Figures are saved to `results/paper1/figures/no_grid/`.
 
 ```bibtex
 @article{martinez2026marc,
-  title   = {Multi-Agent Reasoning with Consistency Verification Improves
-             Uncertainty Calibration in Medical MCQA},
-  author  = {Martinez, John Ray},
-  journal = {Transactions on Machine Learning Research},
-  year    = {2026},
-  note    = {Under review}
+  title   = {Multi-Agent Reasoning with Consistency Verification
+             Improves Uncertainty Calibration in Medical MCQA},
+  author  = {Martinez, John Ray B.},
+  journal = {arXiv preprint arXiv:2603.24481},
+  year    = {2026}
 }
 ```
 
