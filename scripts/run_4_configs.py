@@ -361,12 +361,23 @@ def run_config3_multi_no_verification(llm_client, questions):
         print(f"FUSION: All_agree={all_agree}, Reason={reason}, Winner={predicted_answer}, Conf={final_confidence:.3f}")
         print(f"{status} Predicted: {predicted_answer}, Ground Truth: {correct_answer} (Conf: {final_confidence:.3f})")
         
+        # Save per-specialist data alongside the fused result so individual
+        # specialist performance can be recovered in post-processing.
+        per_spec = {}
+        for sp, so in zip(specialists, specialist_outputs):
+            per_spec[sp.specialty] = {
+                'answer': so['answer'],
+                'confidence': so['confidence'],
+                'is_correct': (so['answer'] == correct_answer)
+            }
+
         results.append({
             'question_idx': idx,
             'predicted_answer': predicted_answer,
             'correct_answer': correct_answer,
             'confidence': final_confidence,
-            'is_correct': is_correct
+            'is_correct': is_correct,
+            'per_specialist': per_spec
         })
         
         predictions.append(predicted_answer)

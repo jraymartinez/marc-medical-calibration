@@ -1,0 +1,25 @@
+\begin{table}[ht]
+\caption{Per-specialist performance (Accuracy, ECE, AUROC) across all four
+evaluation sets. Each specialist runs independently with no verification
+and no fusion (equivalent to Config~1 setup). The Average row is the
+mean across all four specialists, used as an alternative single-specialist
+baseline. Respiratory corresponds to the Config~1 baseline in Table~\ref{tab:main}.}
+\label{tab:per_specialist}
+\begin{center}
+\small
+\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+& \multicolumn{3}{c}{\textit{MedQA-100}} & \multicolumn{3}{c}{\textit{MedQA-250}} & \multicolumn{3}{c}{\textit{MedMCQA-100}} & \multicolumn{3}{c}{\textit{MedMCQA-250}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10} \cmidrule(lr){11-13}
+Specialist & Acc. & ECE & AUROC & Acc. & ECE & AUROC & Acc. & ECE & AUROC & Acc. & ECE & AUROC \\
+\midrule
+Respiratory & 52.0\% & 0.374 & 0.537 & 54.4\% & 0.355 & 0.574 & 45.0\% & 0.469 & 0.501 & 42.8\% & 0.469 & 0.536 \\
+Cardiology & 57.0\% & 0.343 & 0.541 & 57.6\% & 0.322 & 0.537 & 47.0\% & 0.451 & 0.557 & 42.8\% & 0.469 & 0.562 \\
+Neurology & 55.0\% & 0.343 & 0.587 & 58.4\% & 0.309 & 0.555 & 48.0\% & 0.418 & 0.514 & 44.8\% & 0.448 & 0.543 \\
+Gastroenterology & 53.0\% & 0.380 & 0.543 & 58.4\% & 0.315 & 0.552 & 51.0\% & 0.368 & 0.589 & 48.4\% & 0.399 & 0.570 \\
+\midrule
+\textit{Average} & 54.2\% & 0.360 & 0.552 & 57.2\% & 0.325 & 0.555 & 47.8\% & 0.426 & 0.540 & 44.7\% & 0.446 & 0.553 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
